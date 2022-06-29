@@ -1,0 +1,52 @@
+.mail-details {
+    flex-basis: 80%;
+}
+
+.details-nav {
+    border-bottom: solid 1px var(--bg-gray);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.back-to-inbox {
+    font-size: 1.5rem;
+}
+
+.details-header {
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.main-details-header {
+    align-items: center;
+    margin-bottom: 3rem;
+    justify-content: space-between;
+}
+
+.mail-details-avatar {
+    height: 50px;
+    margin-inline-end: 1rem;
+}
+
+.mail-user-details {
+    align-items: center;
+}
+
+.detail-user-name p {
+    font-size: 1.3rem;
+}
+
+.details-date {
+    margin-inline-end: 2rem;
+}
+
+.details-date p {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.text-body {
+    font-family: 'lato';
+    font-size: 1.3rem;
+}

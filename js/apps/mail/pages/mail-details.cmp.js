@@ -3,7 +3,7 @@ export default {
     template: `
     <section class="mail-details">
         <nav class="details-nav flex">
-            <router-link class="back-to-inbox" to="/mail"/>Back to inbox</router-link>
+            <router-link class="router-link back-to-inbox" to="/mail">&leftarrow; Back to inbox</router-link>
         </nav>
         <header class="details-header">
             <h2>{{mail.subject}}</h2>
@@ -12,7 +12,7 @@ export default {
             <header class="main-details-header flex space-between">
                 <div class="mail-user-details flex">
                     <img class="mail-details-avatar" :src="userAvatar" alt="">
-                    <div class="detail-user-name">
+                    <div class="detail-user-name flex-column">
                         <h2>{{mail.from}}</h2>
                         <p>to: {{mail.to}}</p>
                     </div>
