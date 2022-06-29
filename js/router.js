@@ -3,11 +3,10 @@ import homePage from "./pages/home-page.cmp.js"
 
 
 const routes = [
-
     {
-        path: '/',
-        component: homePage
-    }
+        path:"/",
+        component: homePage,
+    },
 ]
 
 export const router = VueRouter.createRouter({
