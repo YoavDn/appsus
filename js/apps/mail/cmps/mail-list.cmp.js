@@ -39,7 +39,6 @@ export default {
             mailService.updateMail(mail)
         },
         markRead(mail) {
-
             mail.isRead = true
             mailService.updateMail(mail)
         }

@@ -3,13 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     font-family: 'Lato', sans-serif;
-    font-size:  62.5%;
+    font-size: 62.5%;
 }
 
 button {
-    cursor:  pointer;
+    cursor: pointer;
 }
 
 li {
@@ -32,4 +33,37 @@ li {
 .router-link {
     color: var(--main-txt-clr);
     text-decoration: none;
+}
+
+/* button[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    padding: 1rem;
+    pointer-events: none;
+    transition: all 1.3s;
+} */
+
+[data-title]:hover:after {
+    opacity: .7;
+    transition: all 0.1s ease 0.9s;
+    visibility: visible;
+}
+
+[data-title]:after {
+    content: attr(data-title);
+    background-color: var(--dark-bg);
+    color: white;
+    font-size: 1.2rem;
+    position: absolute;
+    padding: .5rem 1rem;
+    bottom: -2.6em;
+    border-radius: .5rem;
+    white-space: nowrap;
+    opacity: 0;
+    z-index: 99999;
+    visibility: hidden;
+}
+
+[data-title] {
+    position: relative;
 }

@@ -5,8 +5,8 @@ export default {
     template: `
         <div class="item-header flex align-center">
             <div class="item-main-actions flex">
-            <input type="checkbox" @click.stop="selectMail">
-            <button :class="starStyle" v-html=star @click.stop="toggleStar"></button>
+            <input type="checkbox" @click.stop="selectMail" data-title="Select">
+            <button :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
         </div>
         <h2 class="maill-item-from">{{mail.from}}</h2>
         </div>
@@ -26,9 +26,9 @@ export default {
         @mouseover="isHovered = true"
         @mouseleave="isHovered = false"
         v-else>
-            <button type="button" data-toggle="tooltip" data-placement="top" title="Move to trash"  class="preview-options-btn"><i class="fa-solid fa-trash"
+            <button type="button" data-title="Move to Trash" class="preview-options-btn"><i class="fa-solid fa-trash"
             @click.stop="moveToTrash"></i></button>
-            <button type="button" data-toggle="tooltip" data-placement="top" title="Mark as read" class="preview-options-btn"><i class="fa-solid fa-envelope-open"
+            <button type="button" data-title="mark as read" class="preview-options-btn"><i class="fa-solid fa-envelope-open"
             @click.stop="markAsRead"></i></button>
         </div>
     `,
@@ -70,7 +70,4 @@ export default {
             return this.mail.body
         }
     },
-
-
-
 }
