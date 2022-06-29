@@ -1,9 +1,11 @@
+import { mailService } from "../services/mail.service.js";
+
+
 export default {
-    props: ['mail'],
     template: `
-    <section class="mail-details">
+    <section v-if="mail" class="mail-details">
         <nav class="details-nav flex">
-            <router-link class="router-link back-to-inbox" to="/mail">&leftarrow; Back to inbox</router-link>
+            <router-link class="router-link back-to-inbox" to="/mail/mails">&leftarrow; Back to inbox</router-link>
         </nav>
         <header class="details-header">
             <h2>{{mail.subject}}</h2>
@@ -14,7 +16,7 @@ export default {
                     <img class="mail-details-avatar" :src="userAvatar" alt="">
                     <div class="detail-user-name flex-column">
                         <h2>{{mail.from}}</h2>
-                        <p>to: {{mail.to}}</p>
+                        <p>to:{{mail.to}}</p>
                     </div>
                 </div>
                 <div class="details-date flex">
@@ -30,7 +32,16 @@ export default {
     `,
     data() {
         return {
+            mail: null,
         }
+    },
+    created() {
+        const id = this.$route.params.mailId;
+
+        mailService.getMailById(id).then(mail => {
+            console.log(mail);
+            this.mail = mail
+        })
     },
     methods: {
     },
@@ -44,4 +55,5 @@ export default {
             return strDate
         }
     },
+
 }

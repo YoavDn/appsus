@@ -10,8 +10,9 @@ export default {
     template: `
     <section class="mail-container flex">
         <mail-side-bar @openNewMail="newMail" :mails="mails"/>
-        <mail-list v-if="!selectedMail" :mails="mails" @selectMail="selected"/>
-        <mail-Details v-if="selectedMail" :mail="selectedMail" />
+        <!-- <mail-list v-if="!selectedMail" :mails="mails" @selectMail="selected"/> -->
+        <router-view />
+        <!-- <mail-Details v-if="selectedMail" :mail="selectedMail" /> -->
         <new-mail @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
     </section>
     
@@ -32,7 +33,12 @@ export default {
         }
     },
     created() {
-        mailService.query().then(mails => this.mails = mails)
+        mailService.query().then(mails => {
+            this.$router.push('/mail/mails')
+            this.mails = mails
+        })
+
+        console.log(this.$router);
     },
     methods: {
         newMail() {
