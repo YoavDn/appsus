@@ -2,7 +2,7 @@ export default {
     props: ['mails'],
     template: `
     <section class="mail-side-bar">
-        <button>Compose</button>
+        <button @click="$emit('openNewMail')">Compose</button>
         <div class="side-bar-items">
             <h2>will add links</h2>
         </div>
@@ -13,6 +13,7 @@ export default {
         }
     },
     methods: {
+
     },
     computed: {
     },

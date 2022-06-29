@@ -1,2 +1,5 @@
+@import './mail-vars.css';
 @import "./cmps/mail-side-bar.css";
-@import "./cmps/mail-mail-preview.css"
+@import "./cmps/mail-mail-preview.css";
+@import "./cmps/mail-list.css";
+@import "./cmps/new-mail.css";

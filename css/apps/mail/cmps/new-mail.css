@@ -1,0 +1,39 @@
+.new-mail-window {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 1rem;
+}
+
+.window-bar {
+    background-color: var(--dark-bg);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color: white;
+}
+
+.window-bar h2 {
+    font-weight: 500;
+    margin-inline-start: 1rem;
+    line-height: 4rem;
+}
+
+.new-mail-actions {
+    margin-inline-end: 1rem;
+    flex-basis: 10%;
+    justify-content: space-between;
+}
+
+.new-mail-actions button {
+    border: none;
+    background: none;
+    color: white;
+    padding: .3rem;
+}
+
+.new-mail-actions button:hover {
+    color: var(--sub-txt-clr);
+    background-color: var(--soft-bg-clr);
+}

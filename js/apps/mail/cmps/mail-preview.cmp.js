@@ -12,7 +12,7 @@ export default {
 
     <div class="item-content flex align-center">
         <h2 class="item-subject bold">{{mail.subject}}</h2>
-        <p>{{mail.body}}</p>
+        <h2 class="thin"> - {{mail.body}}</h2>
     </div>
     <div class="item-date">
         <h2>{{stringDate}}</h2>
