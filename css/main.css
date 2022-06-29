@@ -1,10 +1,8 @@
+@import './parts/font.css';
 
-@import  './parts/base.css';
-@import  './parts/helpers.css';
-@import  './parts/vars.css';
-
-
+@import './parts/base.css';
+@import './parts/helpers.css';
+@import './parts/vars.css';
 @import "./cmps/app-header.cmp.css";
 
-
-@import './parts/font.css';
+@import "./apps/mail/mail-main.css";
