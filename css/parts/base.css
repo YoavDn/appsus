@@ -3,12 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    font-family: 'Lato', sans-serif;
+    font-size:  62.5%;
+}
 
 button {
     cursor:  pointer;
-
 }
 
+li {
+    list-style: none;
+}
 
 .overlay {
     position: fixed;
@@ -21,4 +27,9 @@ button {
     backdrop-filter: blur(4px);
     z-index: 30;
     transition: all 0.5s;
+}
+
+.router-link {
+    color: var(--main-txt-clr);
+    text-decoration: none;
 }

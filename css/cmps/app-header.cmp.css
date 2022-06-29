@@ -1,0 +1,27 @@
+
+
+.header-container {
+    margin: auto;
+    border-bottom: solid 1px var(--soft-bg-clr);
+}
+
+.main-header {
+    
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    
+}
+
+.main-nav {
+    flex-basis: 20%;
+    line-height: 6rem;
+}
+
+.main-nav {
+    font-size: 1.5rem;
+}
+
+
+
+
