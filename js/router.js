@@ -1,6 +1,6 @@
 
 import homePage from "./pages/app-home.cmp.js"
-import mailPage from "./apps/mail/pages/app-mail.cmp.js"
+import mailPage from "./apps/mail/pages/mail-index.cmp.js"
 import keepPage from "./apps/keep/pages/app-keep.cmp.js"
 
 
