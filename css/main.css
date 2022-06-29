@@ -8,3 +8,6 @@
 
 
 @import './parts/font.css';
+
+/* Keep app cmps */
+@import './apps/keep/keep-main.css';
