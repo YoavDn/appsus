@@ -5,4 +5,11 @@
 @import './parts/vars.css';
 @import "./cmps/app-header.cmp.css";
 
+
+@import './parts/font.css';
+
+/* Keep app  */
+@import './apps/keep/keep-main.css';
+
+/* Mail app  */
 @import "./apps/mail/mail-main.css";

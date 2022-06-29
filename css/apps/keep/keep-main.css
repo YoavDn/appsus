@@ -1,0 +1,10 @@
+/* cmps */
+@import './keep-cmps/note-input.css';
+
+.keep-app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
