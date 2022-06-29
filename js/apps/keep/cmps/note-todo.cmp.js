@@ -1,26 +1,31 @@
 import { notesService } from "../keep-services/note.service.js"
 export default {
     template: `
-        <div class="txt-container shadow">
-            <input v-if="isExpand" type="text" placeholder="Title" class="title-input" @keyup.enter="addTodo" v-model="note.info.title">
-            <div id="text_area" contentEditable="true">
-                <ul>
-                    <li v-for="todo in todos">
-
+        <div class="txt-container">
+            <input v-if="isExpand" type="text" placeholder="Title" class="title-input" v-model="note.info.title">
+            <div class="text_area" contentEditable="true" @click="isExpand = true">
+                <ul >
+                    <li v-if="!isDone" v-for="todo in note.info.todos" class="input-list">
+                        {{todo.txt}}
                     </li>
                 </ul>
             </div>
+            <button @click="onAddNote" class="add-note-btn">Add note</button>
         </div>
     `,
     data() {
         return {
             isExpand: false,
+            isDone: false,
             note: {
-                type: 'note-text',
+                type: 'type-todos',
                 isPinned: false,
                 info: {
                     title: '',
-                    todos: ['do that', 'dothis']
+                    todos: [
+                        { txt: "Driving license", done: null },
+                        { txt: "Pick the kids", done: null }
+                    ]
                 },
                 style: {
                     backgroundColor: '#fff'
@@ -29,19 +34,28 @@ export default {
         }
     },
     methods: {
-        onAddNote() {
+        onAddNote(ev) {
 
-            if (this.note.info.title === '' && this.note.info.txt === '') return
+            if (!this.note.info.todos || !this.note.info.todos.length) return
+            this.note.info.todos = []
+            let string = ev.target.parentElement.innerText.split("\n")
+            console.log('string = ', string)
+            for (let i = 0; i < string.length - 1; i++) {
+                let todo = {
+                    txt: string[i],
+                    done: null
+                }
+                this.note.info.todos.push(todo)
+                this.isDone = true
+
+            }
+
             notesService.addNote(this.note)
             this.$router.go()
 
 
         },
-        addTodo(){
-            this.$el.querySelector(".ol-list").append("<li class='list-item'></li>");
-            this.$el.querySelector('.list-item').each(function(i){
-            $(this).text('List Item')})
-        }
+
     },
     computed: {
     },

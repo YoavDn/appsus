@@ -1,6 +1,8 @@
 /* cmps */
 @import './keep-cmps/note-input.css';
 @import './keep-cmps/notes-list.css';
+@import './keep-cmps/notes-preview.css';
+
 
 .keep-app-container {
     display: flex;

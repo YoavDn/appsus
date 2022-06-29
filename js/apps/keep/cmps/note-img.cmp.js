@@ -2,11 +2,12 @@ import { notesService } from "../keep-services/note.service.js"
 
 export default {
     template: `
-    <div class="txt-container shadow">
+    <div class="txt-container">
     <input v-if="isExpand" type="text" placeholder="Title" class="title-input"
              @keyup.enter="onAddNote" v-model="note.info.title">
 
-        <input type="text" @click="isExpand = true" class="txt-input" v-model="note.info.url" placeholder="Enter image url.." @keyup.enter="onAddNote">
+        <input type="text" @click="isExpand = true" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
+        <button @click="onAddNote" class="add-note-btn">Add note</button>
     </div>
     `,
     data() {

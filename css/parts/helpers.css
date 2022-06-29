@@ -26,3 +26,7 @@
     display: flex;
     flex-direction: column;
 }
+
+.expand {
+    max-height: 8rem
+}

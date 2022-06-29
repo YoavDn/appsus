@@ -1,33 +1,62 @@
 .txt-input {
-    height: 5rem;
-    border: none
+    height: 2rem;
+    border: none;
+    margin: 0;
+    font-size: 1rem;
+    margin: 0 !important;
 }
 
 .title-input {
     border: none;
     height: 3rem;
+    font-size: 1rem;
+    margin: 0 !important;
 }
 
 .txt-container {
     display: flex;
     flex-direction: column;
     width: 50%;
+    gap: 0.5rem;
+}
+
+.note-type-btn {
+    border: 0.5px solid #0000005c;
+    background: none;
+    padding: 0.5rem;
+    border-radius: 50%;
 }
 
 .input-container {
-    width: 100%;
+    width: 45rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 2em;
+    gap: 2rem;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 2rem;
 }
 
-#text_area{
-    height:auto;
-    width:100%;
+.text_area {
+    font-size: 2rem;
+    font-weight: 300;
+    width: 100%;
+    padding: 2rem;
     height: 10rem;
-    background:white;
-    border:1px solid silver;
-    resize: vertical;
-    overflow:auto;
+    background: white;
+    overflow: auto;
+    padding-left: 3rem;
+  }
+
+  .text_area li {
+    list-style: disc;
+    font-size: 1.3rem;
+  }
+  .add-note-btn {
+    width: 7rem;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    text-align: left;
   }

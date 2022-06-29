@@ -8,17 +8,17 @@ import noteTodo from "../cmps/note-todo.cmp.js"
 export default {
     template: `
     <section class="keep-app-container">
-        <div class="input-container">
+        <div class="input-container shadow">
 
             <note-text v-if="isNoteText"/>
             <note-img v-if="isNoteImg"/>
             <note-video v-if="isNoteVideo"/>
             <note-todo v-if="isNoteTodo"/>
 
-            <button><i class="fa-regular fa-comment"></i></button>
-            <button @click="displayImageInput"><i class="fa-solid fa-image"></i></button>
-            <button @click="displayVideoInput"><i class="fab fa-youtube"></i></button>
-            <button @click="displayToDoInput"><i class="fa fa-list"></i></button>
+            <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment"></i></button>
+            <button @click="displayImageInput" class="note-type-btn"><i class="fa-solid fa-image"></i></button>
+            <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube"></i></button>
+            <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list"></i></button>
 
         </div>
         <section class="notes-list-container">
