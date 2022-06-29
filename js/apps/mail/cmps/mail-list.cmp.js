@@ -7,8 +7,10 @@ export default {
     // props: ['mails'],
     template: `
         <section  class="mail-list">
-            <div v-for="mail in mails" class="mail-item flex align-center" :class="{read: !mail.isRead}" @click="selectMail(mail)" >
-                <mail-preview :mail="mail"/>
+            <div v-for="mail in mails" class="mail-item flex align-center"
+            :class="{read: !mail.isRead}" 
+            @click="selectMail(mail)">
+            <mail-preview  :mail="mail"/>
             </div>
         </section>  
     `,
@@ -18,7 +20,8 @@ export default {
 
     data() {
         return {
-            mails: null
+            mails: null,
+            hovered: false,
         }
     },
     created() {
@@ -29,9 +32,17 @@ export default {
             mail.isRead = true
             mailService.updateMail(mail)
             this.$router.push(`/mail/${mail.id}`)
-        }
+        },
     },
     computed: {
-
+        dynamicHoverValue() {
+            return this.hovered
+        }
     },
+    watch: {
+        hovered(val) {
+            this.hovered = val
+        }
+    }
+
 }

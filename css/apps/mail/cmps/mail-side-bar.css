@@ -2,7 +2,7 @@
     flex-basis: 20%;
     border-right: solid 1px var(--soft-bg-clr);
     padding: 1rem;
-    padding-inline: 3rem;
+
 }
 
 .compose-btn {
@@ -15,6 +15,7 @@
     border-radius: 1rem;
     transition: box-shadow .3s;
     color: var(--sub-txt-clr);
+    margin-inline-start: 2rem;
 }
 
 .compose-btn span {
@@ -31,15 +32,15 @@
 .side-bar-items {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+
 }
 
-
 .side-bar-btn {
-    display: block;
-    width: 100%;
+    width: 80%;
+    margin: auto;
     text-align: start;
-    padding: 1.3rem 0;
+    padding: 1.3rem 1rem;
     font-size: 1.3rem;
     color: var(--main-txt-clr);
     border: none;
@@ -52,4 +53,5 @@
 
 .side-bar-btn span {
     margin-inline-end: 1em;
+    color: var(--sub-txt-clr);
 }

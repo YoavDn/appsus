@@ -42,3 +42,14 @@
 .star {
     color: var(--star-clr);
 }
+
+.preview-options-btn {
+    margin-inline-end: 1rem;
+    border: none;
+    background-color: transparent;
+}
+
+.preview-options-btn:hover {
+    color: var(--sub-txt-clr);
+
+}
