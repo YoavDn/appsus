@@ -1,0 +1,28 @@
+input[type="text"],
+input[type="mail"] {
+    line-height: 4rem;
+    margin-inline: 1rem;
+    border: none;
+    border-bottom: solid .1em var(--soft-bg-clr);
+
+}
+
+input:focus {
+    outline: none
+}
+
+textarea {
+    margin-top: 1rem;
+    color: var(--main-txt-clr);
+    font-family: 'lato';
+    font-size: 1.5rem;
+    margin-inline: 1rem;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
