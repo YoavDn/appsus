@@ -26,6 +26,8 @@ export default {
     },
     methods: {
         selectMail(mail) {
+            mail.isRead = true
+            mailService.updateMail(mail)
             this.$router.push(`/mail/${mail.id}`)
         }
     },

@@ -12,6 +12,8 @@ export const mailService = {
     query,
     addMail,
     getMailById,
+    updateMail
+
 }
 
 function query() {
@@ -36,9 +38,11 @@ function addMail(mail) {
 
 }
 
-
-
 function getMailById(id) {
     console.log(id);
     return storageService.get(MAIL_KEY, id)
+}
+
+function updateMail(mail) {
+    storageService.put(MAIL_KEY, mail)
 }

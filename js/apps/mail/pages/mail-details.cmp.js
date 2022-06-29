@@ -37,14 +37,11 @@ export default {
     },
     created() {
         const id = this.$route.params.mailId;
+        mailService.getMailById(id).then(mail => this.mail = mail)
+    },
 
-        mailService.getMailById(id).then(mail => {
-            console.log(mail);
-            this.mail = mail
-        })
-    },
-    methods: {
-    },
+    methods: {},
+
     computed: {
         userAvatar() {
             const defaultUserImg = '/assest/images/user.png'

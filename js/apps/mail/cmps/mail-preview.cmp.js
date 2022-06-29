@@ -5,7 +5,7 @@ export default {
         <div class="item-header flex align-center">
             <div class="item-main-actions flex">
             <button>☐</button>
-            <button :class="starStyle">{{star}}</button>
+            <button :class="starStyle" v-html=star @click.stop="toggleStar"></button>
         </div>
         <h2 class="maill-item-from">{{mail.from}}</h2>
         </div>
@@ -23,6 +23,9 @@ export default {
         }
     },
     methods: {
+        toggleStar() {
+            this.mail.isStar = !this.mail.isStar;
+        }
     },
     computed: {
         stringDate() {

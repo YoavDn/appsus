@@ -38,3 +38,7 @@
 .read {
     background-color: var(--soft-bg-clr);
 }
+
+.star {
+    color: var(--star-clr);
+}
