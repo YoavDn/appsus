@@ -2,7 +2,7 @@
     flex-basis: 20%;
     border-right: solid 1px var(--soft-bg-clr);
     padding: 1rem;
-    margin-inline: 3rem;
+    padding-inline: 3rem;
 }
 
 .compose-btn {

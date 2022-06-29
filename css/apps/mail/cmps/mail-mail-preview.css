@@ -1,6 +1,6 @@
 .mail-item {
     padding: 1rem;
-    border-bottom: solid var(--soft-bg-clr);
+    border-bottom: solid var(--soft-bg-clr) .6px;
     cursor: pointer;
 }
 
@@ -33,4 +33,8 @@
 
 .item-subject {
     margin-inline-end: .7rem;
+}
+
+.read {
+    background-color: var(--soft-bg-clr);
 }
