@@ -7,12 +7,14 @@
 }
 
 .notes-list ul {
-    width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 15.625em);
+    grid-template-columns: repeat(4, 15.625em);
+    /* grid-template-rows: repeat(auto-fit, 0); */
+    row-gap: 1.45em;
+    column-gap: 12.5625em;
     justify-content: center;
     align-items: flex-start;
-    gap: 10em;
+    /* gap: 15em; */
 }
 
 .notes-list {
@@ -27,12 +29,17 @@
     gap: -0.5em;
     padding: 1em;
     min-height: 10em;
-    width: 20em;
+    width: 27.5em;
     overflow-wrap: break-word;
     border: 2px solid var(--soft-bg-clr);
     border-radius: 5%;
 }
 
+.note-preview-contianer img {
+    width: 25em;
+    border-radius: 5%;
+    padding-bottom: 2em;
+}
 .note-preview-contianer:hover {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

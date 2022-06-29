@@ -25,18 +25,14 @@ export default {
     },
     methods: {
         onAddNote() {
-            // console.log('txt = ', this.note.txt)
-            // console.log('this.title = ', this.note.title)
-            // console.log('note = ', this.note)
+
             if (this.note.info.title === '' && this.note.info.txt === '') return
             notesService.addNote(this.note)
             this.$router.go()
 
 
         },
-        expand() {
 
-        }
 
     },
     computed: {
