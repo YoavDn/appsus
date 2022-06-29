@@ -1,6 +1,7 @@
 .mail-item {
     padding: 1rem;
     border-bottom: solid var(--soft-bg-clr);
+    cursor: pointer;
 }
 
 .mail-item:hover {
@@ -12,8 +13,18 @@
 }
 
 .item-main-actions {
-    flex-basis: 40%;
+    flex-basis: 30%;
     justify-content: space-around;
+}
+
+.mail-item-from {
+    flex-basis: 70%;
+}
+
+.item-main-actions button {
+
+    border: none;
+    background: none;
 }
 
 .item-content {

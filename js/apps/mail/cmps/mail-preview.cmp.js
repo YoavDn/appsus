@@ -3,9 +3,9 @@ export default {
     props: ['mail'],
     template: `
     <div class="item-header flex align-center">
-        <div class="item-main-actions">
-            <button>select</button>
-            <button>star</button>
+        <div class="item-main-actions flex">
+            <button>☐</button>
+            <button>&bigstar;</button>
         </div>
         <h2 class="maill-item-from">{{mail.from}}</h2>
     </div>
@@ -33,6 +33,5 @@ export default {
         },
     },
     created() {
-        console.log(this.mail);
     },
 }
