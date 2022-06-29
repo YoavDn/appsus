@@ -10,7 +10,7 @@ export default {
     <section class="mail-container flex">
         <mail-side-bar @openNewMail="newMail" :mails="mails"/>
         <mail-list  :mails="mails"/>
-        <new-mail @close="closeNewMail" v-if="isNewMail"/>
+        <new-mail @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
     </section>
     
     `,
@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             mails: null,
-            isNewMail: true,
+            isNewMail: false,
         }
     },
     created() {
@@ -35,9 +35,14 @@ export default {
         },
         closeNewMail() {
             this.isNewMail = false
+        },
+        sentMail(mail) {
+            this.isNewMail = false
+            mailService.addMail(mail).then(mails => this.mails = mails)
         }
     },
     computed: {
     },
+
 }
 

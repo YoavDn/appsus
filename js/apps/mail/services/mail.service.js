@@ -10,6 +10,7 @@ _createMails()
 
 export const mailService = {
     query,
+    addMail,
 }
 
 function query() {
@@ -22,13 +23,16 @@ function _createMails() {
     if (!mails || !mails.length) {
 
         mails = fetch("js/demo-data/demo-mails.json").then(res => res.json())
-            .then(res => {
-                console.log(res);
-                return utilService.saveToStorage(MAIL_KEY, res)
-            })
+            .then(res => utilService.saveToStorage(MAIL_KEY, res))
     }
-
     return mails
+}
+
+function addMail(mail) {
+    mail.sentAt = Date.now()
+    storageService.post(MAIL_KEY, mail,)
+    return query()
+
 }
 
 

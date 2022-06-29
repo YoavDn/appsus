@@ -1,5 +1,27 @@
 .mail-side-bar {
-    flex-basis: 30%;
+    flex-basis: 20%;
     border-right: solid 1px var(--soft-bg-clr);
     padding: 1rem;
+    margin-inline: 3rem;
+}
+
+.compose-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    margin-block: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: box-shadow .3s;
+    color: var(--sub-txt-clr);
+}
+
+.compose-btn span {
+    margin-inline-end: 1rem;
+    color: var(--main-brand-clr);
+}
+
+.compose-btn:hover {
+    box-shadow: 1px 2px 8px var(--sub-txt-clr);
+    color: var(--main-txt-clr);
 }

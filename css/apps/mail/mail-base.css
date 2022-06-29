@@ -1,5 +1,5 @@
 input[type="text"],
-input[type="mail"] {
+input[type="email"] {
     line-height: 4rem;
     margin-inline: 1rem;
     border: none;
