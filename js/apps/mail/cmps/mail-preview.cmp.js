@@ -15,7 +15,7 @@ export default {
          @mouseover="isHovered = true"
          @mouseleave="isHovered = false">
             <h2 class="item-subject bold">{{mail.subject}}</h2>
-            <h2 class="thin"> - {{mail.body}}</h2>
+            <h2 class="thin"> - {{bodyText}}</h2>
         </div>
         <div v-if="!isHovered" class="item-date"
          @mouseover="isHovered = true"
@@ -64,6 +64,10 @@ export default {
         },
         starStyle() {
             return { star: this.mail.isStar, notStar: !this.mail.isStar }
+        },
+        bodyText() {
+            if (this.mail.body.length > 80) return this.mail.body.slice(0, 40) + '...'
+            return this.mail.body
         }
     },
 

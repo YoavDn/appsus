@@ -1,12 +1,42 @@
 [
     {
-        "id": "e101",
+        "id": "e3101",
         "from": "Afik Zehavi",
         "subject": "Miss you!",
         "body": "Would love to catch up sometimes",
         "isRead": false,
         "sentAt": 1551133930594,
         "to": "momo@momo.com",
+        "isStar": false
+    },
+    {
+        "id": "e1241",
+        "from": "Afik Zehavi",
+        "subject": "Miss you!",
+        "body": "Would love to catch up sometimes",
+        "isRead": false,
+        "sentAt": 1551133930594,
+        "to": "momo@momo.com",
+        "isStar": false
+    },
+    {
+        "id": "e103",
+        "from": "Some random person",
+        "subject": "omg im some random haha",
+        "body": "my wife left me for my this relly good looking guy, his name is lucas and he's french",
+        "isRead": false,
+        "sentAt": 1551133930194,
+        "to": "omg@puki.com",
+        "isStar": false
+    },
+    {
+        "id": "dfvvv101",
+        "from": " Your biggest Fan",
+        "subject": "look behind you",
+        "body": "haha jk.. or am i",
+        "isRead": false,
+        "sentAt": 1551133930544,
+        "to": "pukiShuki@puki.com",
         "isStar": false
     }
 ]

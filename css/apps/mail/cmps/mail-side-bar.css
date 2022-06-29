@@ -1,8 +1,8 @@
 .mail-side-bar {
+    height: 92vh;
     flex-basis: 20%;
     border-right: solid 1px var(--soft-bg-clr);
     padding: 1rem;
-
 }
 
 .compose-btn {
