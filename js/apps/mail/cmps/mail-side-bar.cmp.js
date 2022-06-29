@@ -8,6 +8,7 @@ export default {
             <button class="side-bar-btn"><span>&bigstar;</span>Starred</button>
             <button class="side-bar-btn"><span><i class="fa-solid fa-paper-plane"></i></span>Sent</button>
             <button class="side-bar-btn"><span><i class="fa-solid fa-file"></i></span>Drafts</button>
+            <button class="side-bar-btn"><span><i class="fa-solid fa-trash"></i></span>Trash</button>
         </div>
     </section>
     `,

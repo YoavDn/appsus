@@ -6,11 +6,11 @@ import mailPreview from './mail-preview.cmp.js'
 export default {
     // props: ['mails'],
     template: `
-        <section  class="mail-list">
+        <section class="mail-list">
             <div v-for="mail in mails" class="mail-item flex align-center"
             :class="{read: !mail.isRead}" 
             @click="selectMail(mail)">
-            <mail-preview  :mail="mail"/>
+            <mail-preview :mail="mail" @moveToTrash="toTrash(mail)" @markAsRead="markRead(mail)"/>
             </div>
         </section>  
     `,
@@ -33,16 +33,16 @@ export default {
             mailService.updateMail(mail)
             this.$router.push(`/mail/${mail.id}`)
         },
-    },
-    computed: {
-        dynamicHoverValue() {
-            return this.hovered
-        }
-    },
-    watch: {
-        hovered(val) {
-            this.hovered = val
+        toTrash(mail) {
+            console.log(mail);
+            mail.trash = true
+            mailService.updateMail(mail)
+        },
+        markRead(mail) {
+
+            mail.isRead = true
+            mailService.updateMail(mail)
         }
     }
-
 }
+

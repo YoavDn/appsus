@@ -1,6 +1,7 @@
 
 export default {
     props: ['mail'],
+    emits: ['moveToTrash', 'markAsRead'],
     template: `
         <div class="item-header flex align-center">
             <div class="item-main-actions flex">
@@ -25,8 +26,10 @@ export default {
         @mouseover="isHovered = true"
         @mouseleave="isHovered = false"
         v-else>
-            <button type="button" data-toggle="tooltip" data-placement="top" title="Move to trash"  class="preview-options-btn"><i class="fa-solid fa-trash"></i></button>
-            <button type="button" data-toggle="tooltip" data-placement="top" title="Mark as read" class="preview-options-btn"><i class="fa-solid fa-envelope-open"></i></button>
+            <button type="button" data-toggle="tooltip" data-placement="top" title="Move to trash"  class="preview-options-btn"><i class="fa-solid fa-trash"
+            @click.stop="moveToTrash"></i></button>
+            <button type="button" data-toggle="tooltip" data-placement="top" title="Mark as read" class="preview-options-btn"><i class="fa-solid fa-envelope-open"
+            @click.stop="markAsRead"></i></button>
         </div>
     `,
     data() {
@@ -41,6 +44,12 @@ export default {
         },
         selectMail(e) {
             // TODO: support this feature,
+        },
+        moveToTrash() {
+            this.$emit('moveToTrash')
+        },
+        markAsRead() {
+            this.$emit('markAsRead')
         }
     },
     computed: {
