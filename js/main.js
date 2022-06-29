@@ -4,7 +4,6 @@ import { router } from './router.js';
 import appHeader from './cmps/app-header.cmp.js'
 
 
-
 const options =  {
     template: `
     <app-header/>
