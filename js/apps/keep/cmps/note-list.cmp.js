@@ -22,7 +22,7 @@ export default {
                         <i v-if="note.isEditAble" class="fa-solid fa-circle-check"></i>
                     </button>
 
-                    <button class="edit-btn" data-title="Pin"><i class="fa-solid fa-thumbtack"></i></button>
+                    <button class="edit-btn" :class="{pinned: note.isPinned}" data-title="Pin" @click="pin(note)"><i class="fa-solid fa-thumbtack"></i></button>
                 </div>
             </li>
         </ul>
@@ -58,6 +58,15 @@ export default {
             console.log('note.id = ', title)
             this.$emit('updateNote', note)
         },
+        pin(note){
+            if (note.isPinned){
+                this.unpin(note)
+            }
+            this.$emit('pinNote', note)
+        },
+        unpin(note){
+            this.$emit('unPinNote', note)
+        }
 
     },
     computed: {

@@ -4,6 +4,7 @@ import noteList from "../cmps/note-list.cmp.js"
 import noteImg from "../cmps/note-img.cmp.js"
 import noteVideo from "../cmps/note-video.cmp.js"
 import noteTodo from "../cmps/note-todo.cmp.js"
+import { storageService } from "../../../services/async-storage-service.js"
 
 export default {
     template: `
@@ -22,7 +23,11 @@ export default {
 
         </div>
         <section class="notes-list-container">
-            <note-list @removeNote="removeNote" @updateNote="updateNote" :notes="notes"/>
+            <!-- Pinned list -->
+            <h3 v-if="pinnedNotes.length" class="pinned-header" >Pinned Notes: </h3>
+            <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
+            <!-- Regular list -->
+            <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote":notes="notes"/>
         </section>
     </section>
     
@@ -41,6 +46,7 @@ export default {
             isNoteVideo: false,
             isNoteTodo: false,
             notes: null,
+            pinnedNotes: null,
         }
     },
     created() {
@@ -52,27 +58,73 @@ export default {
                 .then(res => {
                     this.notes = res
                 })
+            notesService.queryPins()
+                .then(res => {
+                    this.pinnedNotes = res
+                })
         },
-        removeNote(noteId){
-            notesService.remove(noteId)
-            .then(() => {
-                const idx = this.notes.findIndex((note) => note.id === noteId)
-                this.notes.splice(idx, 1)
-            })
+
+        removeNote(noteId) {
+            notesService.get(noteId)
+                .then(res => {
+                    console.log('res = ', res)
+                    // console.log('note = ', note)
+                    if (res) {
+                        notesService.removeFromRegularList(noteId)
+                            .then(() => {
+                                const idx = this.notes.findIndex((note) => note.id === noteId)
+                                console.log('idx = ', idx)
+                                this.notes.splice(idx, 1)
+                            })
+                    } else {
+                        notesService.removeFromPinnedList(noteId)
+                            .then(() => {
+
+                                const idx = this.pinnedNotes.findIndex((note) => note.id === noteId)
+                                this.pinnedNotes.splice(idx, 1)
+
+                            })
+                    }
+                })
+
         },
-        addNote(note){
+
+        addNote(note) {
             notesService.addNote(note)
-            .then(() => {
-                this.updateNotes()
-                this.notes.unshift(note)
-                this.displayTextInput()
-            })
+                .then(() => {
+                    this.updateNotes()
+                    this.notes.unshift(note)
+                    this.displayTextInput()
+                })
         },
-        updateNote(note){
+
+        pinNote(note) {
+            const pinnedNote = note
+            pinnedNote.isPinned = true
+            this.removeNote(note.id)
+            notesService.addToPins(pinnedNote)
+                .then(() => {
+
+                    this.pinnedNotes.unshift(pinnedNote)
+                    this.$router.go()
+                })
+
+
+        },
+        unPinNote(note) {
+            const newNote = note
+            newNote.isPinned = false
+            this.addNote(newNote)
+            this.removeNote(note.id)
+
+            this.$router.go()
+        },
+
+        updateNote(note) {
             notesService.update(note)
-            .then(() => {
-                console.log('note = ', note)
-            })
+                .then(() => {
+                    console.log('note = ', note)
+                })
         },
         displayTextInput() {
             this.isNoteText = true
@@ -93,7 +145,7 @@ export default {
             this.isNoteTodo = false
             this.isNoteImg = false
         },
-        displayToDoInput(){
+        displayToDoInput() {
             this.isNoteText = false
             this.isNoteVideo = false
             this.isNoteImg = false

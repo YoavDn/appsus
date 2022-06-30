@@ -30,3 +30,7 @@
 .expand {
     max-height: 8rem
 }
+
+.pinned {
+    color: orange;
+}
