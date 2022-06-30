@@ -49,9 +49,19 @@
 
 .side-bar-btn:hover {
     background-color: var(--bg-gray);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 .side-bar-btn span {
     margin-inline-end: 1em;
     color: var(--sub-txt-clr);
+}
+
+
+.active {
+    color: var(--main-brand-clr);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: var(--mail-brand-bg);
 }

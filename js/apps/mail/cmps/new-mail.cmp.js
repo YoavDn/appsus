@@ -26,10 +26,11 @@ export default {
         return {
             newMail: {
                 to: '',
-                from: 'user@example.com',
+                from: '',
                 subject: '',
                 body: '',
                 sent: true,
+                isRead: true,
             }
         }
     },

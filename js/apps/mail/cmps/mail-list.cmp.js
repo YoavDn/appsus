@@ -5,12 +5,13 @@ import { eventBus } from '../../../services/eventBus-service.js'
 
 
 export default {
+    props: ['mails'],
     template: `
         <section class="mail-list">
             <div v-for="mail in mailToShow" class="mail-item flex align-center"
-            :class="{read: !mail.isRead}" 
+            :class="{read: mail.isRead}" 
             @click="selectMail(mail)">
-            <mail-preview :mail="mail" @moveToTrash="toTrash(mail)" @markAsRead="markRead(mail)"/>
+            <mail-preview :mail="mail" @movedToTrash="toTrash" @markAsRead="markRead(mail)"/>
             </div>
         </section>  
     `,
@@ -20,17 +21,13 @@ export default {
 
     data() {
         return {
-            mails: null,
             hovered: false,
             activeList: null,
         }
     },
     created() {
-        mailService.query().then(mails => {
-            eventBus.on('changeList', (msg) => {
-                this.activeList = msg
-            })
-            return this.mails = mails
+        eventBus.on('changeList', (msg) => {
+            this.activeList = msg
         })
     },
     methods: {
@@ -40,7 +37,8 @@ export default {
             this.$router.push(`/mail/${mail.id}`)
         },
         toTrash(mail) {
-            mailService.moveToTrash(mail).then(mails => this.mails = mails)
+            this.$emit('trashed', mail)
+
         },
         markRead(mail) {
             mail.isRead = true

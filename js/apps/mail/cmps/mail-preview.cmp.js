@@ -1,21 +1,21 @@
 
 export default {
     props: ['mail'],
-    emits: ['moveToTrash', 'markAsRead'],
+    emits: ['movedToTrash', 'markAsRead'],
     template: `
         <div class="item-header flex align-center">
             <div class="item-main-actions flex">
             <input type="checkbox" @click.stop="selectMail" data-title="Select">
             <button :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
         </div>
-        <h2 class="maill-item-from">{{mail.from}}</h2>
+        <h2 :class="fromToStyle" class="maill-item-from">{{fromOrTo}}</h2>
         </div>
 
         <div class="item-content flex align-center"
          @mouseover="isHovered = true"
          @mouseleave="isHovered = false">
             <h2 class="item-subject bold">{{mail.subject}}</h2>
-            <h2 class="thin"> - {{mail.body}}</h2>
+            <h2 class="thin"> - {{bodyText}}</h2>
         </div>
         <div v-if="!isHovered" class="item-date"
          @mouseover="isHovered = true"
@@ -47,11 +47,12 @@ export default {
             // TODO: support this feature,
         },
         moveToTrash() {
-            this.$emit('moveToTrash')
+            this.$emit('movedToTrash', this.mail)
         },
         markAsRead() {
             this.$emit('markAsRead')
-        }
+        },
+
     },
     computed: {
         stringDate() {
@@ -69,6 +70,13 @@ export default {
         bodyText() {
             if (this.mail.body.length > 80) return this.mail.body.slice(0, 40) + '...'
             return this.mail.body
+        },
+        fromOrTo() {
+            if (this.mail.sent) return `To: ${this.mail.to}`
+            return this.mail.from
+        },
+        fromToStyle() {
+            return { thin: this.mail.isRead, bold: !this.mail.isRead }
         }
     },
     created() { }

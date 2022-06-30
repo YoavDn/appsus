@@ -53,14 +53,20 @@ function updateMail(mail) {
 
 function moveToTrash(mail) {
     storageService.post(TRASH_KEY, mail)
-    storageService.remove(MAIL_KEY, mail)
-    return query()
+    return storageService.remove(MAIL_KEY, mail)
+
 }
 
 function filterByActiveList(actvieList, mails) {
     if (actvieList === 'starred') {
         return mails.filter(mail => mail.isStar)
+    } else if (actvieList === 'trash') {
+        return utilService.loadFromStorage(TRASH_KEY)
+    } else if (actvieList === 'sent') {
+        return mails.filter(mail => mail.sent)
+    } else if (actvieList === 'sent') {
+        return mails.filter(mail => mail.sent)
     }
 
-    return mails
+    return mails.filter(mail => !mail.sent)
 }
