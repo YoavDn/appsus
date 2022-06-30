@@ -5,12 +5,13 @@ import noteImg from "../cmps/note-img.cmp.js"
 import noteVideo from "../cmps/note-video.cmp.js"
 import noteTodo from "../cmps/note-todo.cmp.js"
 import { storageService } from "../../../services/async-storage-service.js"
+import keepSideBar from "../cmps/keep-side-bar.cmp.js"
 
 export default {
     template: `
     <section class="keep-app-container">
         <div class="input-container shadow">
-
+    
             <note-text @noteAdded="addNote" v-if="isNoteText"/>
             <note-img @noteAdded="addNote" v-if="isNoteImg"/>
             <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
