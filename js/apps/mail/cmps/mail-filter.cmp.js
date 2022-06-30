@@ -11,8 +11,8 @@ export default {
             </form>
             <section v-if="suggestionsOpen" class="suggestions shadow">
                 <nav flex>
-                    <button><span>icon</span>last 7 days </button>
-                    <button><span>icon</span>From me</button>
+                    <button class="filter-btn" ><span><i class="fa-solid fa-calendar"></i></span>last 7 days </button>
+                    <button class="filter-btn" ><span><i class="fa-solid fa-user"></i></span>From me</button>
                 </nav>
                 <div v-for="suggest in suggestions" class="suggestion-item" @click="goToMailDetails(suggest.id)">
                     <div class="suggest-content">
@@ -25,9 +25,6 @@ export default {
                 </div>
             </section>
         </div>
-
-  
-
     `,
     data() {
         return {
@@ -57,9 +54,12 @@ export default {
     computed: {
 
     },
-    watch: {
-        suggestion(val) {
-            console.log(val);
-        }
+    mounted() {
+        window.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('filter-search-bar') && !e.target.classList.contains('search')) {
+                console.log(e.target);
+                this.suggestionsOpen = false
+            }
+        })
     }
 }

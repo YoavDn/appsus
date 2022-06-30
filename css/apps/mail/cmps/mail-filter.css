@@ -70,3 +70,16 @@
 .search:focus {
     background-color: white;
 }
+
+.filter-btn {
+    border: none;
+    line-height: 2.4rem;
+    background-color: var(--soft-bg-clr);
+    margin-inline-end: 2rem;
+    color: var(--blue);
+    padding: 0 1rem;
+}
+
+.filter-btn span {
+    margin-inline-end: .3rem;
+}
