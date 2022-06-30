@@ -1,0 +1,38 @@
+/* Medium Screen*/
+@media (max-width: 1080px) {
+    .side-bar-keep {
+        display: none;
+    }
+
+    .keep-app-container {
+        justify-content: center;
+    }
+
+    .notes-list ul {
+        grid-template-columns: repeat(3, 15rem);
+        grid-gap: 3rem;
+    }
+
+    .note-preview-container {
+        width: 17.5rem !important;
+    }
+
+    .note-preview-container img,
+    iframe {
+        width: 15rem;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .notes-list ul {
+        grid-template-columns: repeat(2, 15rem);
+        grid-gap: 3rem;
+    }
+
+    .input-container {
+        flex-direction: column;
+        padding: 0.5rem;
+        gap: 0;
+    }
+}

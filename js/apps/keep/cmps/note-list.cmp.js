@@ -7,7 +7,7 @@ export default {
     template: `
     <section class="notes-list">
         <ul>
-            <li v-for="(note,idx) in notes" :key="note.id" class="note-preview-contianer" :style="{backgroundColor: note.style.backgroundColor}">
+            <li v-for="(note,idx) in notes" :key="note.id" class="note-preview-container" :style="{backgroundColor: note.style.backgroundColor}">
                 <note-preview :note="note"/>
                 <div class="edit-btns-container">
                     

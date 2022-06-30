@@ -4,11 +4,9 @@
 @import './keep-cmps/notes-preview.css';
 @import './keep-cmps/note-side-bar.css';
 
+/* Media queries */
+@import '../keep/keep-cmps/keep-mq.css';
 
-.keep-app-container {
-    /* margin-inline: 3rem; */
-
-}
 
 .main-container {
     flex-basis: 80%;
