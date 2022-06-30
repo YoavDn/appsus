@@ -7,7 +7,7 @@
     overflow-wrap: break-word;
     /* text-overflow: ellipsis; */
     border: 2px solid var(--soft-bg-clr);
-    border-radius: 5%;
+    border-radius: 1rem;
 }
 
 .note-preview-contianer img, iframe {

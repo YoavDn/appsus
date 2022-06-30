@@ -15,9 +15,14 @@ export default {
                         <input :id="'note'+idx"  type="color" class="input-color" @input="changeBackgroundColor($event, note)">
                         <label :for="'note'+idx" data-title="Change color"><i class="fas fa-palette"></i></label>
                     </button>
-                    <button class="edit-btn" @click="removeNote(note)"><i class="fa-solid fa-trash-can"></i></button>
-                    <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="edit-btn"><i class="fa-solid fa-thumbtack"></i></button>
+                    <button class="edit-btn" @click="removeNote(note)" data-title="Remove"><i class="fa-solid fa-trash-can"></i></button>
+
+                    <button class="edit-btn" data-title="Edit" @click="editNote(note)">
+                        <i v-if="!note.isEditAble" class="fa-solid fa-pen-to-square"></i>
+                        <i v-if="note.isEditAble" class="fa-solid fa-circle-check"></i>
+                    </button>
+
+                    <button class="edit-btn" data-title="Pin"><i class="fa-solid fa-thumbtack"></i></button>
                 </div>
             </li>
         </ul>
@@ -43,7 +48,17 @@ export default {
         removeNote(note){
             // notesService.remove(note.id)
             this.$emit('removeNote', note.id)
-        }
+        },
+        editNote(note) {
+            note.isEditAble = !note.isEditAble
+            let title = document.querySelector(".note-title" + note.id).innerText
+            let txt = document.querySelector(".note-txt" + note.id).innerText
+            note.info.title = title
+            note.info.txt = txt
+            console.log('note.id = ', title)
+            this.$emit('updateNote', note)
+        },
+
     },
     computed: {
     },

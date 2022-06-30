@@ -31,8 +31,10 @@ function post(entityType, newEntity) {
         .then(entities => {
             entities.unshift(newEntity);
             _save(entityType, entities)
+            console.log('newnewEntity = ',newEntity)
             return newEntity;
         })
+
 }
 
 //create new items

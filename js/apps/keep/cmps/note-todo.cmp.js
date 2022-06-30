@@ -5,8 +5,8 @@ export default {
             <input v-if="isExpand" type="text" placeholder="Title" class="title-input" v-model="note.info.title">
             <div class="text_area" contentEditable="true" @click="isExpand = true">
                 <ul >
-                    <li v-if="!isDone" v-for="todo in note.info.todos" class="input-list">
-                        {{todo.txt}}
+                    <li v-if="!isDone"  class="input-list">
+                        Damn you...
                     </li>
                 </ul>
             </div>
@@ -22,10 +22,7 @@ export default {
                 isPinned: false,
                 info: {
                     title: '',
-                    todos: [
-                        { txt: "Driving license", done: null },
-                        { txt: "Pick the kids", done: null }
-                    ]
+                    todos: []
                 },
                 style: {
                     backgroundColor: '#fff'
@@ -36,9 +33,10 @@ export default {
     methods: {
         onAddNote(ev) {
 
-            if (!this.note.info.todos || !this.note.info.todos.length) return
-            this.note.info.todos = []
+            // if (!this.note.info.todos || !this.note.info.todos.length) return
+            
             let string = ev.target.parentElement.innerText.split("\n")
+            if (!string || !string.length) return
             console.log('string = ', string)
             for (let i = 0; i < string.length - 1; i++) {
                 let todo = {
@@ -47,9 +45,8 @@ export default {
                 }
                 this.note.info.todos.push(todo)
                 // this.isDone = true
-
+                
             }
-
             this.$emit('noteAdded', this.note)
 
 
