@@ -9,7 +9,6 @@ export default {
              <book-preview  :book='book'/>
              <h2 v-if="book.listPrice.isOnSale" class="preview-sale">SALE</h2>
              <h2 class="preview-price" :class="priceStyle(book)" >{{bookPrice(book)}}</h2>
-             <router-link class="details-btn" :to="'/book/'+book.id">Details</router-link>
         </div>
         </section>
     `,

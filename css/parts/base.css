@@ -17,6 +17,10 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .overlay {
     position: fixed;
     padding-top: 3rem;

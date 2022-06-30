@@ -7,17 +7,21 @@
 }
 
 .book {
+    border: solid 1.5px var(--bg-gray);
     position: relative;
     display: flex;
     flex-basis: 200px;
     flex-direction: column;
     margin: 1rem;
     margin-bottom: 40px;
-    background-color: rgb(255, 255, 255);
-    justify-content: space-between;
-    padding: 18px;
-    border-radius: 8px;
+    align-items: center;
+    padding: 24px;
+    border-radius: 1rem;
 
+}
+
+.book:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .title {
@@ -59,6 +63,10 @@
     justify-content: flex-start;
 }
 
+
+
+
+
 .book-detail-page img {
     height: 60vh;
 }
@@ -78,18 +86,12 @@
 }
 
 .book-price {
-    font-weight: 200;
-    color: var(--main-brand-clr)
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-inline-start: 1rem;
 }
 
-button {
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
-    padding: 7px;
-    background-color: var(--main-brand-clr);
-    color: white;
-}
+
 
 .title-details {
     display: flex;
@@ -113,12 +115,12 @@ button {
 }
 
 .btn-back {
-    background-color: white;
-    color: var(--main-brand-clr);
+    color: var(--sub-txt-clr);
     font-size: 20px;
     position: absolute;
     top: 80px;
     left: 50px;
+    font-weight: 300;
 }
 
 .sale {
@@ -152,20 +154,6 @@ button {
     margin-block: 30px;
 }
 
-.details-btn {
-    text-decoration: none;
-    text-align: center;
-    color: white;
-    border-radius: 4px;
-    padding: 3px 0;
-    background-color: var(--main-brand-clr);
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.details-btn:hover {
-    background-color: rgb(32, 137, 190);
-}
 
 form {
     display: flex;
@@ -184,7 +172,8 @@ label {
 }
 
 .preview-price {
-    font-size: 20px;
+    margin-top: 1rem;
+    font-size: 1.6rem;
     font-weight: 300;
     margin-bottom: .4rem;
 }
@@ -195,11 +184,13 @@ label {
 }
 
 .book-price-details {
+    font-size: 1.7rem;
     margin-top: 1rem;
     font-weight: 400;
 }
 
 .book-cat {
+    font-size: 1.6rem;
     font-weight: 500;
     margin-bottom: 2rem;
 }
@@ -413,12 +404,19 @@ textarea {
     text-align: center;
     margin-block: 2rem;
     text-decoration: none;
-    background-color: var(--main-brand-clr);
-    width: 150px;
-    padding: 10px;
+    background-color: var(--mail-brand-bg);
+    width: 200px;
+    padding: 1rem 2rem;
+    font-weight: 300;
+    font-size: 2rem;
     border-radius: .5em;
-    color: white;
+    color: var(--main-brand-clr);
     cursor: pointer;
+    transition: box-shadow .3s;
+}
+
+.add-book-btn:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .or-existing {
@@ -435,7 +433,8 @@ textarea {
 
 .next-book-btn {
     background-color: white;
-    color: var(--main-brand-clr);
+    color: var(--sub-txt-clr);
+    font-weight: 200;
     font-size: 20px;
     position: absolute;
     top: 80px;
