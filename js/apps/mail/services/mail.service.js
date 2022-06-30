@@ -39,10 +39,7 @@ function _createMails() {
 function addMail(mail) {
     mail.sentAt = Date.now()
     console.log(mail);
-
     return storageService.post(MAIL_KEY, mail,)
-
-
 }
 
 function getMailById(id) {
