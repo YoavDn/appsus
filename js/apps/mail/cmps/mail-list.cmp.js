@@ -1,5 +1,6 @@
 import { mailService } from '../services/mail.service.js'
 import mailPreview from './mail-preview.cmp.js'
+import mailFilter from './mail-filter.cmp.js'
 import { eventBus } from '../../../services/eventBus-service.js'
 
 
@@ -8,6 +9,7 @@ export default {
     props: ['mails'],
     template: `
         <section class="mail-list">
+            <mail-filter :mails="mails" />
             <div v-for="mail in mailToShow" class="mail-item flex align-center"
             :class="{read: mail.isRead}" 
             @click="selectMail(mail)">
@@ -16,7 +18,8 @@ export default {
         </section>  
     `,
     components: {
-        mailPreview
+        mailPreview,
+        mailFilter,
     },
 
     data() {

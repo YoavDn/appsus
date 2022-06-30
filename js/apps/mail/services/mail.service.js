@@ -15,7 +15,8 @@ export const mailService = {
     getMailById,
     updateMail,
     moveToTrash,
-    filterByActiveList
+    filterByActiveList,
+    suggest
 }
 
 function query() {
@@ -69,4 +70,10 @@ function filterByActiveList(actvieList, mails) {
     }
 
     return mails.filter(mail => !mail.sent)
+}
+
+
+function suggest(query, mails) {
+    const regex = new RegExp(query, "i");
+    return mails.filter(mail => regex.test(mail.subject) || regex.test(mail.from))
 }
