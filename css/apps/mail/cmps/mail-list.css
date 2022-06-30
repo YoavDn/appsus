@@ -1,12 +1,3 @@
 .mail-list {
     flex-basis: 80%;
 }
-
-
-@media screen and (max-width: 750px) {
-
-    .mail-list {
-        margin: auto;
-    }
-
-}

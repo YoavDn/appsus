@@ -1,0 +1,81 @@
+@media screen and (max-width: 869px) {
+    .mail-item {
+        padding: .8rem;
+    }
+
+    .compose-btn {
+        font-size: 1.5rem;
+        padding: 0 2rem;
+        color: var(--sub-txt-clr);
+        margin-inline-start: 1rem;
+        text-align: center;
+    }
+
+    .compose-btn span {
+        display: none;
+    }
+}
+
+
+
+
+@media screen and (max-width: 750px) {
+    .mail-list {
+        flex-basis: 100%;
+        margin: auto;
+    }
+
+    .mail-details {
+        flex-basis: 100%;
+        margin: auto;
+    }
+
+    .mail-item {
+        margin-inline: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-header {
+        font-size: 1.1em;
+        flex-direction: row-reverse;
+        width: 100%;
+    }
+
+    .maill-item-from {
+        flex-basis: 90%;
+    }
+
+    .item-main-actions {
+        display: block;
+        text-align: end;
+    }
+
+    .item-main-actions {
+        flex-basis: 100%;
+    }
+
+    .item-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .side-bar {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 200px;
+        border-right: solid 1px var(--soft-bg-clr);
+        padding: 1rem;
+        transform: translateX(-100%);
+    }
+
+    .open {
+        transform: translateX(0);
+    }
+
+    .filter-search-bar {
+        margin: auto;
+        margin-block: 2rem
+    }
+}

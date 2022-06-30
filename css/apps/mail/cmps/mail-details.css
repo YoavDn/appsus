@@ -40,14 +40,28 @@
 
 .details-date {
     margin-inline-end: 2rem;
+    padding: 1rem;
+    align-items: center;
 }
 
-.details-date p {
+.details-date h2 {
+    display: block;
     font-size: 1.4rem;
+    margin-inline-end: 3rem;
     font-weight: 300;
 }
 
+.delete-btn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-size: 1.2em;
+    color: var(--sub-txt-clr);
+}
+
 .text-body {
+
     font-family: 'lato';
     font-size: 1.3rem;
+    white-space: pre-wrap;
 }

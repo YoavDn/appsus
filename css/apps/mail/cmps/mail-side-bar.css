@@ -69,34 +69,8 @@
     background-color: var(--mail-brand-bg);
 }
 
+.hamburger {
+    border: none;
+    background-color: transparent;
 
-@media screen and (max-width: 858px) {
-    .compose-btn {
-        font-size: 1.5rem;
-        padding: 0 2rem;
-        color: var(--sub-txt-clr);
-        margin-inline-start: 1rem;
-        text-align: center;
-    }
-
-    .compose-btn span {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 750px) {
-
-    .side-bar {
-        position: fixed;
-        top: 0;
-        height: 100vh;
-        width: 200px;
-        border-right: solid 1px var(--soft-bg-clr);
-        padding: 1rem;
-        transform: translateX(-100%);
-    }
-
-    .open {
-        transform: translateX(0);
-    }
 }

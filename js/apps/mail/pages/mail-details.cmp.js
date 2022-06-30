@@ -19,8 +19,9 @@ export default {
                         <p>to:{{mail.to}}</p>
                     </div>
                 </div>
-                <div class="details-date flex">
-                    <p>{{stringDate}}</p>
+                <div class="details-date flex align-center">
+                    <h2>{{stringDate}}</h2>
+                    <button data-title="Move to trash" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </header>
             <main class="details-body">

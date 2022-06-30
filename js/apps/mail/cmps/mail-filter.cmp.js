@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/eventBus-service.js"
 import { mailService } from "../services/mail.service.js"
 
 
@@ -7,7 +8,8 @@ export default {
         <div class="filter-search-bar wrapper ">
             
             <form @click="suggestionsOpen = true" autocomplete="off" >
-                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button v-if="mobile" @click="openSideBar" class="search-btn hamburger"><i class="fa-solid fa-bars"></i></button>
+                <button v-else class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <input class="search" v-model="query" @input.prevent="makeSuggestion" name="search-bar" type="search" placeholder="Search mail">
             </form>
             <section v-if="suggestionsOpen" class="suggestions shadow">
@@ -37,6 +39,7 @@ export default {
             },
             suggestions: null,
             suggestionsOpen: false,
+            mobile: false,
         }
     },
     methods: {
@@ -51,9 +54,13 @@ export default {
             const strDate = new Date(date).toLocaleString()
             return strDate
         },
+        openSideBar() {
+            eventBus.emit('openSideBar', true)
+        }
     },
     computed: {},
     mounted() {
+        if (document.body.clientWidth < 750) this.mobile = true
         window.addEventListener('click', (e) => {
             if (!e.target.classList.contains('filter-search-bar')
                 && !e.target.classList.contains('search')) {
@@ -61,4 +68,5 @@ export default {
             }
         })
     }
+
 }

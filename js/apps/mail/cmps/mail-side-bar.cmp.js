@@ -1,10 +1,10 @@
 import { eventBus } from "../../../services/eventBus-service.js"
 
 export default {
+    emits: ['openNewMail'],
     props: ['mails'],
     template: `
     
-    <button v-if="mobile" @click="openSideBar" class="hamburger"><i class="fa-solid fa-bars"></i></button>
     <section v-if="mails" class="side-bar" :class="sideBarStyle">
         <button class="compose-btn shadow" @click="$emit('openNewMail')"> <span>&plus;</span> Compose</button>
         <div @click="activate" class="side-bar-items">
@@ -15,10 +15,10 @@ export default {
             <button @click="toTrashList" class="side-bar-btn"><span><i class="fa-solid fa-trash"></i></span>Trash</button>
         </div>
     </section>
-    <div v-if="sideBarOpen" class="overlay"></div>
+    <div v-if="sideBarOpen" class="overlay" @click="sideBarOpen = false"></div>
     `,
     data() {
-        return {
+        return {///
             activeSidebar: 'true',
             mobile: false,
             sideBarOpen: false
@@ -66,5 +66,11 @@ export default {
     },
     mounted() {
         if (document.body.clientWidth < 750) this.mobile = true
+        eventBus.on('openSideBar', (boolean) => {
+            this.sideBarOpen = boolean
+        })
     }
 }
+
+
+

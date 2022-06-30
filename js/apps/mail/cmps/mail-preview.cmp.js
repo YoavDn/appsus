@@ -5,26 +5,27 @@ export default {
     template: `
         <div class="item-header flex align-center">
             <div class="item-main-actions flex">
-            <input type="checkbox" @click.stop="selectMail" data-title="Select">
-            <button :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
+            <input v-if="!mobile" type="checkbox" @click.stop="selectMail" data-title="Select">
+            <button v-if="!mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
+            <h2 v-if="mobile" :class="thinIfRead">{{stringDate}}</h2>
         </div>
-        <h2 :class="fromToStyle" class="maill-item-from">{{fromOrTo}}</h2>
+        <h2 :class="thinIfRead" class="maill-item-from">{{fromOrTo}}</h2>
         </div>
 
         <div class="item-content flex align-center"
-         @mouseover="isHovered = true"
-         @mouseleave="isHovered = false">
-            <h2 class="item-subject bold">{{subjectText}}</h2>
-            <h2 class="thin"> - {{bodyText}}</h2>
+         @mouseover="onHover"
+         @mouseleave="onLeaveHover">
+            <h2 :class="thinIfRead" class="item-subject">{{subjectText}}</h2>
+            <h3 class="thin">{{bodyText}}</h3>
         </div>
         <div v-if="!isHovered" class="item-date"
-         @mouseover="isHovered = true"
-         @mouseleave="isHovered = false">
-            <h2 :class="{thin: mail.isRead}">{{stringDate}}</h2>
+         @mouseover="onHover"
+         @mouseleave="onLeaveHover">
+            <h2 v-if="!mobile" :class="thinIfRead">{{stringDate}}</h2>
         </div>
         <div class="preview-options"
-        @mouseover="isHovered = true"
-        @mouseleave="isHovered = false"
+        @mouseover="onHover"
+        @mouseleave="onLeaveHover"
         v-else>
             <button type="button" data-title="Move to Trash" class="preview-options-btn"><i class="fa-solid fa-trash"
             @click.stop="moveToTrash"></i></button>
@@ -34,9 +35,9 @@ export default {
     `,
     data() {
         return {
-
             isSelected: false,
-            isHovered: false
+            isHovered: false,
+            mobile: false,
         }
     },
     methods: {
@@ -52,6 +53,15 @@ export default {
         markAsRead() {
             this.$emit('markAsRead')
         },
+        // TODO: make this Dry
+        onHover() {
+            if (this.mobile) return
+            this.isHovered = true
+        },
+        onLeaveHover() {
+            if (this.mobile) return
+            this.isHovered = false
+        }
 
     },
     computed: {
@@ -79,9 +89,13 @@ export default {
             if (this.mail.sent) return `To: ${this.mail.to}`
             return this.mail.from
         },
-        fromToStyle() {
-            return { thin: this.mail.isRead, bold: !this.mail.isRead }
+        thinIfRead() {
+            return { thin: this.mail.isRead }
         }
     },
-    created() { }
+    created() { },
+    mounted() {
+        if (document.body.clientWidth < 750) this.mobile = true
+    }
+
 }
