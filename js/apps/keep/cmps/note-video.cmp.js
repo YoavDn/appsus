@@ -33,9 +33,9 @@ export default {
             if (this.inComeUrl === '') return
             this.note.info.url = this.embedVideo()
 
-            notesService.addNote(this.note)
+            this.$emit('noteAdded', this.note)
             console.log('this.note = ', this.note)
-            this.$router.go()
+            // this.$router.go()
 
 
         },

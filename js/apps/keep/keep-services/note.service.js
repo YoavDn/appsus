@@ -31,7 +31,7 @@ function get(noteId) {
 }
 
 function update(note) {
-    storageService.put(NOTES_KEY, note)
+   return storageService.put(NOTES_KEY, note)
 }
 
 function remove(noteId) {
@@ -44,6 +44,7 @@ function addNote(note) {
         isPinned: note.isPinned,
         info: note.info,
         style: note.style,
+        isEditAble: false,
     }
 
     return storageService.post(NOTES_KEY, newNote)

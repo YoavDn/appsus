@@ -22,7 +22,7 @@ export default {
 
         </div>
         <section class="notes-list-container">
-            <note-list @removeNote="removeNote" :notes="notes"/>
+            <note-list @removeNote="removeNote" @updateNote="updateNote" :notes="notes"/>
         </section>
     </section>
     
@@ -51,7 +51,6 @@ export default {
             notesService.query()
                 .then(res => {
                     this.notes = res
-                    console.log('this.notes = ', this.notes)
                 })
         },
         removeNote(noteId){
@@ -64,7 +63,15 @@ export default {
         addNote(note){
             notesService.addNote(note)
             .then(() => {
+                this.updateNotes()
                 this.notes.unshift(note)
+                this.displayTextInput()
+            })
+        },
+        updateNote(note){
+            notesService.update(note)
+            .then(() => {
+                console.log('note = ', note)
             })
         },
         displayTextInput() {

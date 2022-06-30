@@ -30,8 +30,8 @@ export default {
         onAddNote() {
 
             if (this.note.info.url === '') return
-            notesService.addNote(this.note)
-            console.log('this.note = ', this.note)
+            this.$emit('noteAdded', this.note)
+            // console.log('this.note = ', this.note)
             // this.$router.go()
 
 
