@@ -7,7 +7,7 @@ export default {
              @keyup.enter="onAddNote" v-model="note.info.title">
 
         <input type="text" @click="isExpand = true" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
-        <button @click="onAddNote" class="add-note-btn">Add note</button>
+        <button v-if="isExpand" @click="onAddNote" class="add-note-btn">Add note</button>
     </div>
     `,
     data() {

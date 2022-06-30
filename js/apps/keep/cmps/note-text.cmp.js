@@ -5,7 +5,7 @@ export default {
         <input v-if="isExpand" type="text" placeholder="Title" class="title-input" @keyup.enter="onAddNote" v-model="inTitle">
         <input type="text" placeholder="Whats on your mind..."
          class="txt-input" @click="isExpand = true" @keyup.enter="onAddNote" v-model="inText">
-         <button @click="onAddNote" class="add-note-btn">Add note</button>
+         <button v-if="isExpand" @click="onAddNote" class="add-note-btn">Add note</button>
         </div>
     `,
     data() {

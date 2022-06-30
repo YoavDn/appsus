@@ -1,4 +1,4 @@
-.note-preview-contianer {
+.note-preview-container {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -10,16 +10,16 @@
     border-radius: 1rem;
 }
 
-.note-preview-contianer img, iframe {
+.note-preview-container img, iframe {
     width: 25em;
     border-radius: 5%;
     padding-bottom: 2em;
 }
-.note-preview-contianer:hover {
+.note-preview-container:hover {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.note-preview-contianer h3, p {
+.note-preview-container h3, p {
     font-size: 2em;
     padding-bottom: 1rem;
 }

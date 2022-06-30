@@ -10,7 +10,7 @@ export default {
                     </li>
                 </ul>
             </div>
-            <button @click="onAddNote" class="add-note-btn">Add note</button>
+            <button v-if="isExpand" @click="onAddNote" class="add-note-btn">Add note</button>
         </div>
     `,
     data() {

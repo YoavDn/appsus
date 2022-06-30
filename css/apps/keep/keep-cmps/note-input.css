@@ -35,7 +35,7 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    padding: 1.5rem;
+    padding: .5rem;
     border-radius: 2rem;
     justify-content: space-evenly;
 }
@@ -44,10 +44,11 @@
     font-size: 2rem;
     font-weight: 300;
     width: 100%;
-    padding: 2rem;
-    height: 10rem;
+    /* padding: 2rem; */
+    height: 5rem;
     background: white;
-    overflow: auto;
+    /* overflow: auto; */
+    overflow-y: scroll;
     padding-left: 3rem;
 }
 
@@ -63,6 +64,7 @@
     border: none;
     text-decoration: underline;
     text-align: left;
+    font-weight: bold;
 }
 
 .btns-container {
