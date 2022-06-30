@@ -1,0 +1,67 @@
+.side-bar {
+    height: 92vh;
+    flex-basis: 20%;
+    border-right: solid 1px var(--soft-bg-clr);
+    padding: 1rem;
+}
+
+.compose-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-block: 2rem;
+    padding: 0 2rem;
+    line-height: 4rem;
+    border-radius: 1rem;
+    transition: box-shadow .3s;
+    color: var(--sub-txt-clr);
+    margin-inline-start: 2rem;
+}
+
+.compose-btn span {
+    margin-inline-end: 1rem;
+    color: var(--main-brand-clr);
+
+}
+
+.compose-btn:hover {
+    box-shadow: 1px 2px 8px var(--sub-txt-clr);
+    color: var(--main-txt-clr);
+}
+
+.side-bar-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.side-bar-btn {
+    width: 80%;
+    margin: auto;
+    text-align: start;
+    padding: 1.3rem 1rem;
+    font-size: 1.3rem;
+    color: var(--main-txt-clr);
+    border: none;
+    background: none;
+}
+
+.side-bar-btn:hover {
+    background-color: var(--bg-gray);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.side-bar-btn span {
+    margin-inline-end: 1em;
+    color: var(--sub-txt-clr);
+}
+
+
+.active {
+    color: var(--main-brand-clr);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: var(--mail-brand-bg);
+}

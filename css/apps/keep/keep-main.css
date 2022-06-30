@@ -2,12 +2,15 @@
 @import './keep-cmps/note-input.css';
 @import './keep-cmps/notes-list.css';
 @import './keep-cmps/notes-preview.css';
+@import './keep-cmps/note-side-bar.css';
 
 
 .keep-app-container {
-    display: flex;
+    margin-inline: 3rem;
+
+}
+
+.main-container {
+    flex-basis: 80%;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5em;
 }

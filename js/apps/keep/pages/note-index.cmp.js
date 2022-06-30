@@ -7,29 +7,34 @@ import noteTodo from "../cmps/note-todo.cmp.js"
 import { storageService } from "../../../services/async-storage-service.js"
 import keepSideBar from "../cmps/keep-side-bar.cmp.js"
 
+
 export default {
     template: `
-    <section class="keep-app-container">
-        <div class="input-container shadow">
-    
-            <note-text @noteAdded="addNote" v-if="isNoteText"/>
-            <note-img @noteAdded="addNote" v-if="isNoteImg"/>
-            <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
-            <note-todo @noteAdded="addNote" v-if="isNoteTodo"/>
+    <section class="keep-app-container flex">
+        <keep-side-bar />
+        <section class="main-container">
+            <div class="input-container shadow">
 
-            <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment"></i></button>
-            <button @click="displayImageInput" class="note-type-btn"><i class="fa-solid fa-image"></i></button>
-            <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube"></i></button>
-            <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list"></i></button>
+                 <note-text @noteAdded="addNote" v-if="isNoteText"/>
+                 <note-img @noteAdded="addNote" v-if="isNoteImg"/>
+                 <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
+                 <note-todo @noteAdded="addNote" v-if="isNoteTodo"/>
 
-        </div>
-        <section class="notes-list-container">
-            <!-- Pinned list -->
-            <h3 v-if="pinnedNotes.length" class="pinned-header" >Pinned Notes: </h3>
-            <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
-            <!-- Regular list -->
-            <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote":notes="notes"/>
+                 <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment"></i></button>
+                 <button @click="displayImageInput" class="note-type-btn"><i class="fa-solid fa-image"></i></button>
+                 <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube"></i></button>
+                 <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list"></i></button>
+
+            </div>
+            <section class="notes-list-container flex-column">
+                <!-- Pinned list -->
+                <h3 v-if="pinnedNotes.length" class="pinned-header" >Pinned Notes: </h3>
+                <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
+                <!-- Regular list -->
+                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote":notes="notes"/>
+            </section>
         </section>
+       
     </section>
     
     `,
@@ -38,7 +43,8 @@ export default {
         noteText,
         noteImg,
         noteVideo,
-        noteTodo
+        noteTodo,
+        keepSideBar
     },
     data() {
         return {

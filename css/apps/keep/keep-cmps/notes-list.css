@@ -1,5 +1,5 @@
 .notes-list-container {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -20,4 +20,3 @@
 .pinned-header {
     align-self: flex-start;
 }
-

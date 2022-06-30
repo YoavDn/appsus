@@ -55,11 +55,8 @@
 }
 
 @media screen and (max-width: 869px) {
-
     .mail-item {
         font-size: 85%;
         padding: .8rem;
     }
-
-
 }

@@ -28,12 +28,14 @@
 }
 
 .input-container {
-    width: 45rem;
+    width: 60%;
+    margin: auto;
+    margin-block: 3rem;
     display: flex;
     align-items: center;
     gap: 2rem;
     padding: 1.5rem;
-    margin: 1rem;
+
     border-radius: 2rem;
 }
 
@@ -46,17 +48,18 @@
     background: white;
     overflow: auto;
     padding-left: 3rem;
-  }
+}
 
-  .text_area li {
+.text_area li {
     list-style: disc;
     font-size: 1.3rem;
-  }
-  .add-note-btn {
+}
+
+.add-note-btn {
     width: 7rem;
     font-size: 1rem;
     background: none;
     border: none;
     text-decoration: underline;
     text-align: left;
-  }
+}
