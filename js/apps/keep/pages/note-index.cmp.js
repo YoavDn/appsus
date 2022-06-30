@@ -11,7 +11,7 @@ import keepSideBar from "../cmps/keep-side-bar.cmp.js"
 export default {
     template: `
     <section class="keep-app-container flex">
-        <keep-side-bar />
+        <keep-side-bar @filter="setFilter"/>
         <section class="main-container">
             <div class="input-container shadow">
 
@@ -20,10 +20,12 @@ export default {
                  <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
                  <note-todo @noteAdded="addNote" v-if="isNoteTodo"/>
 
-                 <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment"></i></button>
-                 <button @click="displayImageInput" class="note-type-btn"><i class="fa-solid fa-image"></i></button>
-                 <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube"></i></button>
-                 <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list"></i></button>
+                 <div @click="activate" class="btns-container flex">
+                    <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment note-type-btn type-active"></i></button>
+                    <button @click="displayImageInput" class="note-type-btn "><i class="fa-solid fa-image note-type-btn"></i></button>
+                    <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube note-type-btn"></i></button>
+                    <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list note-type-btn"></i></button>
+                 </div>
 
             </div>
             <section class="notes-list-container flex-column">
@@ -31,7 +33,7 @@ export default {
                 <h3 v-if="pinnedNotes.length" class="pinned-header" >Pinned Notes: </h3>
                 <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
                 <!-- Regular list -->
-                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote":notes="notes"/>
+                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote":notes="notesToDisplay"/>
             </section>
         </section>
        
@@ -54,6 +56,7 @@ export default {
             isNoteTodo: false,
             notes: null,
             pinnedNotes: null,
+            filterBy: null,
         }
     },
     created() {
@@ -133,6 +136,19 @@ export default {
                     console.log('note = ', note)
                 })
         },
+
+        setFilter(type){
+            this.filterBy = type
+            console.log('type = ', type)
+        },
+
+        activate(e) {
+            if (!e.target.classList.contains('note-type-btn')) return
+            document.querySelectorAll('.note-type-btn').forEach(el => el.classList.remove('type-active'))
+            e.target.classList.add('type-active');
+
+        },
+
         displayTextInput() {
             this.isNoteText = true
             this.isNoteVideo = false
@@ -161,6 +177,10 @@ export default {
         }
     },
     computed: {
+        notesToDisplay(){
+            if (!this.filterBy) return this.notes
+            return this.notes.filter((note) => note.type === this.filterBy)
+        },
     },
 
 }

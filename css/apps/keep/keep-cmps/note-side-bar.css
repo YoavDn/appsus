@@ -1,6 +1,7 @@
 .side-bar {
     height: 92vh;
-    flex-basis: 20%;
+    min-width: 11rem !important;
+    /* flex-basis: 20%; */
     border-right: solid 1px var(--soft-bg-clr);
     padding: 1rem;
 }
@@ -57,10 +58,16 @@
     margin-inline-end: 1em;
     color: var(--sub-txt-clr);
 }
-
+.side-bar-keep{
+    height: 92vh;
+    /* flex-basis: 20%; */
+    min-width: 19rem;
+    border-right: solid 1px var(--soft-bg-clr);
+    padding: 1rem;
+}
 
 .active {
-    color: var(--main-brand-clr);
+    color: #d93025;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     background-color: var(--mail-brand-bg);

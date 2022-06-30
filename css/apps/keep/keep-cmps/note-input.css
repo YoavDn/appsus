@@ -21,22 +21,23 @@
 }
 
 .note-type-btn {
-    border: 0.5px solid #0000005c;
+    border: none;
     background: none;
+    color: lightgray;
     padding: 0.5rem;
-    border-radius: 50%;
+   
 }
 
 .input-container {
-    width: 60%;
+    width: 50%;
     margin: auto;
     margin-block: 3rem;
     display: flex;
     align-items: center;
     gap: 2rem;
     padding: 1.5rem;
-
     border-radius: 2rem;
+    justify-content: space-evenly;
 }
 
 .text_area {
@@ -62,4 +63,13 @@
     border: none;
     text-decoration: underline;
     text-align: left;
+}
+
+.btns-container {
+    gap: .5rem;
+}
+
+.type-active {
+    color: black;
+    background-color: white;
 }

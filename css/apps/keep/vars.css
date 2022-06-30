@@ -1,7 +1,10 @@
 
-
 :root {
+    --dark-bg: #404040;
+    --star-clr: rgba(248, 183, 32, 0.96);
+    --blue: #4285f4;
     --clr: white;
 }
+
 
 

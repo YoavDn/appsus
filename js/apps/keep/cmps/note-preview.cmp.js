@@ -18,7 +18,7 @@ export default {
         <iframe class="embededVideo" :src=note.info.url frameborder="0"></iframe>
         </div>
 
-        <div v-if="note.type === 'type-todos'" class="type-todo" :contentEditable="note.isEditAble">
+        <div v-if="note.type === 'note-todos'" class="type-todo" :contentEditable="note.isEditAble">
             <h3 :class="'note-title ' + note.id">{{note.info.title}}</h3>
             <ul>
                 <li v-for="todo in note.info.todos">

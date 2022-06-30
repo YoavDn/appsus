@@ -18,7 +18,7 @@ export default {
             isExpand: false,
             isDone: false,
             note: {
-                type: 'type-todos',
+                type: 'note-todos',
                 isPinned: false,
                 info: {
                     title: '',
