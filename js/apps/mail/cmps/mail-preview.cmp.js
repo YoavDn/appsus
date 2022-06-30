@@ -15,7 +15,7 @@ export default {
          @mouseover="isHovered = true"
          @mouseleave="isHovered = false">
             <h2 class="item-subject bold">{{mail.subject}}</h2>
-            <h2 class="thin"> - {{bodyText}}</h2>
+            <h2 class="thin"> - {{mail.body}}</h2>
         </div>
         <div v-if="!isHovered" class="item-date"
          @mouseover="isHovered = true"
@@ -34,6 +34,7 @@ export default {
     `,
     data() {
         return {
+
             isSelected: false,
             isHovered: false
         }
@@ -70,4 +71,5 @@ export default {
             return this.mail.body
         }
     },
+    created() { }
 }

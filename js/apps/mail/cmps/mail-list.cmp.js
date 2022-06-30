@@ -1,13 +1,13 @@
 import { mailService } from '../services/mail.service.js'
 import mailPreview from './mail-preview.cmp.js'
+import { eventBus } from '../../../services/eventBus-service.js'
 
 
 
 export default {
-    // props: ['mails'],
     template: `
         <section class="mail-list">
-            <div v-for="mail in mails" class="mail-item flex align-center"
+            <div v-for="mail in mailToShow" class="mail-item flex align-center"
             :class="{read: !mail.isRead}" 
             @click="selectMail(mail)">
             <mail-preview :mail="mail" @moveToTrash="toTrash(mail)" @markAsRead="markRead(mail)"/>
@@ -22,10 +22,16 @@ export default {
         return {
             mails: null,
             hovered: false,
+            activeList: null,
         }
     },
     created() {
-        mailService.query().then(mails => this.mails = mails)
+        mailService.query().then(mails => {
+            eventBus.on('changeList', (msg) => {
+                this.activeList = msg
+            })
+            return this.mails = mails
+        })
     },
     methods: {
         selectMail(mail) {
@@ -34,13 +40,18 @@ export default {
             this.$router.push(`/mail/${mail.id}`)
         },
         toTrash(mail) {
-            console.log(mail);
-            mail.trash = true
-            mailService.updateMail(mail)
+            mailService.moveToTrash(mail).then(mails => this.mails = mails)
         },
         markRead(mail) {
             mail.isRead = true
             mailService.updateMail(mail)
+        }
+    },
+
+    computed: {
+        mailToShow() {
+            if (!this.mails) return
+            return mailService.filterByActiveList(this.activeList, this.mails)
         }
     }
 }

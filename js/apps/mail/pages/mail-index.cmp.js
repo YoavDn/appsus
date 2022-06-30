@@ -49,7 +49,9 @@ export default {
         },
         sentMail(mail) {
             this.isNewMail = false
-            mailService.addMail(mail).then(mails => this.mails = mails)
+            mailService.addMail(mail).then(() => {
+                this.mails.push(mail)
+            })
         },
         selected(mail) {
             this.selectedMail = mail

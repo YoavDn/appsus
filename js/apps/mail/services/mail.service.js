@@ -6,20 +6,25 @@ import { utilService } from '../../../services/util-service.js'
 
 
 const MAIL_KEY = 'mailsDB'
+const TRASH_KEY = 'trash'
 _createMails()
 
 export const mailService = {
     query,
     addMail,
     getMailById,
-    updateMail
-
+    updateMail,
+    moveToTrash,
+    filterByActiveList
 }
 
 function query() {
     return storageService.query(MAIL_KEY)
 }
 
+function _queryTrash() {
+    return storageService.query(TRASH_KEY)
+}
 
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
@@ -33,8 +38,10 @@ function _createMails() {
 
 function addMail(mail) {
     mail.sentAt = Date.now()
-    storageService.post(MAIL_KEY, mail,)
-    return query()
+    console.log(mail);
+
+    return storageService.post(MAIL_KEY, mail,)
+
 
 }
 
@@ -45,4 +52,18 @@ function getMailById(id) {
 
 function updateMail(mail) {
     storageService.put(MAIL_KEY, mail)
+}
+
+function moveToTrash(mail) {
+    storageService.post(TRASH_KEY, mail)
+    storageService.remove(MAIL_KEY, mail)
+    return query()
+}
+
+function filterByActiveList(actvieList, mails) {
+    if (actvieList === 'starred') {
+        return mails.filter(mail => mail.isStar)
+    }
+
+    return mails
 }
