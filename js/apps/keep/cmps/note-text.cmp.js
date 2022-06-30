@@ -26,12 +26,8 @@ export default {
     },
     methods: {
         onAddNote() {
-
             if (this.note.info.title === '' && this.note.info.txt === '') return
-            notesService.addNote(this.note)
-            this.$router.go()
-
-
+            this.$emit('noteAdded', this.note)
         },
 
 

@@ -1,7 +1,9 @@
+import { notesService } from "../keep-services/note.service.js"
+
 export default {
     props: ['note'],
     template: `
-        <div v-if="note.type === 'note-text'" class="type-text">
+        <div v-if="note.type === 'note-text'" class="type-text" >
             <h3>{{note.info.title}}</h3>
             <p>{{note.info.txt}}</p>
         </div>
@@ -24,18 +26,14 @@ export default {
                 </li>
             </ul>
         </div>
-        <div class="edit-btns-container">
-            <button class="edit-btn"><i class="fas fa-palette"></i></button>
-            <button class="edit-btn"><i class="fa-solid fa-trash-can"></i></button>
-            <button class="edit-btn"><i class="fa-solid fa-thumbtack"></i></button>
-            <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
-        </div>
+
     `,
     data() {
         return {
         }
     },
     methods: {
+
     },
     computed: {
     },

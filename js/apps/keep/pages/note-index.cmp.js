@@ -10,10 +10,10 @@ export default {
     <section class="keep-app-container">
         <div class="input-container shadow">
 
-            <note-text v-if="isNoteText"/>
-            <note-img v-if="isNoteImg"/>
-            <note-video v-if="isNoteVideo"/>
-            <note-todo v-if="isNoteTodo"/>
+            <note-text @noteAdded="addNote" v-if="isNoteText"/>
+            <note-img @noteAdded="addNote" v-if="isNoteImg"/>
+            <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
+            <note-todo @noteAdded="addNote" v-if="isNoteTodo"/>
 
             <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment"></i></button>
             <button @click="displayImageInput" class="note-type-btn"><i class="fa-solid fa-image"></i></button>
@@ -22,7 +22,7 @@ export default {
 
         </div>
         <section class="notes-list-container">
-            <note-list :notes="notes"/>
+            <note-list @removeNote="removeNote" :notes="notes"/>
         </section>
     </section>
     
@@ -53,6 +53,19 @@ export default {
                     this.notes = res
                     console.log('this.notes = ', this.notes)
                 })
+        },
+        removeNote(noteId){
+            notesService.remove(noteId)
+            .then(() => {
+                const idx = this.notes.findIndex((note) => note.id === noteId)
+                this.notes.splice(idx, 1)
+            })
+        },
+        addNote(note){
+            notesService.addNote(note)
+            .then(() => {
+                this.notes.unshift(note)
+            })
         },
         displayTextInput() {
             this.isNoteText = true

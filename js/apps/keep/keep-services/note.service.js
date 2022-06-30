@@ -8,6 +8,8 @@ export const notesService = {
     query,
     get,
     addNote,
+    update,
+    remove
 }
 
 function query(){
@@ -28,6 +30,14 @@ function get(noteId) {
     return storageService.get(NOTES_KEY, noteId)
 }
 
+function update(note) {
+    storageService.put(NOTES_KEY, note)
+}
+
+function remove(noteId) {
+    return storageService.remove(NOTES_KEY, noteId)
+}
+
 function addNote(note) {
     const newNote = {
         type: note.type,
@@ -36,6 +46,5 @@ function addNote(note) {
         style: note.style,
     }
 
-    storageService.post(NOTES_KEY, newNote)
-    .then(console.log('newNote = ', newNote))
+    return storageService.post(NOTES_KEY, newNote)
 }
