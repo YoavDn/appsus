@@ -3,7 +3,9 @@ import { eventBus } from "../../../services/eventBus-service.js"
 export default {
     props: ['mails'],
     template: `
-    <section v-if="mails" class="side-bar">
+    
+    <button v-if="mobile" @click="openSideBar" class="hamburger"><i class="fa-solid fa-bars"></i></button>
+    <section v-if="mails" class="side-bar" :class="sideBarStyle">
         <button class="compose-btn shadow" @click="$emit('openNewMail')"> <span>&plus;</span> Compose</button>
         <div @click="activate" class="side-bar-items">
             <button :class="activeStyle"  @click="toInbox" class="side-bar-btn bold"><span><i class="fa-solid fa-inbox"></i></span>Inbox <span>{{ureadCount}}</span></button>
@@ -13,24 +15,31 @@ export default {
             <button @click="toTrashList" class="side-bar-btn"><span><i class="fa-solid fa-trash"></i></span>Trash</button>
         </div>
     </section>
+    <div v-if="sideBarOpen" class="overlay"></div>
     `,
     data() {
         return {
-            activeSidebar: 'true'
+            activeSidebar: 'true',
+            mobile: false,
+            sideBarOpen: false
         }
     },
     methods: {
         toTrashList() {
+            this.sideBarOpen = false
             eventBus.emit('changeList', 'trash')
         },
         toStarredList() {
+            this.sideBarOpen = false
             eventBus.emit('changeList', 'starred')
         },
         toInbox() {
+            this.sideBarOpen = false
             this.activeSidebar = !this.activeSidebar
             eventBus.emit('changeList', 'inbox')
         },
         toSent() {
+            this.sideBarOpen = false
             eventBus.emit('changeList', 'sent')
         },
         activate(e) {
@@ -39,6 +48,9 @@ export default {
             e.target.classList.add('active');
 
         },
+        openSideBar() {
+            this.sideBarOpen = true
+        },
     },
     computed: {
         ureadCount() {
@@ -46,6 +58,13 @@ export default {
         },
         activeStyle() {
             return { active: this.activeSidebar }
+        },
+        sideBarStyle() {
+            return { open: this.sideBarOpen, }
         }
+
     },
+    mounted() {
+        if (document.body.clientWidth < 750) this.mobile = true
+    }
 }

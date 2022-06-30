@@ -9,7 +9,7 @@ import { mailService } from '../services/mail.service.js'
 export default {
     template: `
     <section class="mail-container flex">
-        <mail-side-bar @openNewMail="newMail" :mails="mails"/>
+        <mail-side-bar  @openNewMail="newMail" :mails="mails"/>
         <router-view :mails='mails' @trashed="movedToTrash"/>
         <new-mail @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
     </section>
@@ -27,7 +27,8 @@ export default {
             mails: null,
             isNewMail: false,
             selectedMail: null,
-
+            mobile: null,
+            sideBarOpen: false
         }
     },
     created() {
@@ -35,7 +36,6 @@ export default {
             this.$router.push('/mail/mails')
             this.mails = mails
         })
-
         console.log(this.$router);
     },
     methods: {
@@ -59,10 +59,10 @@ export default {
                 const idx = this.mails.findIndex(m => m.id === mail.id)
                 this.mails.splice(idx, 1)
             })
-        }
+        },
     },
-    computed: {
-    },
+    computed: {},
+
 
 }
 

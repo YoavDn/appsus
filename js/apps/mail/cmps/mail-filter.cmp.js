@@ -5,6 +5,7 @@ export default {
     props: ['mails'],
     template: `
         <div class="filter-search-bar wrapper ">
+            
             <form @click="suggestionsOpen = true" autocomplete="off" >
                 <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <input class="search" v-model="query" @input.prevent="makeSuggestion" name="search-bar" type="search" placeholder="Search mail">
@@ -49,7 +50,7 @@ export default {
         stringDate(date) {
             const strDate = new Date(date).toLocaleString()
             return strDate
-        }
+        },
     },
     computed: {},
     mounted() {
