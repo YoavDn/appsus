@@ -13,7 +13,7 @@ export default {
             <div v-for="mail in mailToShow" class="mail-item flex align-center"
             :class="{read: mail.isRead}" 
             @click="selectMail(mail)">
-            <mail-preview :mail="mail" @movedToTrash="toTrash" @markAsRead="markRead(mail)"/>
+            <mail-preview :mail="mail" @movedToTrash="toTrash" @markAsRead="markRead(mail)" @selectedMail="selected"/>
             </div>
         </section>  
     `,
@@ -26,6 +26,7 @@ export default {
         return {
             hovered: false,
             activeList: null,
+            selectedMails: null
         }
     },
     created() {
@@ -46,6 +47,9 @@ export default {
         markRead(mail) {
             mail.isRead = true
             mailService.updateMail(mail)
+        },
+        selected(mail) {
+            console.log(mail);
         }
     },
 

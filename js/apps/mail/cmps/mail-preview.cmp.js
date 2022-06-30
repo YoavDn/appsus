@@ -1,7 +1,7 @@
 
 export default {
     props: ['mail'],
-    emits: ['movedToTrash', 'markAsRead'],
+    emits: ['movedToTrash', 'markAsRead', 'selectedMail'],
     template: `
         <div class="item-header flex align-center">
             <div class="item-main-actions flex">
@@ -44,7 +44,7 @@ export default {
             this.mail.isStar = !this.mail.isStar;
         },
         selectMail(e) {
-            this.$emit('selectedMail', mail.id)
+            this.$emit('selectedMail', mail)
         },
         moveToTrash() {
             this.$emit('movedToTrash', this.mail)

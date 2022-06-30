@@ -3,7 +3,7 @@ import { eventBus } from "../../../services/eventBus-service.js"
 export default {
     props: ['mails'],
     template: `
-    <section v-if="mails" class="mail-side-bar">
+    <section v-if="mails" class="side-bar">
         <button class="compose-btn shadow" @click="$emit('openNewMail')"> <span>&plus;</span> Compose</button>
         <div @click="activate" class="side-bar-items">
             <button :class="activeStyle"  @click="toInbox" class="side-bar-btn bold"><span><i class="fa-solid fa-inbox"></i></span>Inbox <span>{{ureadCount}}</span></button>
