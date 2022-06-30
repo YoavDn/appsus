@@ -5,6 +5,7 @@ import noteImg from "../cmps/note-img.cmp.js"
 import noteVideo from "../cmps/note-video.cmp.js"
 import noteTodo from "../cmps/note-todo.cmp.js"
 import { storageService } from "../../../services/async-storage-service.js"
+import keepSideBar from "../cmps/keep-side-bar.cmp.js"
 
 export default {
     template: `
