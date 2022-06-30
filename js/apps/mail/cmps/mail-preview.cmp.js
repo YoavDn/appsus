@@ -14,7 +14,7 @@ export default {
         <div class="item-content flex align-center"
          @mouseover="isHovered = true"
          @mouseleave="isHovered = false">
-            <h2 class="item-subject bold">{{mail.subject}}</h2>
+            <h2 class="item-subject bold">{{subjectText}}</h2>
             <h2 class="thin"> - {{bodyText}}</h2>
         </div>
         <div v-if="!isHovered" class="item-date"
@@ -44,7 +44,7 @@ export default {
             this.mail.isStar = !this.mail.isStar;
         },
         selectMail(e) {
-            // TODO: support this feature,
+            this.$emit('selectedMail', mail.id)
         },
         moveToTrash() {
             this.$emit('movedToTrash', this.mail)
@@ -70,6 +70,10 @@ export default {
         bodyText() {
             if (this.mail.body.length > 80) return this.mail.body.slice(0, 40) + '...'
             return this.mail.body
+        },
+        subjectText() {
+            if (this.mail.subject.length > 20) return this.mail.subject.slice(0, 20) + '...'
+            return this.mail.subject
         },
         fromOrTo() {
             if (this.mail.sent) return `To: ${this.mail.to}`

@@ -51,13 +51,11 @@ export default {
             return strDate
         }
     },
-    computed: {
-
-    },
+    computed: {},
     mounted() {
         window.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('filter-search-bar') && !e.target.classList.contains('search')) {
-                console.log(e.target);
+            if (!e.target.classList.contains('filter-search-bar')
+                && !e.target.classList.contains('search')) {
                 this.suggestionsOpen = false
             }
         })
