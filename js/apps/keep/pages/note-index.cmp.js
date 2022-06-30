@@ -11,7 +11,7 @@ export default {
     template: `
     <section class="keep-app-container">
         <div class="input-container shadow">
-
+    
             <note-text @noteAdded="addNote" v-if="isNoteText"/>
             <note-img @noteAdded="addNote" v-if="isNoteImg"/>
             <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
