@@ -44,7 +44,7 @@ export default {
             this.mail.isStar = !this.mail.isStar;
         },
         selectMail(e) {
-            this.$emit('selectedMail', mail)
+            this.$emit('selectedMail', this.mail)
         },
         moveToTrash() {
             this.$emit('movedToTrash', this.mail)
