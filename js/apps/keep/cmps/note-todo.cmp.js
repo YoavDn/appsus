@@ -46,12 +46,11 @@ export default {
                     done: null
                 }
                 this.note.info.todos.push(todo)
-                this.isDone = true
+                // this.isDone = true
 
             }
 
-            notesService.addNote(this.note)
-            this.$router.go()
+            this.$emit('noteAdded', this.note)
 
 
         },

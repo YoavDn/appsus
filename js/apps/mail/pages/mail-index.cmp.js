@@ -11,7 +11,7 @@ export default {
     <section class="mail-container flex">
         <mail-side-bar @openNewMail="newMail" :mails="mails"/>
         <!-- <mail-list v-if="!selectedMail" :mails="mails" @selectMail="selected"/> -->
-        <router-view />
+        <router-view :mails='mails'/>
         <!-- <mail-Details v-if="selectedMail" :mail="selectedMail" /> -->
         <new-mail @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
     </section>
@@ -50,7 +50,7 @@ export default {
         sentMail(mail) {
             this.isNewMail = false
             mailService.addMail(mail).then(() => {
-                this.mails.push(mail)
+                this.mails.unshift(mail)
             })
         },
         selected(mail) {

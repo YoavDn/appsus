@@ -5,6 +5,7 @@ import { eventBus } from '../../../services/eventBus-service.js'
 
 
 export default {
+    props:['mails'],
     template: `
         <section class="mail-list">
             <div v-for="mail in mailToShow" class="mail-item flex align-center"
@@ -20,18 +21,18 @@ export default {
 
     data() {
         return {
-            mails: null,
+            // mails: null,
             hovered: false,
             activeList: null,
         }
     },
     created() {
-        mailService.query().then(mails => {
-            eventBus.on('changeList', (msg) => {
-                this.activeList = msg
-            })
-            return this.mails = mails
-        })
+        // mailService.query().then(mails => {
+        //     eventBus.on('changeList', (msg) => {
+        //         this.activeList = msg
+        //     })
+        //     return this.mails = mails
+        // })
     },
     methods: {
         selectMail(mail) {
