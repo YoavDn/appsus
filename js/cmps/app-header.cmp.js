@@ -8,6 +8,7 @@ export default {
                 <ul class="flex space-between" >
                     <router-link class="router-link" to="/mail">Mail</router-link>
                     <router-link class="router-link" to="/keep">Keep</router-link>
+                    <router-link class="router-link" to="/book">Books</router-link>
 
                 </ul>
             </nav>

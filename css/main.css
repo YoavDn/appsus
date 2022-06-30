@@ -13,3 +13,7 @@
 
 /* Mail app  */
 @import "./apps/mail/mail-main.css";
+
+/* Book app */
+
+@import "./apps/book/book-main.css"

@@ -2,8 +2,6 @@ const { createApp } = Vue
 import { router } from './router.js';
 
 import appHeader from './cmps/app-header.cmp.js'
-import { eventBus } from './services/eventBus-service.js';
-
 
 const options = {
     template: `
@@ -14,11 +12,6 @@ const options = {
         appHeader,
     },
 }
-
-
-
-
-
 
 const app = createApp(options)
 app.use(router)
