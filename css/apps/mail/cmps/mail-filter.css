@@ -63,6 +63,7 @@
     border: 1px solid grey;
     border-radius: 5px;
     width: 100%;
+    font-size: 1.6rem;
     padding: 1rem 3rem;
     outline: 0;
     background-color: var(--soft-bg-clr);
