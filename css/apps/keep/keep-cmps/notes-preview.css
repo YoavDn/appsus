@@ -3,9 +3,6 @@
     border-radius: 0.3rem;
     padding: 2em;
     overflow-wrap: break-word;
-    
-    /* animation: openAnim 1s ease-in; */
-
 }
 
 .note-preview-container img, iframe {
@@ -26,7 +23,6 @@
  .note-preview-container p {
     margin-top: 0;
     font-size: 15px;
-    /* padding-top: 5rem; */
  }
 
 
@@ -40,7 +36,6 @@
 }
 
 .type-todo li {
-
     list-style: disc;
     display: list-item;
 }
@@ -48,12 +43,9 @@
 .edit-btns-container {
     display: flex;
     gap: 1rem;
-    width: 100%;
-    /* align-items: flex-end; */
     justify-content: end;
     padding-right: 3rem;
-    /* line-height: 10px; */
-    /* height: 13px; */
+    padding-top: 2rem;
 }
 
 
@@ -64,7 +56,6 @@
     border: none;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     padding: -2px;
     margin: 0;
 }
@@ -94,6 +85,7 @@
 #todo-input {
     background: none;
     border-bottom: solid 0.1em rgb(184, 181, 181);
+    font-size: 1.6rem;
 }
 
 .plus-btn {

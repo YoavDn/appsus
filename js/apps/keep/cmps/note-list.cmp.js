@@ -3,7 +3,7 @@ import { notesService } from "../keep-services/note.service.js"
 import { storageService } from "../../../services/async-storage-service.js"
 
 export default {
-    emits: ["removeNote","updateNote","pinNote","unPinNote"],
+    emits: ["removeNote","updateNote","pinNote","unPinNote", "duplicateNote"],
     props: ["notes"],
     template: `
     <section class="notes-list">
@@ -35,6 +35,10 @@ export default {
 
                     <button class="edit-btn" :class="{pinned: note.isPinned}" data-title="Pin" @click.stop="pin(note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-thumbtack"></i>
+                    </button>
+
+                    <button v-if="!note.isPinned" class="edit-btn" data-title="Pin" @click.stop="$emit('duplicateNote', note)" :style="{color: note.style.color}">
+                        <i class="fa-solid fa-copy"></i>
                     </button>
                 </div>
             </li>
