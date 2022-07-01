@@ -3,7 +3,7 @@ export default {
     template: `
     <section class="header-container">
         <header class="main-header flex space-between">
-            <h2 class="logo">Appsus</h2>
+            <h2 @click="goToHomePage" class="logo">Appsus</h2>
             <nav class="main-nav">
                 <ul class="nav-list flex" >
                     <router-link class="router-link" to="/mail">Mail</router-link>
@@ -15,4 +15,9 @@ export default {
         </header>
     </section>
     `,
+    methods: {
+        goToHomePage() {
+            this.$router.push('/')
+        }
+    }
 }

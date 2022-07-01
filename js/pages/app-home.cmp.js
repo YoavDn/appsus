@@ -9,5 +9,4 @@ export default {
         <img src="/assest/images/circles.svg" alt="">
     </section>
     `,
-
 }
