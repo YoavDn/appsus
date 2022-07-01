@@ -65,7 +65,7 @@ function updateMail(mail) {
 
 function moveToTrash(mail) {
     storageService.add(TRASH_KEY, mail)
-    return storageService.remove(MAIL_KEY, mail)
+    return storageService.remove(MAIL_KEY, mail.id)
 }
 
 function filterByActiveList(actvieList, mails) {
@@ -78,7 +78,6 @@ function filterByActiveList(actvieList, mails) {
     } else if (actvieList === 'sent') {
         return mails.filter(mail => mail.sent)
     }
-
     return mails.filter(mail => !mail.sent)
 }
 

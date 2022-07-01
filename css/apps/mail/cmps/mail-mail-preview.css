@@ -14,8 +14,7 @@
 
 .item-main-actions {
     flex-basis: 30%;
-    justify-content: space-around;
-
+    justify-content: center;
 }
 
 .item-main-actions input {

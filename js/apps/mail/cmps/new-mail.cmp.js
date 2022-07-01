@@ -29,6 +29,7 @@ export default {
                 body: '',
                 sent: true,
                 isRead: true,
+                isSelected: false,
             },
             mobile: false,
         }

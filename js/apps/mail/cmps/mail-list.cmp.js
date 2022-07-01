@@ -11,10 +11,17 @@ export default {
         <section class="mail-list">
             <mail-filter :mails="mails" />
             <button v-if="activeList === 'trash'" class="shadow clear-trash-btn" @click="clearTrash"><span><i class="fa-solid fa-trash"></i></span>Clear Trash  </button>
+            <nav class="selected-actions">
+                 <button @click="deleteSelected" data-tilte="Move to trash"><i class="fa-solid fa-trash"></i></button>
+                 <button  @click="markSelected" data-tilte="Mark as read"><i class="fa-solid fa-envelope-open"></i></button>
+            </nav>
             <div v-if="mailToShow.length > 0" v-for="mail in mailToShow" class="mail-item flex align-center"
             :class="{read: mail.isRead}" 
-            @click="selectMail(mail)">
-            <mail-preview :mail="mail" @movedToTrash="toTrash" @markAsRead="markRead(mail)" @selectedMail="selected"/>
+            @click="toMailDetails(mail)">
+            <mail-preview :mail="mail" 
+            @movedToTrash="toTrash" 
+            @markAsRead="markRead(mail)"
+            @selectedMail="selected(mail)"/>
             </div>
              <div v-else class="no-result-msg">
                 <h2>No Mails in {{activeList}}.</h2>  
@@ -30,7 +37,6 @@ export default {
         return {
             hovered: false,
             activeList: 'inbox',
-            selectedMails: null
         }
     },
     created() {
@@ -48,7 +54,7 @@ export default {
         })
     },
     methods: {
-        selectMail(mail) {
+        toMailDetails(mail) {
             mail.isRead = true
             mailService.updateMail(mail)
             this.$router.push(`/mail/${mail.id}`)
@@ -62,6 +68,18 @@ export default {
         },
         clearTrash() {
             mailService.clearTrash()
+        },
+
+        selected(mail) {
+            mail.isSelected = !mail.isSelected
+        },
+        deleteSelected() {
+            const mailsToTrash = this.mails.filter(mail => mail.isSelected)
+            this.$emit("deleteSelected", mailsToTrash)
+        },
+        markSelected() {
+            const mailsToRead = this.mails.filter(mail => mail.isSelected)
+            this.$emit("markReadSelected", mailsToRead)
         }
     },
     computed: {

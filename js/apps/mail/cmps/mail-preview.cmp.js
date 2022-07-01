@@ -45,7 +45,7 @@ export default {
         toggleStar() {
             this.mail.isStar = !this.mail.isStar;
         },
-        selectMail(e) {
+        selectMail() {
             this.$emit('selectedMail', this.mail)
         },
         moveToTrash() {
@@ -63,7 +63,7 @@ export default {
         onLeaveHover() {
             if (this.mobile) return
             this.isHovered = false
-        }
+        },
 
     },
     computed: {

@@ -11,10 +11,12 @@ export default {
     template: `
     <section class="mail-container flex">
         <mail-side-bar  @openNewMail="newMail" :mails="mails"/>
-        <router-view :mails='mails' @trashed="movedToTrash"/>
+        <router-view :mails='mails'
+        @trashed="movedToTrash" 
+        @deleteSelected="deleteSelected" 
+        @markReadSelected="markReadSelected"/>
         <new-mail @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
     </section>
-    
     `,
     components: {
         mailList,
@@ -51,17 +53,27 @@ export default {
                 this.mails.unshift(mail)
             })
         },
-        selected(mail) {
-            this.selectedMail = mail
-        },
         movedToTrash(mail) {
             mailService.moveToTrash(mail).then(() => {
                 const idx = this.mails.findIndex(m => m.id === mail.id)
+                console.log(idx);
                 this.mails.splice(idx, 1)
+            })
+        },
+        deleteSelected(selectedMails) {
+            selectedMails.forEach(mail => {
+                console.log(mail);
+                this.movedToTrash(mail)
+            })
+        },
+        markReadSelected(selectedMail) {
+            selectedMail.forEach(mail => {
+                const idx = this.mails.findIndex(m => m.id === mail.id)
+                console.log(mail, idx);
+                this.mails[idx].isRead = true
+                mailService.updateMail(this.mails[idx])
             })
         },
     },
     computed: {},
-
 }
-

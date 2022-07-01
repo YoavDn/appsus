@@ -43,18 +43,17 @@
 }
 
 .suggestion-item:hover {
-
     background-color: var(--soft-bg-clr);
 }
 
 
-.search-btn {
+.hamburger {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 1rem;
     border: none;
-
+    font-size: 2rem;
     background: none;
     color: var(--sub-txt-clr);
 }
@@ -64,7 +63,7 @@
     border-radius: 5px;
     width: 100%;
     font-size: 1.6rem;
-    padding: 1rem 3rem;
+    padding: 1rem 4rem;
     outline: 0;
     background-color: var(--soft-bg-clr);
     transition: background-color .3s;
@@ -87,11 +86,6 @@
 .filter-btn span {
     margin-inline-end: .3rem;
 }
-
-.hamburger {
-    display: none;
-}
-
 
 @media screen and (max-width: 750px) {
     .hamburger {

@@ -1,56 +1,61 @@
 [
     {
-        "id": "e3101",
+        "id": "7",
         "from": "Afik Zehavi",
         "subject": "Miss you!",
         "body": "Would love to catch up sometimes",
         "isRead": false,
         "sentAt": 1551133930594,
         "to": "momo@momo.com",
-        "isStar": false
+        "isStar": false,
+        "isSelected": false
     },
     {
-        "id": "e1241",
+        "id": "6",
         "from": "Afik Zehavi",
         "subject": "Miss you!",
         "body": "Would love to catch up sometimes",
         "isRead": false,
         "sentAt": 1551133930594,
         "to": "momo@momo.com",
-        "isStar": true
+        "isStar": true,
+        "isSelected": false
     },
     {
-        "id": "e103",
+        "id": "5",
         "from": "Some random person",
         "subject": "omg im some random haha",
         "body": "my wife left me for my this relly good looking guy, his name is lucas and he's french",
         "isRead": false,
         "sentAt": 1551133930194,
         "to": "omg@puki.com",
-        "isStar": false
+        "isStar": false,
+        "isSelected": false
     },
     {
-        "id": "dfbh45v101",
+        "id": "4",
         "from": " Twitter",
         "subject": "Dennis Martin Herbers shared",
         "body": "haha jk.. or am i",
         "isRead": false,
         "sentAt": 155113392544,
         "to": "pukiShuki@puki.com",
-        "isStar": false
+        "isStar": false,
+        "isSelected": false
     },
     {
-        "id": "dfvvv1101",
+        "id": "3",
         "from": "ZOOM",
         "subject": "Don't Miss Out on New Features",
         "body": "haha jk.. or am i",
         "isRead": false,
         "sentAt": 1551233930544,
         "to": "pukiShuki@puki.com",
-        "isStar": false
+        "isStar": false,
+        "isSelected": false
     },
     {
-        "id": "dfvvvdff101",
+        "id": "2",
         "from": "user@puki.com",
         "subject": "look behind you",
         "body": "",
@@ -58,10 +63,11 @@
         "sentAt": 1551233930544,
         "to": "pukiShuki@puki.com",
         "isStar": false,
-        "sent": true
+        "sent": true,
+        "isSelected": false
     },
     {
-        "id": "dfjjf421",
+        "id": "Q1",
         "subject": "Vue 3 - Were right behind you",
         "from": "Even u",
         "to": "to",
@@ -69,6 +75,7 @@
         "sent": false,
         "body": "With Build Tools#\nA build setup allows us to use Vue Single-File Components (SFCs). The official Vue build setup is based on Vite, a frontend build tool that is modern, lightweight and extremely fast.\n\nOnline#\nYou can try Vue with SFCs online on StackBlitz. StackBlitz runs the Vite-based build setup directly in the browser, so it is almost identical to the local setup but doesn't require installing anything on your machine.\n\n",
         "isStar": false,
-        "sentAt": 1551233130544
+        "sentAt": 1551233130544,
+        "isSelected": false
     }
 ]
