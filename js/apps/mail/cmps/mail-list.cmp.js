@@ -67,7 +67,9 @@ export default {
             mailService.updateMail(mail)
         },
         clearTrash() {
-            mailService.clearTrash()
+            mailService.clearTrash().then(mails => {
+                this.$emit("clearTrash", mails)
+            })
         },
 
         selected(mail) {

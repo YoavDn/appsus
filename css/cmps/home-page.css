@@ -1,0 +1,49 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    height: 92vh;
+    align-items: center;
+}
+
+.hero-text {
+    flex-basis: 40%;
+    color: var(--main-txt-clr);
+    justify-self: center;
+    text-align: end;
+    /* margin-inline-start: 14rem; */
+    font-size: 5.7rem;
+}
+
+.hero-text h3 {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.a-logo {
+    font-family: 'Limelight', cursive;
+}
+
+@media screen and (max-width: 750px) {
+
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-text {
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 7rem;
+    }
+
+    .hero-text h3 {
+        font-size: 2rem;
+    }
+
+    .hero img {
+        flex-basis: 30%;
+        width: 300px;
+        transform: rotate(90deg);
+    }
+
+}

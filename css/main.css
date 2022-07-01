@@ -4,6 +4,7 @@
 @import './parts/helpers.css';
 @import './parts/vars.css';
 @import "./cmps/app-header.cmp.css";
+@import "./cmps/home-page.css";
 
 
 @import './parts/font.css';

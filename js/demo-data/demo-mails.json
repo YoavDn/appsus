@@ -8,7 +8,8 @@
         "sentAt": 1551133930594,
         "to": "momo@momo.com",
         "isStar": false,
-        "isSelected": false
+        "isSelected": false,
+        "trash": false
     },
     {
         "id": "6",
@@ -19,7 +20,8 @@
         "sentAt": 1551133930594,
         "to": "momo@momo.com",
         "isStar": true,
-        "isSelected": false
+        "isSelected": false,
+        "trash": false
     },
     {
         "id": "5",
@@ -30,7 +32,8 @@
         "sentAt": 1551133930194,
         "to": "omg@puki.com",
         "isStar": false,
-        "isSelected": false
+        "isSelected": false,
+        "trash": false
     },
     {
         "id": "4",
@@ -41,7 +44,8 @@
         "sentAt": 155113392544,
         "to": "pukiShuki@puki.com",
         "isStar": false,
-        "isSelected": false
+        "isSelected": false,
+        "trash": false
     },
     {
         "id": "3",
@@ -52,7 +56,8 @@
         "sentAt": 1551233930544,
         "to": "pukiShuki@puki.com",
         "isStar": false,
-        "isSelected": false
+        "isSelected": false,
+        "trash": false
     },
     {
         "id": "2",
@@ -64,7 +69,8 @@
         "to": "pukiShuki@puki.com",
         "isStar": false,
         "sent": true,
-        "isSelected": false
+        "isSelected": false,
+        "trash": false
     },
     {
         "id": "Q1",
@@ -76,6 +82,30 @@
         "body": "With Build Tools#\nA build setup allows us to use Vue Single-File Components (SFCs). The official Vue build setup is based on Vite, a frontend build tool that is modern, lightweight and extremely fast.\n\nOnline#\nYou can try Vue with SFCs online on StackBlitz. StackBlitz runs the Vite-based build setup directly in the browser, so it is almost identical to the local setup but doesn't require installing anything on your machine.\n\n",
         "isStar": false,
         "sentAt": 1551233130544,
-        "isSelected": false
+        "isSelected": false,
+        "trash": false
+    },
+    {
+        "id": "jc446",
+        "from": "Michael Polanski",
+        "subject": "Hey man, long time no see..",
+        "body": "I'm in town next week, wanna grab a beer ?",
+        "isRead": false,
+        "sentAt": 1551233930544,
+        "to": "pukiShuki@puki.com",
+        "isStar": false,
+        "trash": true
+    },
+    {
+        "id": "nb",
+        "from": "user@puki.com",
+        "subject": "look behind you",
+        "body": "",
+        "isRead": true,
+        "sentAt": 1551233930544,
+        "to": "pukiShuki@puki.com",
+        "isStar": false,
+        "sent": true,
+        "trash": true
     }
 ]

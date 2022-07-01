@@ -48,7 +48,9 @@ export default {
     },
     computed: {
         ureadCount() {
-            return this.mails.filter(mail => mail.isRead === false).length
+            const count = this.mails.filter(mail => mail.isRead === false).length
+            if (count === 0) return
+            return count
         },
         activeStyle() {
             return { active: this.activeSidebar }

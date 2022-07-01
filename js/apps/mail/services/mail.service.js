@@ -6,16 +6,13 @@ import { utilService } from '../../../services/util-service.js'
 
 
 const MAIL_KEY = 'mailsDB'
-const TRASH_KEY = 'trash'
 _createMails()
-_createTrashMails()
 
 export const mailService = {
     query,
     addMail,
     getMailById,
     updateMail,
-    moveToTrash,
     filterByActiveList,
     suggest,
     clearTrash,
@@ -26,14 +23,7 @@ function query() {
 }
 
 
-function _createTrashMails() {
-    let mails = utilService.loadFromStorage(TRASH_KEY)
-    if (!mails) {
-        mails = fetch("js/demo-data/demo-trashed-mails.json").then(res => res.json())
-            .then(res => utilService.saveToStorage(TRASH_KEY, res))
-    }
-    return mails
-}
+
 
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
@@ -45,9 +35,12 @@ function _createMails() {
 }
 
 function clearTrash() {
-    localStorage.removeItem(TRASH_KEY)
-    utilService.saveToStorage(TRASH_KEY, [])
-
+    const mails = query().then(mails => {
+        const newMails = mails.filter(mail => !mail.trash)
+        utilService.saveToStorage(MAIL_KEY, newMails)
+        return mails
+    })
+    return mails
 }
 
 function addMail(mail) {
@@ -63,22 +56,18 @@ function updateMail(mail) {
     storageService.put(MAIL_KEY, mail)
 }
 
-function moveToTrash(mail) {
-    storageService.add(TRASH_KEY, mail)
-    return storageService.remove(MAIL_KEY, mail.id)
-}
 
 function filterByActiveList(actvieList, mails) {
     if (actvieList === 'starred') {
         return mails.filter(mail => mail.isStar)
     } else if (actvieList === 'trash') {
-        return utilService.loadFromStorage(TRASH_KEY)
+        return mails.filter(mail => mail.trash)
     } else if (actvieList === 'sent') {
         return mails.filter(mail => mail.sent)
     } else if (actvieList === 'sent') {
         return mails.filter(mail => mail.sent)
     }
-    return mails.filter(mail => !mail.sent)
+    return mails.filter(mail => !mail.sent && !mail.trash)
 }
 
 

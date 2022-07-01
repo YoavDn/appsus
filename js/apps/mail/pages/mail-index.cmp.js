@@ -14,6 +14,7 @@ export default {
         <router-view :mails='mails'
         @trashed="movedToTrash" 
         @deleteSelected="deleteSelected" 
+        @clearTrash="clearTrash"
         @markReadSelected="markReadSelected"/>
         <new-mail @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
     </section>
@@ -54,11 +55,9 @@ export default {
             })
         },
         movedToTrash(mail) {
-            mailService.moveToTrash(mail).then(() => {
-                const idx = this.mails.findIndex(m => m.id === mail.id)
-                console.log(idx);
-                this.mails.splice(idx, 1)
-            })
+            const idx = this.mails.findIndex(m => m.id === mail.id)
+            this.mails[idx].trash = true
+            mailService.updateMail(this.mails[idx])
         },
         deleteSelected(selectedMails) {
             selectedMails.forEach(mail => {
@@ -74,6 +73,10 @@ export default {
                 mailService.updateMail(this.mails[idx])
             })
         },
+        clearTrash(mails) {
+            console.log(mails);
+            this.mails = mails
+        }
     },
     computed: {},
 }
