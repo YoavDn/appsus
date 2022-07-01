@@ -25,6 +25,7 @@ export default {
                     <button @click="displayImageInput" class="note-type-btn "><i class="fa-solid fa-image note-type-btn"></i></button>
                     <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube note-type-btn"></i></button>
                     <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list note-type-btn"></i></button>
+                    <button @click="displayToDoInput" class="note-type-btn"><i class="fa-solid fa-microphone"></i></button>
                  </div>
 
             </div>
@@ -33,7 +34,7 @@ export default {
                 <h3 v-if="pinnedNotes" class="pinned-header" >Pinned Notes: </h3>
                 <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
                 <!-- Regular list -->
-                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote" :notes="notesToDisplay"/>
+                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote" @duplicateNote="addNote" :notes="notesToDisplay"/>
             </section>
         </section>
        
