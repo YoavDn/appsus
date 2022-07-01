@@ -5,8 +5,8 @@ import bookFilter from '../cmps/book-filter.cmp.js'
 
 export default {
     template: `
-    <router-link class="add-book-btn" to="/book/addBook">Add new Book</router-link>
-    <div class="or-existing">
+    <div class="header-contianer">
+        <router-link class="add-book-btn" to="/book/addBook">Add new Book</router-link>
         <h2>-----OR------</h2>
         <h2>Search an existing book</h2>
     </div>

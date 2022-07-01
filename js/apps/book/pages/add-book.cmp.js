@@ -3,17 +3,19 @@ import { bookService } from '../services/book.service.js'
 
 export default {
     template: `
-    <h2 class="new-book-header" >Add new book</h2>
-    <form @submit.prevent="search">
-        <input v-model="query" type="search" placeholder="Search">
-        <button>Search</button>
-    </form>
+    <router-link class="btn-back" :to="'/book/'"> &leftarrow; Back</router-link>
+            <h2 class="new-book-header" >Add new book</h2>
+            <form class="add-book-container" @submit.prevent="search">
+                <input v-model="query" type="search" placeholder="Search">
+                <button>Search</button>
+            </form>
+
         <section v-if="googleBooks" class="google-options">
 
            <div v-for="(book, idx) in googleBooks" class="book-option">
             <div class="book-option-header">
                 <h2>{{book.volumeInfo.title}}</h2>
-                <button @click="addBook(book)">Add book</button>
+                <button @click="addBook(book)" class="preview-details-btn">Add book</button>
                 <button class="preview-details-btn" @click="togglePreview(idx)">Details</button>
             </div> 
             <section v-if="previewSections[idx]" class="preview-section">
@@ -40,6 +42,7 @@ export default {
         search() {
             bookService.getBookByQuery(this.query).then(books => {
                 this.previewSections = new Array(books.length)
+                this.query = ''
                 return this.googleBooks = books
             })
         },

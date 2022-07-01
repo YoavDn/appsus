@@ -1,0 +1,112 @@
+.preview-sale {
+    position: absolute;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    padding: 0 4px;
+    font-weight: 200;
+    border: solid white 1px;
+    top: 23px;
+    left: 25px;
+}
+
+.book-detail-page {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    margin-block-start: 4rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.book-details {
+    margin-inline-start: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+
+
+
+.book-detail-page img {
+    height: 60vh;
+}
+
+.book-description {
+    font-weight: 300;
+    width: 300px;
+    font-size: 20px;
+}
+
+.cheap {
+    color: green
+}
+
+.exp {
+    color: rgb(184, 35, 35)
+}
+
+.book-price {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-inline-start: 1rem;
+}
+
+
+
+.title-details {
+    display: flex;
+    align-items: center;
+}
+
+.book-title {
+    font-size: 40px;
+}
+
+.red {
+    color: red;
+}
+
+.book-price h3 {
+    display: flex;
+}
+
+.book-price h3 span {
+    margin-inline-start: 10px;
+}
+
+.btn-back {
+    color: var(--sub-txt-clr);
+    font-size: 20px;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    font-weight: 300;
+}
+
+.sale {
+    border: solid red 1px;
+    padding: 0 9px;
+    font-size: 18px;
+    font-weight: 200;
+    color: red;
+    margin-inline-start: 20px;
+}
+
+.book-pages {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.categories {
+    margin-inline-start: 4px;
+    color: rgb(68, 68, 68);
+    font-weight: 300;
+}
+
+.book-age {
+    font-size: 17px;
+    color: var(--main-brand-clr)
+}
