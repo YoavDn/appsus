@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         onAddNote() {
-            if (this.inText === '' && this.inText === '') return
+            if (this.inTitle === '' && this.inText === '') return
             this.note.info.title = this.inTitle
             this.note.info.txt = this.inText
             this.$emit('noteAdded', this.note)

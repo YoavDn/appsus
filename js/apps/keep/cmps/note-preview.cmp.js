@@ -1,5 +1,5 @@
 import { notesService } from "../keep-services/note.service.js"
-
+import todoList from "./todo-list.cmp.js"
 export default {
     props: ['note'],
     template: `
@@ -20,15 +20,20 @@ export default {
 
         <div v-if="note.type === 'note-todos'" class="type-todo" :contentEditable="note.isEditAble">
             <h3 :class="'note-title ' + note.id">{{note.info.title}}</h3>
-            <ul>
+            <!-- <ul>
                 <li v-for="todo in note.info.todos">
                     
                     {{todo.txt}}
                 </li>
-            </ul>
+            </ul> -->
+            <!-- todo list cmp -->
+            <todo-list :note="note"/>
         </div>
 
     `,
+    components: {
+        todoList
+    },
     data() {
         return {
 
