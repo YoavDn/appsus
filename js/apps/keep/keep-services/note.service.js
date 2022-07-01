@@ -66,7 +66,6 @@ function _createNotes() {
                 })
         }
     })
-    console.log('notes = ', notes)
 
 }
 

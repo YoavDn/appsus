@@ -21,7 +21,8 @@ export default {
                     txt: ''
                 },
                 style: {
-                    backgroundColor: '#fff'
+                    backgroundColor: '#fff',
+                    color: '#000',
                 }
             }
         }

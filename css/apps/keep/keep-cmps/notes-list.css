@@ -6,6 +6,8 @@
 
 }
 
+
+
 .notes-list ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25.625rem, 1fr));
@@ -16,6 +18,29 @@
     
 }
 
+
+
 .pinned-header {
     align-self: flex-start;
+}
+
+.focused {
+    position: absolute;
+    z-index: 100;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    min-width: 20%;
+    animation: fadeIn 0.5s;
+    
+}
+
+.selected-note span{
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: 2rem;
+    cursor: pointer;
 }

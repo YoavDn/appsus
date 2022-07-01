@@ -7,6 +7,12 @@
 /* Media queries */
 @import '../keep/keep-cmps/keep-mq.css';
 
+/* Pages */
+@import '../keep/note-details.css';
+
+/* Animations */
+@import '../../../css/anims.css';
+
 .keep-app-container {
     justify-content: center;
 }

@@ -5,13 +5,12 @@ export default {
     <section class="side-bar-keep">
 
         <div @click="activate" class="side-bar-items">
-            <button class="active" class="side-bar-btn bold" @click="$emit('filter', null)"><span></span><span>All Notes</span></button>
+            <button  class="side-bar-btn bold" @click="$emit('filter', null)"><i class="fa-solid fa-clipboard"></i> <span>All Notes</span></button>
             <button @click="$emit('filter', 'note-text')" class="side-bar-btn"><i class="fa-regular fa-comment"></i> <span>Text Notes</span></button>
             <button @click="$emit('filter', 'note-img')" class="side-bar-btn"><i class="fa-solid fa-image"></i> <span>Images Notes</span></button>
             <button @click="$emit('filter', 'note-video')" class="side-bar-btn"><i class="fab fa-youtube"></i> <span>Video Notes</span></button>
             <button @click="$emit('filter', 'note-todos')" class="side-bar-btn"><i class="fa fa-list"></i> <span>Todo Notes</span></button>
-            <!-- <button @click="toSent" class="side-bar-btn"><span><i class="fa-solid fa-paper-plane"></i></span>Sent</button> -->
-
+            
         </div>
     </section>
     `,

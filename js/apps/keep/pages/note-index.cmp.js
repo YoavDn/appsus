@@ -30,10 +30,10 @@ export default {
             </div>
             <section class="notes-list-container">
                 <!-- Pinned list -->
-                <h3 v-if="pinnedNotes.length" class="pinned-header" >Pinned Notes: </h3>
+                <h3 v-if="pinnedNotes" class="pinned-header" >Pinned Notes: </h3>
                 <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
                 <!-- Regular list -->
-                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote":notes="notesToDisplay"/>
+                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote" :notes="notesToDisplay"/>
             </section>
         </section>
        
@@ -81,13 +81,10 @@ export default {
         removeNote(noteId) {
             notesService.get(noteId)
                 .then(res => {
-                    console.log('res = ', res)
-                    // console.log('note = ', note)
                     if (res) {
                         notesService.removeFromRegularList(noteId)
                             .then(() => {
                                 const idx = this.notes.findIndex((note) => note.id === noteId)
-                                console.log('idx = ', idx)
                                 this.notes.splice(idx, 1)
                             })
                     } else {
@@ -137,13 +134,11 @@ export default {
         updateNote(note) {
             notesService.update(note)
                 .then(() => {
-                    console.log('note = ', note)
                 })
         },
 
         setFilter(type){
             this.filterBy = type
-            console.log('type = ', type)
         },
 
         activate(e) {
