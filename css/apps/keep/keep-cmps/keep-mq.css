@@ -4,7 +4,7 @@
         display: none;
     }
 
-    .keep-app-container {
+    /* .keep-app-container {
         justify-content: center;
     }
 
@@ -20,12 +20,12 @@
     .note-preview-container img,
     iframe {
         width: 15rem;
-    }
+    } */ */
 
 }
 
 @media (max-width: 700px) {
-    .notes-list ul {
+    /* .notes-list ul {
         grid-template-columns: repeat(2, 15rem);
         grid-gap: 3rem;
     }
@@ -34,5 +34,5 @@
         flex-direction: column;
         padding: 0.5rem;
         gap: 0;
-    }
+    } */
 }

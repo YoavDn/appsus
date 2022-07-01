@@ -6,7 +6,7 @@ import noteVideo from "../cmps/note-video.cmp.js"
 import noteTodo from "../cmps/note-todo.cmp.js"
 import { storageService } from "../../../services/async-storage-service.js"
 import keepSideBar from "../cmps/keep-side-bar.cmp.js"
-
+import { eventBus } from "../../../services/eventBus-service.js"
 
 export default {
     template: `
@@ -28,7 +28,7 @@ export default {
                  </div>
 
             </div>
-            <section class="notes-list-container flex-column">
+            <section class="notes-list-container">
                 <!-- Pinned list -->
                 <h3 v-if="pinnedNotes.length" class="pinned-header" >Pinned Notes: </h3>
                 <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
@@ -61,11 +61,15 @@ export default {
     },
     created() {
         this.updateNotes()
+        eventBus.on('updateNote', this.updateNote)
     },
     methods: {
         updateNotes() {
             notesService.query()
                 .then(res => {
+                    if (!res || !res.length) {
+                        res = {}
+                    }
                     this.notes = res
                 })
             notesService.queryPins()

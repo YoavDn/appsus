@@ -12,23 +12,27 @@ export default {
                 <div class="edit-btns-container">
                     
                     <button class="edit-btn">
-                        <input :id="'note'+idx"  type="color" class="input-color" @input="changeBackgroundColor($event, note)">
-                        <label :for="'note'+idx" data-title="Change color"><i class="fas fa-palette"></i></label>
+                        <input :id="'note'+ note.id"  type="color" class="input-color" @input="changeBackgroundColor($event, note)">
+                        <label :for="'note'+ note.id" data-title="Change color"><i class="fas fa-palette"></i></label>
                     </button>
                     <button class="edit-btn" @click="removeNote(note)" data-title="Remove"><i class="fa-solid fa-trash-can"></i></button>
 
-                    <button class="edit-btn" data-title="Edit" @click="editNote(note)">
+                    <button v-if="note.type !== 'note-todos'" class="edit-btn" data-title="Edit" @click="editNote(note)">
                         <i v-if="!note.isEditAble" class="fa-solid fa-pen-to-square"></i>
                         <i v-if="note.isEditAble" class="fa-solid fa-circle-check"></i>
                     </button>
-
+                    
+                    <button class="edit-btn">
+                        <input :id="'fontcolor '+ note.id"  type="color" class="input-color" @input="changeBackgroundColor($event, note)">
+                        <label :for="'fontcolor '+ note.id" class="font-color-btn">A</label>
+                    </button>
                     <button class="edit-btn" :class="{pinned: note.isPinned}" data-title="Pin" @click="pin(note)"><i class="fa-solid fa-thumbtack"></i></button>
                 </div>
             </li>
         </ul>
     </section>
     `,
-    components:{
+    components: {
         notePreview
     },
     data() {
@@ -38,14 +42,13 @@ export default {
         }
     },
     methods: {
-        changeBackgroundColor(ev, note){
-            console.log('note = ', note)
+        changeBackgroundColor(ev, note) {
             const newColor = ev.target.value
             note.style.backgroundColor = newColor
 
             notesService.update(note)
         },
-        removeNote(note){
+        removeNote(note) {
             // notesService.remove(note.id)
             this.$emit('removeNote', note.id)
         },
@@ -55,16 +58,15 @@ export default {
             let txt = document.querySelector(".note-txt" + note.id).innerText
             note.info.title = title
             note.info.txt = txt
-            console.log('note.id = ', title)
             this.$emit('updateNote', note)
         },
-        pin(note){
-            if (note.isPinned){
+        pin(note) {
+            if (note.isPinned) {
                 this.unpin(note)
             }
             this.$emit('pinNote', note)
         },
-        unpin(note){
+        unpin(note) {
             this.$emit('unPinNote', note)
         }
 

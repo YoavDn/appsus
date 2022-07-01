@@ -16,8 +16,7 @@
 .txt-container {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    gap: 0.5rem;
+    width: 40%;
 }
 
 .note-type-btn {
@@ -29,14 +28,13 @@
 }
 
 .input-container {
-    width: 50%;
+    max-width: 40rem;
     margin: auto;
     margin-block: 3rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    padding: .5rem;
-    border-radius: 2rem;
+    padding: 0.8rem;
+    border-radius: 3rem;
     justify-content: space-evenly;
 }
 

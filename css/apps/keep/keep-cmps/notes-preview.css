@@ -1,53 +1,99 @@
 .note-preview-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    padding: 1em;
-    width: 27.5em;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 0.3rem;
+    padding: 2em;
     overflow-wrap: break-word;
-    /* text-overflow: ellipsis; */
-    border: 2px solid var(--soft-bg-clr);
-    border-radius: 1rem;
+
 }
 
 .note-preview-container img, iframe {
-    width: 25em;
-    border-radius: 5%;
-    padding-bottom: 2em;
-}
-.note-preview-container:hover {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 0.3rem;
+    width: 100%;
+
+
 }
 
-.note-preview-container h3, p {
-    font-size: 2em;
+
+.note-preview-container  h3 {
+    font-weight: bold;
+    position: relative;
     padding-bottom: 1rem;
-}
+    font-size: 18px;
+ }
+
+ .note-preview-container p {
+    margin-top: 0;
+    /* padding-top: 5rem; */
+ }
+
 
 .type-todo ul{
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    font-size: 1.5rem;
+     flex-direction: column;
+     padding: 2rem;
+     font-size: 1.5rem;
+     max-height: 13rem;
+     overflow-y: scroll;
+     overflow-x: hidden;
 }
 
 .type-todo li {
-    list-style: disc
+
+    list-style: disc;
+    display: list-item;
 }
 
 .edit-btns-container {
     display: flex;
     gap: 1rem;
     width: 100%;
-    align-items: flex-end;
-    justify-content:end;
+    /* align-items: flex-end; */
+    justify-content: end;
+    padding-right: 3rem;
+    /* line-height: 10px; */
+    /* height: 13px; */
 }
 
+/* .edit-btns-container label {
+    width: 0;
+    margin: 0 !important;
+    font-size: auto;
+} */
+input {
+    padding: 10px !important;
+    margin-inline-end: -2rem !important;
+}
 .edit-btn {
     background: none;
     border: none;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    padding: -2px;
+    margin: 0;
 }
 
 .input-color {
     visibility: hidden;
+    width: 0;
+}
+
+.font-color-btn {
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+    text-decoration-color: orange;
+    text-decoration-thickness: 0.4rem;
+}
+
+.todo-txt {
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+#todo-input {
+    background: none;
+    border-bottom: solid 0.1em #000000;
 }

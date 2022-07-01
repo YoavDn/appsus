@@ -24,13 +24,50 @@ function queryPins() {
 }
 
 function _createNotes() {
-    let notes = query()
+    let notes 
+    query().then((res)=> {
+        notes = res
+        if (!notes || !notes.length) {
+            let exampleNote1, exampleNote2
+            exampleNote1 = {
+                type: "note-text",
+                isPinned: false, 
+                info: {
+                    title: 'Hello World!',
+                    txt: 'Here is a paragraph'
+                },
+                isEditAble: false,
+                style: {
+                    backgroundColor: '#fff',
+                } 
+            }
+            
+            
+             exampleNote2 = {
 
-    if (!notes || !notes.length) {
-        let exampleNote1, exampleNote2
-        // storageService.post(NOTES_KEY, exampleNote1 )
-        // storageService.post(NOTES_KEY, exampleNote2 )
-    }
+                type: "note-todos",
+                isPinned: false, 
+                info: {
+                    title: 'Hello Todo!',
+                    todos: [
+                        {txt:'Go to supermarket', isDone: false},
+                        {txt:'Go to the gym', isDone: false},
+                    ]
+                },
+                isEditAble: false,
+                style: {
+                    backgroundColor: '#fff',
+                } 
+            }
+            storageService.post(NOTES_KEY, exampleNote2 )
+                .then(() => {
+                 storageService.post(NOTES_KEY, exampleNote1 )
+
+                })
+        }
+    })
+    console.log('notes = ', notes)
+
 }
 
 function get(noteId) {
