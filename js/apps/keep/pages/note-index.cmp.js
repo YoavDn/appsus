@@ -115,9 +115,7 @@ export default {
             this.removeNote(note.id)
             notesService.addToPins(pinnedNote)
                 .then(() => {
-
                     this.pinnedNotes.unshift(pinnedNote)
-                    this.$router.go()
                 })
 
 
@@ -128,7 +126,6 @@ export default {
             this.addNote(newNote)
             this.removeNote(note.id)
 
-            this.$router.go()
         },
 
         updateNote(note) {
