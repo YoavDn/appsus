@@ -1,0 +1,447 @@
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+}
+
+.book {
+    border: solid 1.5px var(--bg-gray);
+    position: relative;
+    display: flex;
+    flex-basis: 200px;
+    flex-direction: column;
+    margin: 1rem;
+    margin-bottom: 40px;
+    align-items: center;
+    padding: 24px;
+    border-radius: 1rem;
+
+}
+
+.book:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.title {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: rgb(47, 46, 46);
+}
+
+.book img {
+    width: 100%;
+}
+
+.preview-sale {
+    position: absolute;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    padding: 0 4px;
+    font-weight: 200;
+    border: solid white 1px;
+    top: 23px;
+    left: 25px;
+}
+
+.book-detail-page {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    margin-block-start: 4rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.book-details {
+    margin-inline-start: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+
+
+
+.book-detail-page img {
+    height: 60vh;
+}
+
+.book-description {
+    font-weight: 300;
+    width: 300px;
+    font-size: 20px;
+}
+
+.cheap {
+    color: green
+}
+
+.exp {
+    color: rgb(184, 35, 35)
+}
+
+.book-price {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-inline-start: 1rem;
+}
+
+
+
+.title-details {
+    display: flex;
+    align-items: center;
+}
+
+.book-title {
+    font-size: 40px;
+}
+
+.red {
+    color: red;
+}
+
+.book-price h3 {
+    display: flex;
+}
+
+.book-price h3 span {
+    margin-inline-start: 10px;
+}
+
+.btn-back {
+    color: var(--sub-txt-clr);
+    font-size: 20px;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    font-weight: 300;
+}
+
+.sale {
+    border: solid red 1px;
+    padding: 0 9px;
+    font-size: 18px;
+    font-weight: 200;
+    color: red;
+    margin-inline-start: 20px;
+}
+
+.book-pages {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.categories {
+    margin-inline-start: 4px;
+    color: rgb(68, 68, 68);
+    font-weight: 300;
+}
+
+.book-age {
+    font-size: 17px;
+    color: var(--main-brand-clr)
+}
+
+.filter-books {
+    width: 80%;
+    margin: auto;
+    margin-block: 30px;
+}
+
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    padding: 10px;
+    margin-inline-end: 3rem;
+}
+
+label {
+    margin-inline-end: 1rem;
+    font-size: 20px;
+}
+
+.preview-price {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: .4rem;
+}
+
+.book-authors {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.book-price-details {
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+.book-cat {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.description-title {
+    padding: 8px 0;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+    color: rgb(52, 52, 52)
+}
+
+.nav-bar a {
+    line-height: 50px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+
+/* //////////////////////////////// star rate */
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked)>input {
+
+    display: none;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #000000;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #151515;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #393939;
+}
+
+/* /////////// review form */
+
+.add-review-btn {
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    padding: 1rem;
+    font-size: 18px;
+    margin-block: 3rem;
+    border-radius: 10px;
+}
+
+.add-review-btn span {
+    font-size: 20px;
+    margin-inline-start: .4rem;
+}
+
+.review-section {
+    padding-top: 3rem;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+.review-form label {
+    font-size: 15px;
+}
+
+.review-form input {
+    padding: .4rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.input-star-rate {
+    margin-bottom: 2rem;
+}
+
+textarea {
+    margin-bottom: 2rem;
+}
+
+.reviews-count {
+    padding-top: 2rem;
+    width: 80%;
+    margin: auto;
+}
+
+.review-post {
+    border-top: solid 1px rgb(39, 39, 39);
+    padding: 1rem 0;
+    width: 80%;
+    margin: auto;
+    margin-block: 1rem;
+    color: rgb(39, 39, 39);
+}
+
+.review-post h3 {
+    font-size: 1em;
+}
+
+.review-post p {
+    padding: 1rem 0;
+}
+
+.arrows {
+    border-bottom: solid rgb(45, 45, 45) 1px;
+    cursor: pointer;
+    margin-inline-start: 1em;
+    font-size: .8em;
+}
+
+.main-post {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-msg {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 7px rgb(39, 39, 39);
+    padding: 30px;
+    border-radius: .4rem;
+}
+
+.book-option {
+    margin: auto;
+    width: 80%;
+    border-bottom: solid 1px gray;
+}
+
+.book-option-header {
+    display: flex;
+    justify-content: space-around;
+    padding: 3em;
+}
+
+.preview-section {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.preview-section h3 {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.preview-img {
+    height: 100px;
+
+}
+
+.book-option h2 {
+    font-size: 20px;
+    flex-basis: 70%;
+}
+
+.book-option button {
+    height: 30px;
+}
+
+
+.new-book-header {
+    margin-block: 2rem;
+    text-align: center;
+    font-size: 29px;
+}
+
+.add-book-btn {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-block: 2rem;
+    text-decoration: none;
+    background-color: var(--mail-brand-bg);
+    width: 200px;
+    padding: 1rem 2rem;
+    font-weight: 300;
+    font-size: 2rem;
+    border-radius: .5em;
+    color: var(--main-brand-clr);
+    cursor: pointer;
+    transition: box-shadow .3s;
+}
+
+.add-book-btn:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.or-existing {
+    text-align: center;
+    color: rgb(45, 45, 45);
+    font-size: 12px;
+
+}
+
+.or-existing h2 {
+    font-weight: 300;
+}
+
+
+.next-book-btn {
+    background-color: white;
+    color: var(--sub-txt-clr);
+    font-weight: 200;
+    font-size: 20px;
+    position: absolute;
+    top: 80px;
+    right: 50px;
+}
+
+.preview-details-btn {
+    background: none;
+    color: var(--main-brand-clr);
+}
