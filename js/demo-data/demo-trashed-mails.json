@@ -1,0 +1,23 @@
+[
+    {
+        "id": "dfvvv1101",
+        "from": "Michael Polanski",
+        "subject": "Hey man, long time no see..",
+        "body": "I'm in town next week, wanna grab a beer ?",
+        "isRead": false,
+        "sentAt": 1551233930544,
+        "to": "pukiShuki@puki.com",
+        "isStar": false
+    },
+    {
+        "id": "dfvvvdff101",
+        "from": "user@puki.com",
+        "subject": "look behind you",
+        "body": "",
+        "isRead": true,
+        "sentAt": 1551233930544,
+        "to": "pukiShuki@puki.com",
+        "isStar": false,
+        "sent": true
+    }
+]

@@ -8,11 +8,11 @@ export default {
     <section v-if="mails" class="side-bar" :class="sideBarStyle">
         <button class="compose-btn shadow" @click="toNewMail"> <span>&plus;</span> Compose</button>
         <div @click="activate" class="side-bar-items">
-            <button :class="activeStyle"  @click="toInbox" class="side-bar-btn bold"><span><i class="fa-solid fa-inbox"></i></span>Inbox <span>{{ureadCount}}</span></button>
-            <button @click="toStarredList" class="side-bar-btn"><span>&bigstar;</span>Starred</button>
-            <button @click="toSent" class="side-bar-btn"><span><i class="fa-solid fa-paper-plane"></i></span>Sent</button>
+            <button :class="activeStyle"  @click="toList('inbox')" class="side-bar-btn bold"><span><i class="fa-solid fa-inbox"></i></span>Inbox <span>{{ureadCount}}</span></button>
+            <button @click="toList('starred')" class="side-bar-btn"><span>&bigstar;</span>Starred</button>
+            <button @click="toList('sent')" class="side-bar-btn"><span><i class="fa-solid fa-paper-plane"></i></span>Sent</button>
             <button class="side-bar-btn"><span><i class="fa-solid fa-file"></i></span>Drafts</button>
-            <button @click="toTrashList" class="side-bar-btn"><span><i class="fa-solid fa-trash"></i></span>Trash</button>
+            <button @click="toList('trash')" class="side-bar-btn"><span><i class="fa-solid fa-trash"></i></span>Trash</button>
         </div>
     </section>
     <div v-if="sideBarOpen" class="overlay" @click="sideBarOpen = false"></div>
@@ -25,23 +25,13 @@ export default {
         }
     },
     methods: {
-        toTrashList() {
-            this.sideBarOpen = false
-            eventBus.emit('changeList', 'trash')
-        },
-        toStarredList() {
-            this.sideBarOpen = false
-            eventBus.emit('changeList', 'starred')
-        },
-        toInbox() {
-            this.sideBarOpen = false
+        toList(listType) {
+            eventBus.emit('changeList', listType)
+            this.$router.push('/mail/mails')
             this.activeSidebar = !this.activeSidebar
-            eventBus.emit('changeList', 'inbox')
-        },
-        toSent() {
             this.sideBarOpen = false
-            eventBus.emit('changeList', 'sent')
         },
+
         activate(e) {
             if (!e.target.classList.contains('side-bar-btn')) return
             document.querySelectorAll('.side-bar-btn').forEach(el => el.classList.remove('active'))
