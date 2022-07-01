@@ -49,6 +49,7 @@ export default {
             this.isNewMail = false
         },
         sentMail(mail) {
+            eventBus.emit('show-msg', 'sent successfully')
             this.isNewMail = false
             mailService.addMail(mail).then(() => {
                 this.mails.unshift(mail)

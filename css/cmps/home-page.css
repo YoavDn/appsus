@@ -23,6 +23,68 @@
     font-family: 'Limelight', cursive;
 }
 
+.features-section {
+    position: relative;
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.features-title {
+    padding-top: 4rem;
+    color: var(--main-txt-clr);
+    flex-basis: 30%;
+    font-size: 3.4rem;
+    text-align: center;
+}
+
+.features-cards {
+    flex-basis: 40%;
+    /* align-items: center; */
+    justify-content: space-between;
+    color: var(--main-txt-clr);
+}
+
+.feature-card {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-inline: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.feature-card h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.feature-card p {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+}
+
+.feature-link {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 @media screen and (max-width: 750px) {
 
     .hero {

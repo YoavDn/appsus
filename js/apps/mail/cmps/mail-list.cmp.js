@@ -74,6 +74,7 @@ export default {
         },
 
         selected(mail) {
+            this.isSelect = true
             mail.isSelected = !mail.isSelected
         },
         deleteSelected() {

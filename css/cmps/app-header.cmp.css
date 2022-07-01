@@ -10,6 +10,7 @@
     align-items: center;
     z-index: 100;
 }
+
 .nav-list {
     gap: 1.5rem;
     justify-content: flex-end;
@@ -22,4 +23,15 @@
 .main-nav {
     font-size: 1.5rem;
     line-height: 6rem;
+}
+
+.logo-box {
+    cursor: pointer;
+    align-items: center;
+
+}
+
+.logo-box img {
+    margin-inline-end: 1rem;
+    width: 20px;
 }
