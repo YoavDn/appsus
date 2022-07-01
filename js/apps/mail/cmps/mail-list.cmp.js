@@ -11,7 +11,7 @@ export default {
         <section class="mail-list">
             <mail-filter :mails="mails" />
             <button v-if="activeList === 'trash'" class="shadow clear-trash-btn" @click="clearTrash"><span><i class="fa-solid fa-trash"></i></span>Clear Trash  </button>
-            <nav class="selected-actions">
+            <nav v-if="isSelect" class="selected-actions">
                  <button @click="deleteSelected" data-tilte="Move to trash"><i class="fa-solid fa-trash"></i></button>
                  <button  @click="markSelected" data-tilte="Mark as read"><i class="fa-solid fa-envelope-open"></i></button>
             </nav>
@@ -37,6 +37,7 @@ export default {
         return {
             hovered: false,
             activeList: 'inbox',
+            isSelect: false,
         }
     },
     created() {

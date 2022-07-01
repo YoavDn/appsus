@@ -72,6 +72,8 @@ export default {
                 this.mails[idx].isRead = true
                 mailService.updateMail(this.mails[idx])
             })
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+            checkboxes.forEach(checkbox => checkbox.checked = false)
         },
         clearTrash(mails) {
             console.log(mails);

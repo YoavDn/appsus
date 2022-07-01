@@ -19,7 +19,7 @@ export default {
             <h2 :class="thinIfRead" class="item-subject">{{subjectText}}</h2>
             <div class="mobile-checkbox flex">
                 <h3 class="thin">{{bodyComma}}&nbsp;{{bodyText}}</h3>
-                <input v-if="mobile" type="checkbox" @click.stop="selectMail" data-title="Select">
+                <input v-if="mobile" class='mail-checkbox' type="checkbox" @click.stop="selectMail" data-title="Select">
                 <button class="star" v-if="mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
             </div>
         </div>
