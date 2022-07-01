@@ -1,11 +1,11 @@
-.side-bar {
+/* .side-bar {
     height: 92vh;
     border-right: solid 1px var(--soft-bg-clr);
     padding: 1rem;
     grid-column: 1;
-}
+} */
 
-.compose-btn {
+/* .compose-btn {
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -16,7 +16,7 @@
     transition: box-shadow .3s;
     color: var(--sub-txt-clr);
     margin-inline-start: 2rem;
-}
+} */
 
 .compose-btn span {
     margin-inline-end: 1rem;

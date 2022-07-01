@@ -2,14 +2,14 @@
     height: 2rem;
     border: none;
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.6rem;
     margin: 0 !important;
 }
 
 .title-input {
     border: none;
     height: 3rem;
-    font-size: 1rem;
+    font-size: 1.6rem;
     margin: 0 !important;
 }
 
@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     width: 40%;
+    padding: 1rem;
 }
 
 .note-type-btn {

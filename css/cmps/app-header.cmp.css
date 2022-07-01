@@ -10,6 +10,10 @@
     align-items: center;
     z-index: 100;
 }
+.nav-list {
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
 
 .main-nav {
     flex-basis: 20%;
