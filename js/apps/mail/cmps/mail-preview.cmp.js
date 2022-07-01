@@ -17,10 +17,10 @@ export default {
          @mouseover="onHover"
          @mouseleave="onLeaveHover">
             <h2 :class="thinIfRead" class="item-subject">{{subjectText}}</h2>
-            <div class="mobile-checkbox flex space-between">
+            <div class="mobile-checkbox flex">
                 <h3 class="thin">{{bodyComma}}&nbsp;{{bodyText}}</h3>
                 <input v-if="mobile" type="checkbox" @click.stop="selectMail" data-title="Select">
-
+                <button class="star" v-if="mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
             </div>
         </div>
         <div v-if="!isHovered" class="item-date"

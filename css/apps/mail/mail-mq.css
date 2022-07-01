@@ -83,12 +83,3 @@
         margin-block: 2rem
     }
 }
-
-@media screen and (max-width: 450px) {
-    .mobile-checkbox input {
-        position: absolute;
-        right: 3rem;
-        background-color: red;
-
-    }
-}
