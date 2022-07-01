@@ -167,8 +167,8 @@ input {
 }
 
 label {
-    margin-inline-end: 1rem;
-    font-size: 20px;
+    /* margin-inline-end: 1rem;
+    font-size: 20px; */
 }
 
 .preview-price {
