@@ -19,7 +19,7 @@
 }
 
 .main-container {
-    /* flex-basis: 80%; */
     flex-direction: column;
     grid-column: 2;
+    padding-inline: 2rem;
 }
