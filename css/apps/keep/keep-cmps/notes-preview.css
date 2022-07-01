@@ -58,10 +58,12 @@
     margin: 0 !important;
     font-size: auto;
 } */
-input {
+/* input {
     padding: 10px !important;
     margin-inline-end: -2rem !important;
-}
+} */
+
+
 .edit-btn {
     background: none;
     border: none;
