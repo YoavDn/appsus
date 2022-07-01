@@ -60,3 +60,9 @@
 .preview-options-btn:hover {
     color: var(--main-txt-clr);
 }
+
+.mobile-checkbox input {
+    position: absolute;
+    right: 3rem;
+
+}

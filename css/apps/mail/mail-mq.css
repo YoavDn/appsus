@@ -30,6 +30,10 @@
         margin: auto;
     }
 
+    .item-content {
+        flex-basis: 100%;
+    }
+
     .mail-item {
         margin-inline: 1em;
         flex-direction: column;
@@ -77,5 +81,14 @@
     .filter-search-bar {
         margin: auto;
         margin-block: 2rem
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .mobile-checkbox input {
+        position: absolute;
+        right: 3rem;
+        background-color: red;
+
     }
 }
