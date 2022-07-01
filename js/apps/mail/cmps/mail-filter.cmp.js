@@ -9,7 +9,6 @@ export default {
             
             <form @click="suggestionsOpen = true" autocomplete="off" >
                 <button v-if="mobile" @click="openSideBar" class="search-btn hamburger"><i class="fa-solid fa-bars"></i></button>
-                <button v-else class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <input class="search" v-model="query" @input.prevent="makeSuggestion" name="search-bar" type="search" placeholder="Search mail">
             </form>
             <section v-if="suggestionsOpen" class="suggestions shadow">

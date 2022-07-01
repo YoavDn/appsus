@@ -58,6 +58,10 @@
     position: relative;
 }
 
+.new-mail-form input {
+    font-size: 1.6rem;
+    position: relative;
+}
 
 .new-mail-send-btn {
     position: absolute;
