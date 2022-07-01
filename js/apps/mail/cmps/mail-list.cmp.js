@@ -33,6 +33,15 @@ export default {
         }
     },
     created() {
+        eventBus.on('update', mail => {
+            const idx = this.mails.findIndex(m => m.id === mail.id);
+            this.mails.splice(idx, 1, mail);
+        })
+        eventBus.on('trashed', mail => {
+            const idx = this.mails.findIndex(m => m.id === mail.id);
+            console.log(idx);
+            this.mails.splice(idx, 1);
+        })
         eventBus.on('changeList', (msg) => {
             this.activeList = msg
         })
@@ -45,15 +54,11 @@ export default {
         },
         toTrash(mail) {
             this.$emit('trashed', mail)
-
         },
         markRead(mail) {
             mail.isRead = true
             mailService.updateMail(mail)
         },
-        selected(mail) {
-            console.log(mail);
-        }
     },
     computed: {
         mailToShow() {

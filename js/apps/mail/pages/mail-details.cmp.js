@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/eventBus-service.js";
 import { mailService } from "../services/mail.service.js";
 
 
@@ -7,8 +8,8 @@ export default {
         <nav class="details-nav flex space-arount">
             <router-link class="router-link back-to-inbox" to="/mail/mails">&leftarrow; Back to inbox</router-link>
             <div class="tool-nav">
-                <button data-title="Move to trash" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                <button data-title="Mark as unread" class="delete-btn"><i class="fa-solid fa-envelope"></i></button>
+                <button @click="mailAction('trash')" data-title="Move to trash" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                <button @click="mailAction('unread')" data-title="Mark as unread" class="delete-btn"><i class="fa-solid fa-envelope"></i></button>
             </div>
         </nav>
         <header class="details-header">
@@ -44,7 +45,21 @@ export default {
         mailService.getMailById(id).then(mail => this.mail = mail)
     },
 
-    methods: {},
+    methods: {
+        mailAction(type) {
+            if (type === 'unread') {
+                this.mail.isRead = false
+                eventBus.emit('update', this.mail)
+                mailService.updateMail(this.mail)
+                this.$router.push('/mail/mails')
+
+            } else if (type === 'trash') {
+                eventBus.emit('trashed', this.mail)
+                mailService.moveToTrash(this.mail)
+                this.$router.push(`/mail/mails`)
+            }
+        }
+    },
 
     computed: {
         userAvatar() {

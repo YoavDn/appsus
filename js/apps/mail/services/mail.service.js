@@ -8,6 +8,7 @@ import { utilService } from '../../../services/util-service.js'
 const MAIL_KEY = 'mailsDB'
 const TRASH_KEY = 'trash'
 _createMails()
+_createTrashMails()
 
 export const mailService = {
     query,
@@ -23,14 +24,19 @@ function query() {
     return storageService.query(MAIL_KEY)
 }
 
-function _queryTrash() {
-    return storageService.query(TRASH_KEY)
+
+function _createTrashMails() {
+    let mails = utilService.loadFromStorage(TRASH_KEY)
+    if (!mails || !mails.length) {
+        mails = fetch("js/demo-data/demo-trashed-mails.json").then(res => res.json())
+            .then(res => utilService.saveToStorage(TRASH_KEY, res))
+    }
+    return mails
 }
 
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
-
         mails = fetch("js/demo-data/demo-mails.json").then(res => res.json())
             .then(res => utilService.saveToStorage(MAIL_KEY, res))
     }
@@ -39,12 +45,10 @@ function _createMails() {
 
 function addMail(mail) {
     mail.sentAt = Date.now()
-    console.log(mail);
     return storageService.post(MAIL_KEY, mail,)
 }
 
 function getMailById(id) {
-    console.log(id);
     return storageService.get(MAIL_KEY, id)
 }
 
@@ -53,9 +57,8 @@ function updateMail(mail) {
 }
 
 function moveToTrash(mail) {
-    storageService.post(TRASH_KEY, mail)
+    storageService.add(TRASH_KEY, mail)
     return storageService.remove(MAIL_KEY, mail)
-
 }
 
 function filterByActiveList(actvieList, mails) {

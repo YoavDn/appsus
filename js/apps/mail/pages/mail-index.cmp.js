@@ -4,6 +4,7 @@ import newMail from '../cmps/new-mail.cmp.js'
 import mailDetails from './mail-details.cmp.js'
 
 import { mailService } from '../services/mail.service.js'
+import { eventBus } from '../../../services/eventBus-service.js'
 
 
 export default {
@@ -33,8 +34,8 @@ export default {
     },
     created() {
         mailService.query().then(mails => {
-            this.$router.push('/mail/mails')
             this.mails = mails
+            this.$router.push('/mail/mails')
         })
     },
     methods: {
@@ -61,7 +62,6 @@ export default {
         },
     },
     computed: {},
-
 
 }
 

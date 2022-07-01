@@ -70,3 +70,16 @@ a {
 [data-title] {
     position: relative;
 }
+
+
+.pop-up-msg {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+    background-color: var(--dark-bg);
+    padding: 16px 10px;
+    color: white;
+    border-radius: .4rem;
+    z-index: 495;
+    transition: all .4s;
+}

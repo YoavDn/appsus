@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/eventBus-service.js";
 
 export default {
     props: ['mail'],
@@ -16,7 +17,7 @@ export default {
          @mouseover="onHover"
          @mouseleave="onLeaveHover">
             <h2 :class="thinIfRead" class="item-subject">{{subjectText}}</h2>
-            <h3 class="thin">{{bodyText}}</h3>
+            <h3 class="thin">{{bodyComma}}&nbsp;{{bodyText}}</h3>
         </div>
         <div v-if="!isHovered" class="item-date"
          @mouseover="onHover"
@@ -48,6 +49,7 @@ export default {
             this.$emit('selectedMail', this.mail)
         },
         moveToTrash() {
+            eventBus.emit('show-msg', 'Mail moved to trash')
             this.$emit('movedToTrash', this.mail)
         },
         markAsRead() {
@@ -91,6 +93,10 @@ export default {
         },
         thinIfRead() {
             return { thin: this.mail.isRead }
+        },
+        bodyComma() {
+            if (this.mobile) return
+            return "-"
         }
     },
     created() { },
