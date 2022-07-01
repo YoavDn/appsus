@@ -9,12 +9,12 @@ export default {
             
             <form @click="suggestionsOpen = true" autocomplete="off" >
                 <button v-if="mobile" @click="openSideBar" class="search-btn hamburger"><i class="fa-solid fa-bars"></i></button>
-                <input class="search" v-model="query" @input.prevent="makeSuggestion" name="search-bar" type="search" placeholder="Search mail">
+                <input class="search" v-model="filterBy.query" @input.prevent="makeSuggestion" name="search-bar" type="search" placeholder="Search mail">
             </form>
             <section v-if="suggestionsOpen" class="suggestions shadow">
                 <nav flex>
-                    <button class="filter-btn" ><span><i class="fa-solid fa-calendar"></i></span>last 7 days </button>
-                    <button class="filter-btn" ><span><i class="fa-solid fa-user"></i></span>From me</button>
+                    <button @click.stop="toogleSearch('lastWeek')" class="filter-btn"><span v-html="lastWeekIcon"></span>last 7 days </button>
+                    <button @click.stop="toogleSearch('isSent')" class="filter-btn"><span v-html="fromMeIcon"></span>From me</button>
                 </nav>
                 <div v-for="suggest in suggestions" class="suggestion-item" @click="goToMailDetails(suggest.id)">
                     <div class="suggest-content">
@@ -30,11 +30,11 @@ export default {
     `,
     data() {
         return {
-            query: '',
             filterBy: {
+                query: '',
                 from: '',
-                lastWeek: null,
-                isRead: null,
+                lastWeek: false,
+                isSent: false,
             },
             suggestions: null,
             suggestionsOpen: false,
@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         makeSuggestion() {
-            this.suggestions = mailService.suggest(this.query, this.mails)
+            this.suggestions = mailService.suggest(this.filterBy, this.mails)
         },
         goToMailDetails(id) {
             this.$router.push(`/mail/${id}`)
@@ -55,9 +55,23 @@ export default {
         },
         openSideBar() {
             eventBus.emit('openSideBar', true)
+        },
+        toogleSearch(filter) {
+            this.filterBy[filter] = !this.filterBy[filter]
         }
     },
-    computed: {},
+    computed: {
+        lastWeekIcon() {
+            if (this.filterBy.lastWeek) return `<i class="fa-solid fa-circle-check"></i>`
+            return `<i class="fa-solid fa-calendar"></i>`
+        },
+        fromMeIcon() {
+            if (this.filterBy.isSent) return `<i class="fa-solid fa-circle-check"></i>`
+            return `<i class="fa-solid fa-user"></i>`
+        }
+
+
+    },
     mounted() {
         if (document.body.clientWidth < 750) this.mobile = true
         window.addEventListener('click', (e) => {

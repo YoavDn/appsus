@@ -3,8 +3,6 @@ import { storageService } from '../../../services/async-storage-service.js'
 import { utilService } from '../../../services/util-service.js'
 
 
-
-
 const MAIL_KEY = 'mailsDB'
 _createMails()
 
@@ -21,9 +19,6 @@ export const mailService = {
 function query() {
     return storageService.query(MAIL_KEY)
 }
-
-
-
 
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
@@ -71,7 +66,36 @@ function filterByActiveList(actvieList, mails) {
 }
 
 
-function suggest(query, mails) {
-    const regex = new RegExp(query, "i");
+function suggest(filterBy, mails) {
+    const lastWeek = utilService.getLastWeeksDate()
+    const regex = new RegExp(filterBy.query, "i");
+
+
+    if (filterBy.lastWeek && filterBy.isSent) {
+        const filteredMails = mails.filter(mail => {
+            return mail.sent && mail.sentAt > lastWeek
+        })
+        return filteredMails.filter(mail => {
+            return regex.test(mail.subject) || regex.test(mail.from)
+        })
+    }
+
+    if (filterBy.isSent && !filterBy.lastWeek) {
+        const sentMails = mails.filter(mail => mail.sent)
+        console.log(sentMails)
+        return sentMails.filter(mail => {
+            return regex.test(mail.subject) || regex.test(mail.from)
+        })
+    }
+
+    if (filterBy.lastWeek && !filterBy.isSent) {
+        const lastWeekMails = mails.filter(mail => mail.sentAt > lastWeek)
+        console.log(lastWeekMails);
+        return lastWeekMails.filter(mail => {
+            return regex.test(mail.subject) || regex.test(mail.from)
+        })
+    }
+
+
     return mails.filter(mail => regex.test(mail.subject) || regex.test(mail.from))
 }

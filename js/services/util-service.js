@@ -1,7 +1,8 @@
 export const utilService = {
   loadFromStorage,
   saveToStorage,
-  makeId
+  makeId,
+  getLastWeeksDate
 }
 
 
@@ -24,3 +25,7 @@ function makeId(length = 8) {
 }
 
 
+function getLastWeeksDate() {
+
+  return Date.now() - (7 * 24 * 60 * 60 * 1000);
+}

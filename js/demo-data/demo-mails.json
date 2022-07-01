@@ -41,11 +41,12 @@
         "subject": "Dennis Martin Herbers shared",
         "body": "haha jk.. or am i",
         "isRead": false,
-        "sentAt": 155113392544,
+        "sentAt": 1656705552530,
         "to": "pukiShuki@puki.com",
         "isStar": false,
         "isSelected": false,
-        "trash": false
+        "trash": false,
+        "sent": false
     },
     {
         "id": "3",
