@@ -4,6 +4,7 @@ import noteList from "../cmps/note-list.cmp.js"
 import noteImg from "../cmps/note-img.cmp.js"
 import noteVideo from "../cmps/note-video.cmp.js"
 import noteTodo from "../cmps/note-todo.cmp.js"
+import noteAudio from "../cmps/note-audio.cmp.js"
 import { storageService } from "../../../services/async-storage-service.js"
 import keepSideBar from "../cmps/keep-side-bar.cmp.js"
 import { eventBus } from "../../../services/eventBus-service.js"
@@ -19,13 +20,14 @@ export default {
                  <note-img @noteAdded="addNote" v-if="isNoteImg"/>
                  <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
                  <note-todo @noteAdded="addNote" v-if="isNoteTodo"/>
+                 <note-audio @noteAdded="addNote" v-if="isNoteAudio"/>
 
                  <div @click="activate" class="btns-container flex">
                     <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment note-type-btn type-active"></i></button>
                     <button @click="displayImageInput" class="note-type-btn "><i class="fa-solid fa-image note-type-btn"></i></button>
                     <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube note-type-btn"></i></button>
                     <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list note-type-btn"></i></button>
-                    <button @click="displayToDoInput" class="note-type-btn"><i class="fa-solid fa-microphone"></i></button>
+                    <button @click="displayAudioInput" class="note-type-btn"><i class="fa-solid fa-microphone"></i></button>
                  </div>
 
             </div>
@@ -47,6 +49,7 @@ export default {
         noteImg,
         noteVideo,
         noteTodo,
+        noteAudio,
         keepSideBar
     },
     data() {
@@ -55,6 +58,7 @@ export default {
             isNoteImg: false,
             isNoteVideo: false,
             isNoteTodo: false,
+            isNoteAudio: false,
             notes: null,
             pinnedNotes: null,
             filterBy: null,
@@ -151,12 +155,14 @@ export default {
             this.isNoteVideo = false
             this.isNoteImg = false
             this.isNoteTodo = false
+            this.isNoteAudio = false
         },
         displayImageInput() {
             this.isNoteText = false
             this.isNoteVideo = false
             this.isNoteImg = true
             this.isNoteTodo = false
+            this.isNoteAudio = false
 
         },
         displayVideoInput() {
@@ -164,12 +170,21 @@ export default {
             this.isNoteVideo = true
             this.isNoteTodo = false
             this.isNoteImg = false
+            this.isNoteAudio = false
         },
         displayToDoInput() {
             this.isNoteText = false
             this.isNoteVideo = false
             this.isNoteImg = false
             this.isNoteTodo = true
+            this.isNoteAudio = false
+        },
+        displayAudioInput() {
+            this.isNoteText = false
+            this.isNoteVideo = false
+            this.isNoteImg = false
+            this.isNoteTodo = false
+            this.isNoteAudio = true
 
         }
     },

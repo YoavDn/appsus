@@ -18,9 +18,16 @@ export default {
         <iframe class="embededVideo" :src=note.info.url frameborder="0"></iframe>
         </div>
 
+        <div v-if="note.type === 'note-audio'" class="type-text" :contentEditable="note.isEditAble">
+            <h3 :class="'note-title ' + note.id">{{note.info.title}}</h3>
+                <audio class="audio-player" ref="audio" controls>
+                    <source :src=note.info.src type="audio/webm"/>
+                </audio>
+                <!-- <audio :id="playerUniqId" :src="audioSource"></audio> -->
+        </div>
+
         <div v-if="note.type === 'note-todos'" class="type-todo" :contentEditable="note.isEditAble">
             <h3 :class="'note-title ' + note.id">{{note.info.title}}</h3>
-
             <todo-list :note="note"/>
         </div>
 

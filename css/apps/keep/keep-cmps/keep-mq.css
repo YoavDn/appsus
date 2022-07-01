@@ -11,6 +11,11 @@
         visibility: hidden;
     }
 
+    .keep-bar-btn {
+        text-align: center;
+        padding: 1rem 2rem;
+    }
+
     .input-container {
         padding-inline: 3rem;
     }

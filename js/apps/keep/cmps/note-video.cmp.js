@@ -52,7 +52,6 @@ export default {
             
             return `https://www.youtube.com/embed/${videoId}`
         }
-        // "https://www.youtube.com/embed/hdHjjBS4cs8"
 
     },
     computed: {

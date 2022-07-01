@@ -36,7 +36,7 @@
 
 }
 
-.side-bar-btn {
+.keep-bar-btn {
     width: 80%;
     margin: auto;
     text-align: start;
@@ -53,14 +53,9 @@
     border-bottom-right-radius: 1rem;
 }
 
-.side-bar-btn span {
-    margin-inline-end: 1em;
-    color: var(--sub-txt-clr);
-}
+
 .side-bar-keep{
-    /* height: 92vh; */
-    /* flex-basis: 20%; */
-    /* min-width: 19rem; */
+
     border-right: solid 1px var(--soft-bg-clr);
     grid-column: 1;
 

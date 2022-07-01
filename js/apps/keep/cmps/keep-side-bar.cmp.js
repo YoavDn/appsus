@@ -5,11 +5,11 @@ export default {
     <section class="side-bar-keep">
 
         <div @click="activate" class="side-bar-items">
-            <button  class="side-bar-btn bold" @click="$emit('filter', null)"><i class="fa-solid fa-clipboard"></i> <span>All Notes</span></button>
-            <button @click="$emit('filter', 'note-text')" class="side-bar-btn"><i class="fa-regular fa-comment"></i> <span>Text Notes</span></button>
-            <button @click="$emit('filter', 'note-img')" class="side-bar-btn"><i class="fa-solid fa-image"></i> <span>Images Notes</span></button>
-            <button @click="$emit('filter', 'note-video')" class="side-bar-btn"><i class="fab fa-youtube"></i> <span>Video Notes</span></button>
-            <button @click="$emit('filter', 'note-todos')" class="side-bar-btn"><i class="fa fa-list"></i> <span>Todo Notes</span></button>
+            <button @click="$emit('filter', null)" class="keep-bar-btn bold active"><i class="fa-solid fa-clipboard"></i> All Notes</button>
+            <button @click="$emit('filter', 'note-text')" class="keep-bar-btn"><i class="fa-regular fa-comment"></i> Text Notes</button>
+            <button @click="$emit('filter', 'note-img')" class="keep-bar-btn"><i class="fa-solid fa-image"></i> Images Notes</button>
+            <button @click="$emit('filter', 'note-video')" class="keep-bar-btn"><i class="fab fa-youtube"></i> Video Notes</button>
+            <button @click="$emit('filter', 'note-todos')" class="keep-bar-btn"><i class="fa fa-list"></i> Todo Notes</button>
             
         </div>
     </section>
@@ -22,8 +22,8 @@ export default {
     methods: {
 
         activate(e) {
-            if (!e.target.classList.contains('side-bar-btn')) return
-            document.querySelectorAll('.side-bar-btn').forEach(el => el.classList.remove('active'))
+            if (!e.target.classList.contains('keep-bar-btn')) return
+            document.querySelectorAll('.keep-bar-btn').forEach(el => el.classList.remove('active'))
             e.target.classList.add('active');
 
         },

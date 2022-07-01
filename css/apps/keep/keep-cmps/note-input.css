@@ -72,3 +72,8 @@
     color: black;
     background-color: white;
 }
+
+.record {
+    font-size: 3rem;
+    color: red
+}
