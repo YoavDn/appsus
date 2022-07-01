@@ -14,3 +14,20 @@
 .no-result-msg h2 {
     font-weight: 400;
 }
+
+.clear-trash-btn {
+    text-align: center;
+    display: block;
+    margin: auto;
+    border: solid 1px var(--dark-bg);
+    padding: 1rem 2rem;
+    background-color: var(--bg-gray);
+    border-radius: 1rem;
+    color: var(--sub-txt-color);
+
+}
+
+.clear-trash-btn span {
+    margin-inline-end: 1rem;
+
+}

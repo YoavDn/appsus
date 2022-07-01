@@ -17,7 +17,8 @@ export const mailService = {
     updateMail,
     moveToTrash,
     filterByActiveList,
-    suggest
+    suggest,
+    clearTrash,
 }
 
 function query() {
@@ -27,7 +28,7 @@ function query() {
 
 function _createTrashMails() {
     let mails = utilService.loadFromStorage(TRASH_KEY)
-    if (!mails || !mails.length) {
+    if (!mails) {
         mails = fetch("js/demo-data/demo-trashed-mails.json").then(res => res.json())
             .then(res => utilService.saveToStorage(TRASH_KEY, res))
     }
@@ -41,6 +42,12 @@ function _createMails() {
             .then(res => utilService.saveToStorage(MAIL_KEY, res))
     }
     return mails
+}
+
+function clearTrash() {
+    localStorage.removeItem(TRASH_KEY)
+    utilService.saveToStorage(TRASH_KEY, [])
+
 }
 
 function addMail(mail) {

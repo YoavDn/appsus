@@ -10,6 +10,7 @@ export default {
     template: `
         <section class="mail-list">
             <mail-filter :mails="mails" />
+            <button v-if="activeList === 'trash'" class="shadow clear-trash-btn" @click="clearTrash"><span><i class="fa-solid fa-trash"></i></span>Clear Trash  </button>
             <div v-if="mailToShow.length > 0" v-for="mail in mailToShow" class="mail-item flex align-center"
             :class="{read: mail.isRead}" 
             @click="selectMail(mail)">
@@ -59,6 +60,9 @@ export default {
             mail.isRead = true
             mailService.updateMail(mail)
         },
+        clearTrash() {
+            mailService.clearTrash()
+        }
     },
     computed: {
         mailToShow() {
