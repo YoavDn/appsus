@@ -155,21 +155,21 @@
 }
 
 
-form {
+/* form {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-input {
+/* input {
     padding: 10px;
     margin-inline-end: 3rem;
-}
+} */
 
-label {
+/* label {
     margin-inline-end: 1rem;
     font-size: 20px;
-}
+} */
 
 .preview-price {
     margin-top: 1rem;

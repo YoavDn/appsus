@@ -39,21 +39,21 @@
     .item-header {
         font-size: 1.1em;
         flex-direction: row-reverse;
+        justify-content: space-between;
         width: 100%;
     }
 
     .maill-item-from {
-        flex-basis: 90%;
+        flex-basis: 80%;
+        text-align: left;
     }
 
     .item-main-actions {
+        flex-basis: 20%;
         display: block;
         text-align: end;
     }
 
-    .item-main-actions {
-        flex-basis: 100%;
-    }
 
     .item-content {
         flex-direction: column;

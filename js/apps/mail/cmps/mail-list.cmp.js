@@ -10,10 +10,13 @@ export default {
     template: `
         <section class="mail-list">
             <mail-filter :mails="mails" />
-            <div v-for="mail in mailToShow" class="mail-item flex align-center"
+            <div v-if="mailToShow.length > 0" v-for="mail in mailToShow" class="mail-item flex align-center"
             :class="{read: mail.isRead}" 
             @click="selectMail(mail)">
             <mail-preview :mail="mail" @movedToTrash="toTrash" @markAsRead="markRead(mail)" @selectedMail="selected"/>
+            </div>
+             <div v-else class="no-result-msg">
+                <h2>No Mails in {{activeList}}.</h2>  
             </div>
         </section>  
     `,
@@ -25,7 +28,7 @@ export default {
     data() {
         return {
             hovered: false,
-            activeList: null,
+            activeList: 'inbox',
             selectedMails: null
         }
     },
@@ -52,12 +55,12 @@ export default {
             console.log(mail);
         }
     },
-
     computed: {
         mailToShow() {
-            if (!this.mails) return
+            if (!this.mails) return []
             return mailService.filterByActiveList(this.activeList, this.mails)
         }
-    }
+    },
+
 }
 

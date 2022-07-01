@@ -4,8 +4,12 @@ import { mailService } from "../services/mail.service.js";
 export default {
     template: `
     <section v-if="mail" class="mail-details">
-        <nav class="details-nav flex">
+        <nav class="details-nav flex space-arount">
             <router-link class="router-link back-to-inbox" to="/mail/mails">&leftarrow; Back to inbox</router-link>
+            <div class="tool-nav">
+                <button data-title="Move to trash" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                <button data-title="Mark as unread" class="delete-btn"><i class="fa-solid fa-envelope"></i></button>
+            </div>
         </nav>
         <header class="details-header">
             <h2>{{mail.subject}}</h2>
@@ -21,7 +25,6 @@ export default {
                 </div>
                 <div class="details-date flex align-center">
                     <h2>{{stringDate}}</h2>
-                    <button data-title="Move to trash" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </header>
             <main class="details-body">

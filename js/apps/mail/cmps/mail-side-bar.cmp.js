@@ -6,7 +6,7 @@ export default {
     template: `
     
     <section v-if="mails" class="side-bar" :class="sideBarStyle">
-        <button class="compose-btn shadow" @click="$emit('openNewMail')"> <span>&plus;</span> Compose</button>
+        <button class="compose-btn shadow" @click="toNewMail"> <span>&plus;</span> Compose</button>
         <div @click="activate" class="side-bar-items">
             <button :class="activeStyle"  @click="toInbox" class="side-bar-btn bold"><span><i class="fa-solid fa-inbox"></i></span>Inbox <span>{{ureadCount}}</span></button>
             <button @click="toStarredList" class="side-bar-btn"><span>&bigstar;</span>Starred</button>
@@ -51,6 +51,10 @@ export default {
         openSideBar() {
             this.sideBarOpen = true
         },
+        toNewMail() {
+            this.sideBarOpen = false
+            this.$emit('openNewMail')
+        }
     },
     computed: {
         ureadCount() {

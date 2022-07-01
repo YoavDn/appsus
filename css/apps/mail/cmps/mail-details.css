@@ -7,6 +7,11 @@
     border-bottom: solid 1px var(--bg-gray);
     padding: 2rem;
     margin-bottom: 2rem;
+    justify-content: space-between;
+}
+
+.delete-nav button {
+    display: block;
 }
 
 .back-to-inbox {
@@ -45,18 +50,22 @@
 }
 
 .details-date h2 {
-    display: block;
+    text-align: end;
     font-size: 1.4rem;
-    margin-inline-end: 3rem;
     font-weight: 300;
 }
 
 .delete-btn {
-    display: block;
     border: none;
     background-color: transparent;
-    font-size: 1.2em;
+    margin-inline-end: 2rem;
+    font-size: 1.4em;
     color: var(--sub-txt-clr);
+}
+
+.delete-btn:hover {
+    color: var(--main-txt-clr);
+    background: var(--bg-gray);
 }
 
 .text-body {

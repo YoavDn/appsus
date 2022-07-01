@@ -1,3 +1,16 @@
 .mail-list {
     flex-basis: 80%;
 }
+
+
+.no-result-msg {
+    margin: auto;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: solid 1px var(--bg-gray);
+
+}
+
+.no-result-msg h2 {
+    font-weight: 400;
+}

@@ -36,7 +36,6 @@ export default {
             this.$router.push('/mail/mails')
             this.mails = mails
         })
-        console.log(this.$router);
     },
     methods: {
         newMail() {

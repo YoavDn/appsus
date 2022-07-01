@@ -14,12 +14,6 @@ export default {
     `,
     components: {
         bookPreview
-    }
-    ,
-    data() {
-        return {
-
-        }
     },
     methods: {
         bookPrice(book) {
@@ -31,8 +25,4 @@ export default {
             if (book.listPrice.isOnSale) return 'red'
         }
     },
-    computed: {},
-    created() {
-        console.log(this.books);
-    }
 }

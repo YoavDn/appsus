@@ -62,7 +62,6 @@ function getBookByQuery(query) {
 }
 
 function addGoogleBook(book) {
-    console.log(book);
     const { title, pageCount, authors, description, categories } = book.volumeInfo
 
     const newBook = {
