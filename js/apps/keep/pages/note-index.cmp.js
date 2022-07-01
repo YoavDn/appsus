@@ -117,7 +117,7 @@ export default {
                 .then(() => {
 
                     this.pinnedNotes.unshift(pinnedNote)
-                    this.$router.go()
+
                 })
 
 
@@ -128,7 +128,6 @@ export default {
             this.addNote(newNote)
             this.removeNote(note.id)
 
-            this.$router.go()
         },
 
         updateNote(note) {
