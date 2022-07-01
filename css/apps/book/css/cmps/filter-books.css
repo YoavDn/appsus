@@ -1,0 +1,7 @@
+.filter-form {
+    font-size: 1.6rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

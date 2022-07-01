@@ -1,0 +1,51 @@
+.add-book-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.add-book-container input {
+    border: none;
+    border-bottom: 1px solid black;
+}
+.add-book-container button, .preview-details-btn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.preview-details-btn {
+    color: var(--main-brand-clr);
+}
+
+.book-option {
+    margin: auto;
+    width: 80%;
+    border-bottom: solid 1px gray;
+}
+
+.book-option-header {
+    display: flex;
+    justify-content: space-around;
+    padding: 3em;
+}
+
+.preview-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 3em;
+}
+
+.new-book-header {
+    margin-block: 2rem;
+    text-align: center;
+    font-size: 29px;
+    letter-spacing: 2px;
+}
+.book-option h2 {
+    font-size: 20px;
+    font-family: inherit;
+    flex-basis: 70%;
+    letter-spacing: 1px;
+}

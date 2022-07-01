@@ -26,9 +26,10 @@ export default {
     },
     methods: {
         addTodo(){
+            if (this.todoTxt === '') return
             const newTodo = {txt: this.todoTxt, isDone: false}
             this.note.info.todos.push(newTodo)
-
+            this.todoTxt = ''
             eventBus.emit('updateNote', this.note)
         },
         endTodo(todo){
