@@ -29,7 +29,6 @@ export default {
     },
     created() {
         bookService.query().then(books => this.books = books)
-        console.log('hellow');
     }
     ,
     methods: {

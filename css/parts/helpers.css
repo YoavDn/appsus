@@ -32,5 +32,5 @@
 }
 
 .pinned {
-    color: orange;
+    color: orange !important;
 }

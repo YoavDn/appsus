@@ -1,9 +1,6 @@
 .notes-list-container {
-
     align-items: center;
     flex-direction: column;
-    
-
 }
 
 .notes-list ul {
@@ -12,10 +9,34 @@
     grid-gap: 2rem;
     padding: 3em;
     align-items: flex-start;
-    grid-auto-flow: dense;
-    
+    grid-auto-flow: dense;    
 }
+
+
 
 .pinned-header {
     align-self: flex-start;
+    padding-left: 2rem;
+    font-family: inherit;
+}
+
+.focused {
+    position: absolute;
+    z-index: 100;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    min-width: 35rem;
+    animation: fadeIn 0.5s;
+    
+}
+
+.selected-note span{
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: 2rem;
+    cursor: pointer;
 }
