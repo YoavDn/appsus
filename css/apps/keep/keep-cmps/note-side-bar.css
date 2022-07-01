@@ -58,11 +58,13 @@
     color: var(--sub-txt-clr);
 }
 .side-bar-keep{
-    height: 92vh;
+    /* height: 92vh; */
     /* flex-basis: 20%; */
-    min-width: 19rem;
+    /* min-width: 19rem; */
     border-right: solid 1px var(--soft-bg-clr);
-    padding: 1rem;
+    grid-column: 1;
+
+    /* padding: 1rem; */
 }
 
 .active {
