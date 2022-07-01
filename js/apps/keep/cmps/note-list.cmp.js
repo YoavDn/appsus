@@ -33,7 +33,7 @@ export default {
                         <label :for="'fontcolor '+ note.id" class="font-color-btn">A</label>
                     </button>
 
-                    <button class="edit-btn" :class="{pinned: note.isPinned}" data-title="Pin" @click="pin(note)" :style="{color: note.style.color}">
+                    <button class="edit-btn" :class="{pinned: note.isPinned}" data-title="Pin" @click.stop="pin(note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-thumbtack"></i>
                     </button>
                 </div>
@@ -64,7 +64,7 @@ export default {
             const newColor = ev.target.value
             note.style.color = newColor
 
-            notesService.update
+            notesService.update(note)
         },
 
         removeNote(note) {
@@ -80,12 +80,14 @@ export default {
             this.$emit('updateNote', note)
         },
         pin(note) {
+            if (this.isNoteSelected) this.closeSelected()
             if (note.isPinned) {
                 this.unpin(note)
             }
             this.$emit('pinNote', note)
         },
         unpin(note) {
+            if (this.isNoteSelected) this.closeSelected()
             this.$emit('unPinNote', note)
         },
         selectNote(e) {

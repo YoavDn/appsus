@@ -5,7 +5,7 @@ export default {
     template: `
         <div class="todo-conatiner flex" @click.stop>
             <input type="text" name="" id="todo-input" v-model="todoTxt">
-            <button class="edit-btn plus" @click="addTodo">+</button>
+            <button class="edit-btn plus" @click="addTodo"><i class="fa-solid fa-plus"></i></button>
         </div>
 
         <div class="todo-list-container">
@@ -30,7 +30,6 @@ export default {
             this.note.info.todos.push(newTodo)
 
             eventBus.emit('updateNote', this.note)
-            console.log('note = ', this.note)
         },
         endTodo(todo){
             (!todo.isDone) ? todo.isDone = true : todo.isDone = false

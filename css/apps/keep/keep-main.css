@@ -13,9 +13,7 @@
 /* Animations */
 @import '../../../css/anims.css';
 
-.keep-app-container {
-    justify-content: center;
-}
+
 .main-container {
     flex-basis: 80%;
     flex-direction: column;

@@ -2,7 +2,7 @@ import { notesService } from "../keep-services/note.service.js"
 export default {
     template: `
         <div class="txt-container">
-            <input type="text" placeholder="Enter todo title first" class="title-input" v-model="note.info.title">
+            <input type="text" placeholder="Enter todo title first" class="title-input" v-model="note.info.title" >
 
             <button @click.stop="onAddNote" class="add-note-btn">Add todo</button>
         </div>
@@ -22,7 +22,8 @@ export default {
                     ]
                 },
                 style: {
-                    backgroundColor: '#fff'
+                    backgroundColor: '#fff',
+                    color: "#000"
                 }
             }
         }
