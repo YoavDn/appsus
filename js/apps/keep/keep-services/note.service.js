@@ -106,5 +106,5 @@ function addNote(note) {
 }
 
 function addToPins(note) {
-    return storageService.post(PINNED_KEY, note)
+    return storageService.add(PINNED_KEY, note)
 }

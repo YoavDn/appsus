@@ -115,9 +115,7 @@ export default {
             this.removeNote(note.id)
             notesService.addToPins(pinnedNote)
                 .then(() => {
-
                     this.pinnedNotes.unshift(pinnedNote)
-
                 })
 
 
