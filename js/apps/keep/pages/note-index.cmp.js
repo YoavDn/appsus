@@ -10,7 +10,7 @@ import { eventBus } from "../../../services/eventBus-service.js"
 
 export default {
     template: `
-    <section class="keep-app-container flex">
+    <section class="keep-app-container">
         <keep-side-bar @filter="setFilter"/>
         <section class="main-container">
             <div class="input-container shadow">

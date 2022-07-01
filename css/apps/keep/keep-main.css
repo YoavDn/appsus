@@ -13,8 +13,13 @@
 /* Animations */
 @import '../../../css/anims.css';
 
+.keep-app-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
 
 .main-container {
-    flex-basis: 80%;
+    /* flex-basis: 80%; */
     flex-direction: column;
+    grid-column: 2;
 }
