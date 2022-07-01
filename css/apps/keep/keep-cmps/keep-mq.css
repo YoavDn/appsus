@@ -2,25 +2,18 @@
 @media (max-width: 1080px) {
     .side-bar-keep {
         display: none;
+        z-index: 100;
+        height: 50vh;
+        /* flex-basis: 20%; */
+        min-width: 2rem;
+        border-right: solid 1px var(--soft-bg-clr);
+        padding: 1rem;
     }
 
-    /* .keep-app-container {
-        justify-content: center;
+    .side-bar-keep span {
+        visibility: hidden;
     }
 
-    .notes-list ul {
-        grid-template-columns: repeat(3, 15rem);
-        grid-gap: 3rem;
-    }
-
-    .note-preview-container {
-        width: 17.5rem !important;
-    }
-
-    .note-preview-container img,
-    iframe {
-        width: 15rem;
-    } */ */
 
 }
 
