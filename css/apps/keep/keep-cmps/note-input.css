@@ -1,5 +1,5 @@
 .txt-input {
-    height: 2rem;
+    /* height: 2rem; */
     border: none;
     margin: 0;
     font-size: 1.6rem;
@@ -10,7 +10,7 @@
 }
 .title-input {
     border: none;
-    height: 3rem;
+    /* height: 3rem; */
     font-size: 1.6rem;
     margin: 0 !important;
 }
@@ -36,7 +36,7 @@
     margin-block: 3rem;
     display: flex;
     align-items: center;
-    padding: 0.8rem;
+    /* padding: 0.8rem; */
     border-radius: 3rem;
     justify-content: space-evenly;
 }
