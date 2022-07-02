@@ -1,12 +1,13 @@
 import { utilService } from '../../../services/util-service.js'
 
 export default {
+    emits: ['send', 'close'],
     template: `
     <section :class="windowStyle" class="new-mail-window shadow">
         <div class="window-bar flex space-between">
             <h2>New Message</h2>
             <div class="new-mail-actions flex align-center">
-                <button class="full-screen-btn">f</button>
+                <button v-if="!mobile" @click="enterFullScreen" class="full-screen-btn"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
                 <button @click="$emit('close')" class="close-new-mail-btn"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
@@ -19,6 +20,7 @@ export default {
                 </div>
         </form>
     </section>
+    <div v-if="fullScreen" :style="{'z-index': 300}" class="overlay"></div>
     `,
     data() {
         return {
@@ -32,14 +34,19 @@ export default {
                 isSelected: false,
             },
             mobile: false,
+            fullScreen: false,
         }
     },
     methods: {
+        enterFullScreen() {
+            this.fullScreen = !this.fullScreen;
+        }
     },
     computed: {
         windowStyle() {
-            return { mobileWindow: this.mobile }
+            return { 'full-screen': this.fullScreen }
         },
+
     },
     mounted() {
         if (document.body.clientWidth < 750) this.mobile = true

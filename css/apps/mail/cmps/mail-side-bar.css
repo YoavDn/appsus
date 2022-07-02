@@ -5,7 +5,7 @@
     padding: 1rem;
     transition: transform .3s;
     background-color: white;
-    z-index: 300;
+    z-index: 199;
 }
 
 .compose-btn {

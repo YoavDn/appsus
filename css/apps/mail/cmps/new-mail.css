@@ -8,16 +8,7 @@
     background-color: white;
 }
 
-/* .mobileWindow {
-    border-radius: none;
-    position: fixed;
-    padding-top: 3rem;
-    top: -30px;
-    left: 0;
-    width: 100%;
 
-    transition: position .4s;
-} */
 
 .window-bar {
     background-color: var(--dark-bg);
@@ -83,6 +74,15 @@
     background-color: white;
 }
 
+.full-screen {
+    position: absolute;
+    width: 80%;
+    height: 60%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 400;
+}
 
 @media screen and (max-width: 750px) {
     .window-bar {
