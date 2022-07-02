@@ -21,7 +21,7 @@
 }
 
 .focused {
-    position: absolute;
+    position: fixed;
     z-index: 100;
     right: 50%;
     top: 50%;
