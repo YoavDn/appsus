@@ -1,21 +1,27 @@
-import { notesService } from "../keep-services/note.service.js"
 
 export default {
     template: `
-    <div class="txt-container">
+    <div class="txt-container record-container">
+    <p>Start</p>
     <button class="edit-btn record" @click="startRecording">
-    <i class="fa-solid fa-microphone"></i>
+        
+        <div class="mic">
+            <p>Start</p>
+        </div>
     </button>
-    <input v-if="isExpand" type="text" placeholder="Title" class="title-input"
-             @keyup.enter="onAddNote" v-model="note.info.title">
+    <p>Stop</p>
+    <button @click="stopRecording" class="edit-btn record">
+        <div class="stop"></div>
+    </button>
 
-        <button v-if="isExpand" @click="onAddNote" class="add-note-btn">Add note</button>
     </div>
     `,
     data() {
         return {
+            source: '',
             isExpand: false,
             isRecording: false,
+            recorder: null,
             note: {
                 type: 'note-audio',
                 isPinned: false,
@@ -32,13 +38,43 @@ export default {
     methods: {
         onAddNote() {
             this.$emit('noteAdded', this.note)
-            console.log('this.note = ', this.note)
-            // this.$router.go()
         },
-        startRecording(){
-            
+        startRecording() {
+            if (this.isRecording) return
+            this.isRecording = true
+            let device = navigator.mediaDevices.getUserMedia({ audio: true })
+            let chunks = []
+            device.then(stream => {
+                this.recorder = new MediaRecorder(stream)
+
+                this.recorder.ondataavailable = e => {
+                    chunks.push(e.data)
+
+                   
+                        if (this.recorder.state == 'inactive') {
+                            let blob = new Blob(chunks, { type: 'audio/webm' })
+                            this.note.info.src = `${URL.createObjectURL(blob)}`
+                            this.onAddNote(this.note)
+    
+                        }
+
+                }
+                
+                    this.recorder.start(1000)
+                    document.querySelector('.mic').classList.add('rec')
+                
+
+
+            })
+        },
+        stopRecording(){
+            if (!this.isRecording) return
+            this.isRecording = false
+            this.recorder.stop()
+            document.querySelector('.mic').classList.remove('rec')
         }
     },
     computed: {
+
     },
 }

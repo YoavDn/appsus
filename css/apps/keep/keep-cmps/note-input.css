@@ -77,3 +77,38 @@
     font-size: 3rem;
     color: red
 }
+
+.record-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    box-shadow: inset 0px 0px 3px -1px black;
+}
+
+.rec{
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.mic {
+    width: 20px;
+	height: 20px;
+	font-size: 0;
+	background-color: #d00202;
+	border: 0;
+	border-radius: 35px;
+	outline: none;
+}
+.stop {
+    width: 20px;
+	height: 20px;
+	/* font-size: 0; */
+	background-color: #d00202;
+	border: 0;
+	/* border-radius: 7px; */
+	outline: none;
+}

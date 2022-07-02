@@ -5,7 +5,7 @@
 @import './keep-cmps/note-side-bar.css';
 
 /* Media queries */
-@import '../keep/keep-cmps/keep-mq.css';
+@import '../keep/keep-mq.css';
 
 /* Pages */
 @import '../keep/note-details.css';

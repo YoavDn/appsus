@@ -107,7 +107,7 @@ export default {
                 .then(() => {
                     this.updateNotes()
                     this.notes.unshift(note)
-                    this.displayTextInput()
+                    this.setType('type-text')
                 })
         },
 
