@@ -10,8 +10,8 @@ export default {
 
 
 <!-- Entered image url will be set in note.info.url directly -->
-    <input type="text" @click="expand" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
-    <button v-if="isExpand" @click="onAddNote" class="add-note-btn"><i class="fa-solid fa-circle-check"></i> Add note</button>
+    <input type="text" @click="this.isExpand = true" @keyup.enter="onAddNote" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
+    <button v-if="isExpand" @click.stop="onAddNote" class="add-note-btn"><i class="fa-solid fa-circle-check"></i> Add note</button>
     </div>
     `,
     data() {
@@ -35,10 +35,10 @@ export default {
 
             if (this.note.info.url === '') return
             this.$emit('noteAdded', this.note)
-
-        },
-        expand(){
-            this.isExpand = utilService.expand(this.isExpand)
+            setTimeout(() => {
+                this.note.info.url = ''
+                this.note.info.title = ''
+            }, 300);
         },
     },
     computed: {

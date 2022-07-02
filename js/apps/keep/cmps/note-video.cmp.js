@@ -8,7 +8,7 @@ export default {
     <input v-if="isExpand" type="text" placeholder="Title" class="title-input"
              @keyup.enter="onAddNote" v-model="note.info.title">
 
-        <input type="text" @click="expand" class="txt-input" v-model="inComeUrl" placeholder="Enter video url.." @keyup.enter="onAddNote">
+        <input type="text" @click="this.isExpand = true" class="txt-input" v-model="inComeUrl" placeholder="Enter video url.." @keyup.enter="onAddNote">
         <button v-if="isExpand" @click="onAddNote" class="add-note-btn"><i class="fa-solid fa-circle-check"></i> Add note</button>
     </div>
     `,
@@ -36,6 +36,7 @@ export default {
             this.note.info.url = this.embedVideo()
 
             this.$emit('noteAdded', this.note)
+            this.inComeUrl =''
             console.log('this.note = ', this.note)
             // this.$router.go()
 
@@ -53,9 +54,6 @@ export default {
             const videoId = this.getVidId(this.inComeUrl)
             
             return `https://www.youtube.com/embed/${videoId}`
-        },
-        expand(){
-            this.isExpand = utilService.expand(this.isExpand)
         },
     },
 

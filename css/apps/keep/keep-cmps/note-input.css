@@ -18,10 +18,7 @@
     flex-direction: column;
     width: 40%;
     padding: 1rem;
-    transition-duration: 1s;
-    transition-property: max-height;
     height: auto;
-    max-height: 10rem;
     overflow: hidden;
 }
 

@@ -5,7 +5,7 @@ export default {
         <div class="txt-container">
             <input v-if="isExpand" type="text" placeholder="Title" class="title-input" @keyup.enter="onAddNote" v-model="inTitle">
             <input type="text" placeholder="Whats on your mind..."
-                class="txt-input" @click="expand" @keyup.enter="onAddNote" v-model="inText">
+                class="txt-input" @click="this.isExpand = true" @keyup.enter="onAddNote" v-model="inText">
             <button v-if="isExpand" @click="onAddNote" class="add-note-btn">
                 
                 <i class="fa-solid fa-circle-check"></i> 
@@ -43,10 +43,6 @@ export default {
             this.inTitle = ''
             this.isExpand = false
         },
-        expand(){
-            this.isExpand = utilService.expand(this.isExpand)
-        }
-
 
     },
     computed: {

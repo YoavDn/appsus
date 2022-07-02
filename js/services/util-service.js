@@ -39,8 +39,8 @@ function printTodoToMail(todos) {
   return todosArr
 }
 
-function expand(object){
+function expand(){
 
   document.querySelector('.txt-container').classList.toggle('expand')
-  return object = !object
+  // return object = !object
 }
