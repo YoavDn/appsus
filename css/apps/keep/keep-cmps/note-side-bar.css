@@ -1,22 +1,3 @@
-/* .side-bar {
-    height: 92vh;
-    border-right: solid 1px var(--soft-bg-clr);
-    padding: 1rem;
-    grid-column: 1;
-} */
-
-/* .compose-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    margin-block: 2rem;
-    padding: 0 2rem;
-    line-height: 4rem;
-    border-radius: 1rem;
-    transition: box-shadow .3s;
-    color: var(--sub-txt-clr);
-    margin-inline-start: 2rem;
-} */
 
 .compose-btn span {
     margin-inline-end: 1rem;
@@ -59,7 +40,6 @@
     border-right: solid 1px var(--soft-bg-clr);
     grid-column: 1;
 
-    /* padding: 1rem; */
 }
 
 .active {
