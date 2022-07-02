@@ -16,18 +16,18 @@ export default {
         <section class="main-container">
             <div class="input-container shadow">
 
-                 <note-text @noteAdded="addNote" v-if="isNoteText"/>
-                 <note-img @noteAdded="addNote" v-if="isNoteImg"/>
-                 <note-video @noteAdded="addNote" v-if="isNoteVideo"/>
-                 <note-todo @noteAdded="addNote" v-if="isNoteTodo"/>
-                 <note-audio @noteAdded="addNote" v-if="isNoteAudio"/>
+                 <note-text @noteAdded="addNote" v-if="noteType === 'type-text'"/>
+                 <note-img @noteAdded="addNote" v-if="noteType === 'type-img'"/>
+                 <note-video @noteAdded="addNote" v-if="noteType === 'type-video'"/>
+                 <note-todo @noteAdded="addNote" v-if="noteType === 'type-todos'"/>
+                 <note-audio @noteAdded="addNote" v-if="noteType === 'type-audio'"/>
 
                  <div @click="activate" class="btns-container flex">
-                    <button @click="displayTextInput"  class="note-type-btn"><i class="fa-regular fa-comment note-type-btn type-active"></i></button>
-                    <button @click="displayImageInput" class="note-type-btn "><i class="fa-solid fa-image note-type-btn"></i></button>
-                    <button @click="displayVideoInput" class="note-type-btn"><i class="fab fa-youtube note-type-btn"></i></button>
-                    <button @click="displayToDoInput" class="note-type-btn"><i class="fa fa-list note-type-btn"></i></button>
-                    <button @click="displayAudioInput" class="note-type-btn"><i class="fa-solid fa-microphone"></i></button>
+                    <button @click="setType('type-text')"  class="note-type-btn"><i class="fa-regular fa-comment note-type-btn type-active"></i></button>
+                    <button @click="setType('type-img')" class="note-type-btn "><i class="fa-solid fa-image note-type-btn"></i></button>
+                    <button @click="setType('type-video')" class="note-type-btn"><i class="fab fa-youtube note-type-btn"></i></button>
+                    <button @click="setType('type-todos')" class="note-type-btn"><i class="fa fa-list note-type-btn"></i></button>
+                    <button @click="setType('type-audio')" class="note-type-btn"><i class="fa-solid fa-microphone"></i></button>
                  </div>
 
             </div>
@@ -54,11 +54,8 @@ export default {
     },
     data() {
         return {
-            isNoteText: true,
-            isNoteImg: false,
-            isNoteVideo: false,
-            isNoteTodo: false,
-            isNoteAudio: false,
+
+            noteType: 'type-text',
             notes: null,
             pinnedNotes: null,
             filterBy: null,
@@ -139,7 +136,7 @@ export default {
                 })
         },
 
-        setFilter(type){
+        setFilter(type) {
             this.filterBy = type
         },
 
@@ -149,47 +146,13 @@ export default {
             e.target.classList.add('type-active');
 
         },
-
-        displayTextInput() {
-            this.isNoteText = true
-            this.isNoteVideo = false
-            this.isNoteImg = false
-            this.isNoteTodo = false
-            this.isNoteAudio = false
-        },
-        displayImageInput() {
-            this.isNoteText = false
-            this.isNoteVideo = false
-            this.isNoteImg = true
-            this.isNoteTodo = false
-            this.isNoteAudio = false
-
-        },
-        displayVideoInput() {
-            this.isNoteText = false
-            this.isNoteVideo = true
-            this.isNoteTodo = false
-            this.isNoteImg = false
-            this.isNoteAudio = false
-        },
-        displayToDoInput() {
-            this.isNoteText = false
-            this.isNoteVideo = false
-            this.isNoteImg = false
-            this.isNoteTodo = true
-            this.isNoteAudio = false
-        },
-        displayAudioInput() {
-            this.isNoteText = false
-            this.isNoteVideo = false
-            this.isNoteImg = false
-            this.isNoteTodo = false
-            this.isNoteAudio = true
-
+        setType(type) {
+            this.noteType = type
         }
+
     },
     computed: {
-        notesToDisplay(){
+        notesToDisplay() {
             if (!this.filterBy) return this.notes
             return this.notes.filter((note) => note.type === this.filterBy)
         },

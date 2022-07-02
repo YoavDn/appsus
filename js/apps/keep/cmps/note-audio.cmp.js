@@ -36,34 +36,7 @@ export default {
             // this.$router.go()
         },
         startRecording(){
-            var recorder
-            var source 
-            console.log('this.isRecording = ', this.isRecording)
-
-            var device = navigator.mediaDevices.getUserMedia({audio: true})
-            var items = []
-            device.then(stream => {
-                recorder = new MediaRecorder(stream)
-                recorder.ondataavailable = e=> {
-                    items.push(e.data)
-                    if (recorder.state === 'inactive'){
-                        console.log('hello = ')
-                        var blob = new Blob(items, {type: 'audio/webm'})
-                        this.note.info.src = URL.createObjectURL(blob)
-                        
-                    }
-                }
-                recorder.start(100)
-                // this.isRecording = true
-                setTimeout(() => {
-                    recorder.stop()
-
-                    this.onAddNote()
-                }, 5000)
-
-                
-
-            })
+            
         }
     },
     computed: {

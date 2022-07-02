@@ -32,7 +32,7 @@ export default {
         </section>
     `,
     data() {
-        return {
+        return {    
             query: '',
             googleBooks: null,
             previewSections: [],
