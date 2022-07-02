@@ -103,22 +103,27 @@ export default {
             }
             this.$emit('pinNote', note)
         },
+
+
         unpin(note) {
             if (this.isNoteSelected) this.closeSelected()
             this.$emit('unPinNote', note)
         },
+
+// Set the focus on the choosen note, by adding class 'focused' it will change it's position to center absoulte and set everything else in overlay
         selectNote(e) {
 
             this.isNoteSelected = true
             this.noteContainer = e.target.closest('li')
             this.noteContainer.classList.add("focused")
         },
+
+
         closeSelected() {
             this.isNoteSelected = false
             this.noteContainer.classList.remove("focused")
         }
 
     },
-    computed: {
-    },
+
 }

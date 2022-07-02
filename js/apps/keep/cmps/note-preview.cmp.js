@@ -3,6 +3,7 @@ import todoList from "./todo-list.cmp.js"
 export default {
     props: ['note'],
     template: `
+    <!-- Diffrent types of rendering displayed by the type of the recevied note -->
         <div v-if="note.type === 'note-text'" class="type-text" :contentEditable="note.isEditAble">
             <h3 :class="'note-title' + note.id">{{note.info.title}}</h3>
 
@@ -23,8 +24,6 @@ export default {
                 <audio class="audio-player" ref="audio" controls>
                     <source :src=note.info.src type="audio/webm"/>
                 </audio>
-
-                <!-- <audio :id="playerUniqId" :src="audioSource"></audio> -->
         </div>
 
         <div v-if="note.type === 'note-todos'" class="type-todo" :contentEditable="note.isEditAble">
@@ -36,17 +35,5 @@ export default {
     components: {
         todoList
     },
-    data() {
-        return {
 
-        }
-    },
-    methods: {
-        playSound(sound){
-            console.log('sound = ', sound)
-        }
-
-    },
-    computed: {
-    },
 }

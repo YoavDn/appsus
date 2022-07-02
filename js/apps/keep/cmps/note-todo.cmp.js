@@ -17,6 +17,8 @@ export default {
                 isPinned: false,
                 info: {
                     title: '',
+                    // Demo todo on adding 
+                    // ** Go to todo-list,cmp.js to see that todo adding function ** 
                     todos: [
                         {txt:'Go to supermarket', isDone: false},
                         {txt:'Go to gym', isDone: false},
@@ -31,11 +33,7 @@ export default {
     },
     methods: {
         onAddNote(ev) {
-
-        
             this.$emit('noteAdded', this.note)
-
-
         },
 
     },
