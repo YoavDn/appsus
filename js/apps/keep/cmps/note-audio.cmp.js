@@ -3,12 +3,11 @@ export default {
     template: `
     <div class="txt-container record-container">
     <p>Start</p>
-    <button class="edit-btn record" @click="startRecording">
-        
-        <div class="mic">
-            <p>Start</p>
-        </div>
+
+    <button class="edit-btn record" @click="startRecording">    
+        <div class="mic"></div>
     </button>
+
     <p>Stop</p>
     <button @click="stopRecording" class="edit-btn record">
         <div class="stop"></div>
@@ -39,6 +38,9 @@ export default {
         onAddNote() {
             this.$emit('noteAdded', this.note)
         },
+
+    
+// Toggle recorder using MediaRecorder API
         startRecording() {
             if (this.isRecording) return
             this.isRecording = true
@@ -67,6 +69,9 @@ export default {
 
             })
         },
+
+
+// When user stops recording it's saves it's url object in the note.info.src
         stopRecording(){
             if (!this.isRecording) return
             this.isRecording = false
@@ -74,7 +79,5 @@ export default {
             document.querySelector('.mic').classList.remove('rec')
         }
     },
-    computed: {
 
-    },
 }

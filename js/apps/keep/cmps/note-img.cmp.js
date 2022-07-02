@@ -6,8 +6,10 @@ export default {
     <input v-if="isExpand" type="text" placeholder="Title" class="title-input"
              @keyup.enter="onAddNote" v-model="note.info.title">
 
-        <input type="text" @click="isExpand = true" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
-        <button v-if="isExpand" @click="onAddNote" class="add-note-btn">Add note</button>
+
+<!-- Entered image url will be set in note.info.url directly -->
+    <input type="text" @click="isExpand = true" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
+    <button v-if="isExpand" @click="onAddNote" class="add-note-btn"><i class="fa-solid fa-circle-check"></i> Add note</button>
     </div>
     `,
     data() {
@@ -31,9 +33,6 @@ export default {
 
             if (this.note.info.url === '') return
             this.$emit('noteAdded', this.note)
-            // console.log('this.note = ', this.note)
-            // this.$router.go()
-
 
         },
     },

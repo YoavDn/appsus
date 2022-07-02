@@ -15,27 +15,28 @@ export default {
         <keep-side-bar @filter="setFilter"/>
         <section class="main-container">
             <div class="input-container shadow">
-
+<!-- Notes cmps -->
                  <note-text @noteAdded="addNote" v-if="noteType === 'type-text'"/>
                  <note-img @noteAdded="addNote" v-if="noteType === 'type-img'"/>
                  <note-video @noteAdded="addNote" v-if="noteType === 'type-video'"/>
                  <note-todo @noteAdded="addNote" v-if="noteType === 'type-todos'"/>
                  <note-audio @noteAdded="addNote" v-if="noteType === 'type-audio'"/>
 
+<!-- Buttons to set the type of the note -->
                  <div @click="activate" class="btns-container flex">
-                    <button @click="setType('type-text')"  class="note-type-btn"><i class="fa-regular fa-comment note-type-btn type-active"></i></button>
-                    <button @click="setType('type-img')" class="note-type-btn "><i class="fa-solid fa-image note-type-btn"></i></button>
-                    <button @click="setType('type-video')" class="note-type-btn"><i class="fab fa-youtube note-type-btn"></i></button>
-                    <button @click="setType('type-todos')" class="note-type-btn"><i class="fa fa-list note-type-btn"></i></button>
-                    <button @click="setType('type-audio')" class="note-type-btn"><i class="fa-solid fa-microphone"></i></button>
+                    <button @click="setType('type-text')"  class="note-type-btn" data-title="Text"><i class="fa-regular fa-comment note-type-btn type-active"></i></button>
+                    <button @click="setType('type-img')" class="note-type-btn" data-title="Image"><i class="fa-solid fa-image note-type-btn"></i></button>
+                    <button @click="setType('type-video')" class="note-type-btn" data-title="Video"><i class="fab fa-youtube note-type-btn"></i></button>
+                    <button @click="setType('type-audio')" class="note-type-btn" data-title="Record"><i class="fa-solid fa-microphone note-type-btn"></i></button>
+                    <button @click="setType('type-todos')" class="note-type-btn" data-title="Todos"><i class="fa fa-list note-type-btn"></i></button>
                  </div>
 
             </div>
             <section class="notes-list-container">
-                <!-- Pinned list -->
+                <!-- Pinned Notes list -->
                 <h3 v-if="pinnedNotes" class="pinned-header" >Pinned Notes: </h3>
                 <note-list @removeNote="removeNote"  @updateNote="updateNote" @unPinNote="unPinNote" @sendNoteToMail="sendNoteToMail" :notes="pinnedNotes"/>
-                <!-- Regular list -->
+                <!-- Regular Notes list -->
                 <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote" @duplicateNote="addNote" @sendNoteToMail="sendNoteToMail" :notes="notesToDisplay"/>
             </section>
         </section>
@@ -70,6 +71,7 @@ export default {
         this.unsubscribe()
     },
     methods: {
+    // Func to query the notes on created or when called
         updateNotes() {
             notesService.query()
                 .then(res => {
@@ -78,12 +80,13 @@ export default {
                     }
                     this.notes = res
                 })
+
             notesService.queryPins()
                 .then(res => {
                     this.pinnedNotes = res
                 })
         },
-
+// Remove note function that works with pinned notes list and regular list
         removeNote(noteId) {
             notesService.get(noteId)
                 .then(res => {
@@ -105,7 +108,7 @@ export default {
                 })
 
         },
-
+// Load from email integration using event bus
         saveMailToNote(mail) {
             console.log(mail);
             const newNote = {
@@ -123,12 +126,13 @@ export default {
 
             this.addNote(newNote)
         },
-
+// Send note to mail
         sendNoteToMail(note) {
             this.$router.push('/mail/mails')
             setTimeout(() => eventBus.emit('note-to-mail', note), 1000)
         },
 
+// Add note function
         addNote(note) {
             notesService.addNote(note)
                 .then(() => {
@@ -138,6 +142,7 @@ export default {
                 })
         },
 
+//  Pin note / add to pinned notes list
         pinNote(note) {
             const pinnedNote = note
             pinnedNote.isPinned = true
@@ -149,6 +154,8 @@ export default {
 
 
         },
+
+// Unpin note / remove from pinned notes list
         unPinNote(note) {
             const newNote = note
             newNote.isPinned = false
@@ -157,28 +164,37 @@ export default {
 
         },
 
+// Update notes using notesService
         updateNote(note) {
             notesService.update(note)
                 .then(() => {
                 })
         },
 
+// Change the filter called in the side bar cmp
         setFilter(type) {
             this.filterBy = type
         },
 
+// Mark the current note type in the note buttons in the top of the document
         activate(e) {
             if (!e.target.classList.contains('note-type-btn')) return
             document.querySelectorAll('.note-type-btn').forEach(el => el.classList.remove('type-active'))
             e.target.classList.add('type-active');
 
         },
+
+// Change the type of the note
         setType(type) {
             this.noteType = type
         }
 
     },
+
+
     computed: {
+
+// Listens to the filter element in the data, and changes accordingly
         notesToDisplay() {
             if (!this.filterBy) return this.notes
             return this.notes.filter((note) => note.type === this.filterBy)

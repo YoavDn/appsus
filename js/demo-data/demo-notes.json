@@ -1,0 +1,26 @@
+[
+    {"type":"note-video",
+    "isPinned":false,
+    "info":{"url":"https://www.youtube.com/embed/nhBVL41-_Cw",
+    "title":"Video Note !"},
+    "style":{"backgroundColor":"#fff"},
+    "isEditAble":false,"id":"vU3Rij8W"},
+    {"type":"note-todos",
+    "isPinned":false,
+    "info":{"title":"Todo Note !",
+    "todos":[{"txt":"Go to supermarket","isDone":false}
+    ,{"txt":"Go to gym","isDone":false}]},
+    "style":{"backgroundColor":"#fff","color":"#000"},
+    "isEditAble":false,"id":"fNbkAXL1"}
+    ,{"type":"note-img","isPinned":false,"info":
+    {"url":"https://c4.wallpaperflare.com/wallpaper/625/186/451/actor-glass-leonardo-dicaprio-leonardo-dicaprio-wallpaper-preview.jpg",
+    "title":"Image Note !"},
+    "style":{"backgroundColor":"#fff"},
+    "isEditAble":false,"id":"XyXZFOgI"},
+    {"type":"note-text",
+    "isPinned":false,
+    "info":{"title":"Hello Note !","txt":"This is a note!"},
+    "style":{"backgroundColor":"#fbff00","color":"#000"},
+    "isEditAble":false,
+    "id":"F4SHrjyi"}
+]

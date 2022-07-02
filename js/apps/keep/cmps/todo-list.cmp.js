@@ -25,6 +25,7 @@ export default {
 
     },
     methods: {
+// Add todo item to the todo list container
         addTodo() {
             if (this.todoTxt === '') return
             const newTodo = { txt: this.todoTxt, isDone: false }
@@ -33,6 +34,8 @@ export default {
             console.log(this.note.info)
             eventBus.emit('updateNote', this.note)
         },
+
+// Mark a todo item as done
         endTodo(todo) {
             (!todo.isDone) ? todo.isDone = true : todo.isDone = false
             eventBus.emit('updateNote', this.note)

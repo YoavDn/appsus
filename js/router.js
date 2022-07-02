@@ -4,7 +4,6 @@ import mailPage from "./apps/mail/pages/mail-index.cmp.js"
 import keepPage from "./apps/keep/pages/note-index.cmp.js"
 import bookPage from "./apps/book/pages/book-index.cmp.js"
 import addBook from "./apps/book/pages/add-book.cmp.js"
-import noteDetails from "./apps/keep/pages/note-details.cmp.js"
 import mailDetails from "./apps/mail/pages/mail-details.cmp.js"
 import bookDetails from "./apps/book/pages/book-details.cmp.js"
 

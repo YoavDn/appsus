@@ -4,7 +4,8 @@ export default {
         <div class="txt-container">
             <input type="text" placeholder="Enter todo title first" class="title-input" v-model="note.info.title" >
 
-            <button @click.stop="onAddNote" class="add-note-btn">Add todo</button>
+            <button @click="onAddNote" class="add-note-btn"><i class="fa-solid fa-circle-check"></i> Add note</button>
+
         </div>
     `,
     data() {
@@ -16,6 +17,8 @@ export default {
                 isPinned: false,
                 info: {
                     title: '',
+                    // Demo todo on adding 
+                    // ** Go to todo-list,cmp.js to see that todo adding function ** 
                     todos: [
                         {txt:'Go to supermarket', isDone: false},
                         {txt:'Go to gym', isDone: false},
@@ -30,11 +33,7 @@ export default {
     },
     methods: {
         onAddNote(ev) {
-
-        
             this.$emit('noteAdded', this.note)
-
-
         },
 
     },

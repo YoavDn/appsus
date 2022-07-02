@@ -5,7 +5,9 @@
     font-size: 1.6rem;
     margin: 0 !important;
 }
-
+.txt-input::placeholder, .title-input::placeholder {
+    font-size: 0.9rem;
+}
 .title-input {
     border: none;
     height: 3rem;
@@ -58,12 +60,12 @@
 
 .add-note-btn {
     width: 7rem;
-    font-size: 1rem;
+    font-size: 13px;
     background: none;
+    margin-block: 4px;
     border: none;
     text-decoration: underline;
     text-align: left;
-    font-weight: bold;
 }
 
 
@@ -83,6 +85,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding-inline: 6rem;
     gap: 1rem;
     box-shadow: inset 0px 0px 3px -1px black;
 }
