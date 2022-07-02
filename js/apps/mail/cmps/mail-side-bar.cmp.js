@@ -48,7 +48,7 @@ export default {
     },
     computed: {
         ureadCount() {
-            const count = this.mails.filter(mail => mail.isRead === false).length
+            const count = this.mails.filter(mail => mail.isRead === false && !mail.trash).length
             if (count === 0) return
             return count
         },

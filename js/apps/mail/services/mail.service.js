@@ -53,6 +53,8 @@ function updateMail(mail) {
 
 
 function filterByActiveList(actvieList, mails) {
+    if (actvieList === 'trash') return mails.filter(mail => mail.trash)
+    if (actvieList === 'sent') return mails.filter(mail => mail.sent && !mail.trash)
     if (actvieList === 'inbox') return mails.filter(mail => !mail.sent && !mail.trash)
     return mails.filter(mail => mail[actvieList])
 }
@@ -87,7 +89,6 @@ function suggest(filterBy, mails) {
             return regex.test(mail.subject) || regex.test(mail.from)
         })
     }
-
 
     return mails.filter(mail => regex.test(mail.subject) || regex.test(mail.from))
 }

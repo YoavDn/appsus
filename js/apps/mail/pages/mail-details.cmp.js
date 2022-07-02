@@ -8,9 +8,9 @@ export default {
         <nav class="details-nav flex space-arount">
             <router-link class="router-link back-to-inbox" to="/mail/mails">&leftarrow; Back to inbox</router-link>
             <div class="tool-nav">
-                <button @click="mailAction('trash')" data-title="Move to trash" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                <button @click="mailAction('unread')" data-title="Mark as unread" class="delete-btn"><i class="fa-solid fa-envelope"></i></button>
-                <button @click="saveToNotes">Save as note</button>
+                <button @click="mailAction('trash')" data-title="Move to trash" class="details-nav-btn"><i class="fa-solid fa-trash"></i></button>
+                <button @click="mailAction('unread')" data-title="Mark as unread" class="details-nav-btn"><i class="fa-solid fa-envelope"></i></button>
+                <button @click="saveToNotes" data-title="Save Mail as note" class="details-nav-btn"><i class="fa-solid fa-clipboard"></i></button>
             </div>
         </nav>
         <header class="details-header">
@@ -52,14 +52,14 @@ export default {
     methods: {
         mailAction(type) {
             if (type === 'unread') {
+
                 this.mail.isRead = false
                 eventBus.emit('update', this.mail)
                 mailService.updateMail(this.mail)
                 this.$router.push('/mail/mails')
 
             } else if (type === 'trash') {
-                eventBus.emit('trashed', this.mail)
-                mailService.moveToTrash(this.mail)
+                this.$emit('movedToTrash', this.mail)
                 this.$router.push(`/mail/mails`)
             }
         },
@@ -68,7 +68,7 @@ export default {
             setTimeout(() => {
                 eventBus.emit('saveMailToNote', this.mail)
             }, 1000);
-        }
+        },
     },
 
     computed: {
@@ -79,7 +79,8 @@ export default {
         stringDate() {
             const strDate = new Date(this.mail.sentAt).toLocaleString()
             return strDate
-        }
+        },
+
     },
 
 }

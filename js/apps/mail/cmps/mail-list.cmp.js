@@ -12,14 +12,14 @@ export default {
             <mail-filter :mails="mails" />
             <button v-if="activeList === 'trash'" class="shadow clear-trash-btn" @click="clearTrash"><span><i class="fa-solid fa-trash"></i></span>Clear Trash  </button>
             <nav v-if="isSelect" class="selected-actions">
-                 <button @click="deleteSelected" data-tilte="Move to trash"><i class="fa-solid fa-trash"></i></button>
-                 <button  @click="markSelected" data-tilte="Mark as read"><i class="fa-solid fa-envelope-open"></i></button>
+                 <button @click="deleteSelected" data-title="Move to trash"><i class="fa-solid fa-trash"></i></button>
+                 <button  @click="markSelected" data-title="Mark as read"><i class="fa-solid fa-envelope-open"></i></button>
             </nav>
             <div v-if="mailToShow.length > 0" v-for="mail in mailToShow" class="mail-item flex align-center"
             :class="{read: mail.isRead}" 
             @click="toMailDetails(mail)">
             <mail-preview :mail="mail" 
-            @movedToTrash="toTrash" 
+            @movedToTrash="movedToTrash" 
             @markAsRead="markRead(mail)"
             @selectedMail="selected(mail)"/>
             </div>
@@ -45,11 +45,6 @@ export default {
             const idx = this.mails.findIndex(m => m.id === mail.id);
             this.mails.splice(idx, 1, mail);
         })
-        eventBus.on('trashed', mail => {
-            const idx = this.mails.findIndex(m => m.id === mail.id);
-            console.log(idx);
-            this.mails.splice(idx, 1);
-        })
         eventBus.on('changeList', (msg) => {
             this.activeList = msg
         })
@@ -59,13 +54,15 @@ export default {
             mail.isRead = true
             mailService.updateMail(mail)
             this.$router.push(`/mail/${mail.id}`)
+            this.updateUnreadInHeader()
         },
-        toTrash(mail) {
-            this.$emit('trashed', mail)
+        movedToTrash(mail) {
+            this.$emit('movedToTrash', mail)
         },
         markRead(mail) {
             mail.isRead = true
             mailService.updateMail(mail)
+            this.updateUnreadInHeader()
         },
         clearTrash() {
             mailService.clearTrash().then(mails => {
@@ -84,6 +81,9 @@ export default {
         markSelected() {
             const mailsToRead = this.mails.filter(mail => mail.isSelected)
             this.$emit("markReadSelected", mailsToRead)
+        },
+        updateUnreadInHeader() {
+            eventBus.emit('mail-unread', this.mails.filter(mail => !mail.isRead).length)
         }
     },
     computed: {

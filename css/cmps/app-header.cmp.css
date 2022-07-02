@@ -35,3 +35,24 @@
     margin-inline-end: 1rem;
     width: 20px;
 }
+
+.mail-nav-link {
+    position: relative;
+
+}
+
+.header-notifictions {
+    position: absolute;
+    top: 30%;
+    color: white;
+    left: -30%;
+    border-radius: 50%;
+    background-color: var(--main-brand-clr);
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    width: 10px;
+    font-size: 8px;
+    z-index: 3;
+
+}

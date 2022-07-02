@@ -28,7 +28,7 @@ export default {
         return {
             newMail: {
                 to: '',
-                from: '',
+                from: 'Me:',
                 subject: this.noteDraft ? this.noteDraft.info.title : '',
                 body: this.noteDraft ? this.noteDraft.info.txt : '',
                 sent: true,

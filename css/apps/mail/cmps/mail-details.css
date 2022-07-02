@@ -55,7 +55,7 @@
     font-weight: 300;
 }
 
-.delete-btn {
+.details-nav-btn {
     border: none;
     background-color: transparent;
     margin-inline-end: 2rem;
@@ -63,7 +63,7 @@
     color: var(--sub-txt-clr);
 }
 
-.delete-btn:hover {
+.details-nav-btn:hover {
     color: var(--main-txt-clr);
     background: var(--bg-gray);
 }

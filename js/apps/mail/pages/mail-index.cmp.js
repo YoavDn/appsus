@@ -13,7 +13,7 @@ export default {
     <section class="mail-container flex">
         <mail-side-bar  @openNewMail="newMail" :mails="mails"/>
         <router-view :mails='mails'
-        @trashed="movedToTrash" 
+        @movedToTrash="movedToTrash" 
         @deleteSelected="deleteSelected" 
         @clearTrash="clearTrash"
         @markReadSelected="markReadSelected"/>
@@ -43,6 +43,7 @@ export default {
         mailService.query().then(mails => {
             this.mails = mails
             this.$router.push('/mail/mails')
+            eventBus.emit('mail-unread', this.mails.filter(mail => !mail.isRead).length)
         })
         this.unsubscribe = eventBus.on('note-to-mail', this.copyNoteToDraft)
     },
@@ -51,9 +52,6 @@ export default {
         newMail() {
             this.isNewMail = true
         },
-        closeNewMail() {
-            this.isNewMail = false
-        },
         sentMail(mail) {
             eventBus.emit('show-msg', 'sent successfully')
             this.isNewMail = false
@@ -61,21 +59,27 @@ export default {
                 this.mails.unshift(mail)
             })
         },
+
+        closeNewMail() {
+            this.isNewMail = false
+        },
+
         movedToTrash(mail) {
+            console.log(mail);
             const idx = this.mails.findIndex(m => m.id === mail.id)
             this.mails[idx].trash = true
             mailService.updateMail(this.mails[idx])
         },
+
         deleteSelected(selectedMails) {
             selectedMails.forEach(mail => {
-                console.log(mail);
                 this.movedToTrash(mail)
             })
         },
+
         markReadSelected(selectedMail) {
             selectedMail.forEach(mail => {
                 const idx = this.mails.findIndex(m => m.id === mail.id)
-                console.log(mail, idx);
                 this.mails[idx].isRead = true
                 mailService.updateMail(this.mails[idx])
             })
@@ -88,10 +92,9 @@ export default {
             })
         },
         copyNoteToDraft(note) {
-            this.newMail()
+            this.newMail()// open the New Mail window
             if (note.type === 'note-todos') {
                 this.noteDraft = note
-
                 this.noteDraft.info.txt = utilService.printTodoToMail(note.info.todos)
             }
             this.noteDraft = note
@@ -100,5 +103,5 @@ export default {
     unmounted() {
         this.unsubscribe()
     },
-    computed: {},
+
 }

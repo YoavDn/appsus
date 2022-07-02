@@ -1,7 +1,7 @@
 [
     {
         "id": "7",
-        "from": "Afik Zehavi",
+        "from": "Alex Bork",
         "subject": "Miss you!",
         "body": "Would love to catch up sometimes",
         "isRead": false,
@@ -14,8 +14,8 @@
     {
         "id": "6",
         "from": "Afik Zehavi",
-        "subject": "Miss you!",
-        "body": "Would love to catch up sometimes",
+        "subject": "Pull request!",
+        "body": "plz check out my latest update i added new Shit",
         "isRead": false,
         "sentAt": 1551133930594,
         "to": "momo@momo.com",
@@ -107,6 +107,6 @@
         "to": "pukiShuki@puki.com",
         "isStar": false,
         "sent": true,
-        "trash": true
+        "trash": false
     }
 ]
