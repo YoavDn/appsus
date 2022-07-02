@@ -1,7 +1,9 @@
+import { eventBus } from '../../../services/eventBus-service.js';
 import { utilService } from '../../../services/util-service.js'
 
 export default {
-    emits: ['send', 'close'],
+    props: ['noteDraft'],
+    emits: ['send', 'close', 'openNewMail'],
     template: `
     <section :class="windowStyle" class="new-mail-window shadow">
         <div class="window-bar flex space-between">
@@ -27,8 +29,8 @@ export default {
             newMail: {
                 to: '',
                 from: '',
-                subject: '',
-                body: '',
+                subject: this.noteDraft ? this.noteDraft.info.title : '',
+                body: this.noteDraft ? this.noteDraft.info.txt : '',
                 sent: true,
                 isRead: true,
                 isSelected: false,
@@ -40,16 +42,14 @@ export default {
     methods: {
         enterFullScreen() {
             this.fullScreen = !this.fullScreen;
-        }
+        },
     },
     computed: {
         windowStyle() {
             return { 'full-screen': this.fullScreen }
         },
-
     },
     mounted() {
         if (document.body.clientWidth < 750) this.mobile = true
-
     },
 }

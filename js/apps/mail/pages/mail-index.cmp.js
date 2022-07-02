@@ -16,7 +16,7 @@ export default {
         @deleteSelected="deleteSelected" 
         @clearTrash="clearTrash"
         @markReadSelected="markReadSelected"/>
-        <new-mail @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
+        <new-mail :noteDraft="noteDraft" @openNewMail="newMail" @send="sentMail" @close="closeNewMail" v-if="isNewMail"/>
     </section>
     `,
     components: {
@@ -32,7 +32,10 @@ export default {
             isNewMail: false,
             selectedMail: null,
             mobile: null,
-            sideBarOpen: false
+            sideBarOpen: false,
+            noteDraft: null,
+            unsubscribe: null
+
         }
     },
     created() {
@@ -40,7 +43,9 @@ export default {
             this.mails = mails
             this.$router.push('/mail/mails')
         })
+        this.unsubscribe = eventBus.on('note-to-mail', this.copyNoteToDraft)
     },
+
     methods: {
         newMail() {
             this.isNewMail = true
@@ -80,7 +85,14 @@ export default {
             mailService.clearTrash().then(newMails => {
                 this.mails = newMails
             })
-        }
+        },
+        copyNoteToDraft(note) {
+            this.newMail()
+            this.noteDraft = note
+        },
+    },
+    unmounted() {
+        this.unsubscribe()
     },
     computed: {},
 }

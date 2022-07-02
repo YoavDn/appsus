@@ -34,9 +34,9 @@ export default {
             <section class="notes-list-container">
                 <!-- Pinned list -->
                 <h3 v-if="pinnedNotes" class="pinned-header" >Pinned Notes: </h3>
-                <note-list @removeNote="removeNote" @updateNote="updateNote" @unPinNote="unPinNote" :notes="pinnedNotes"/>
+                <note-list @removeNote="removeNote"  @updateNote="updateNote" @unPinNote="unPinNote" @sendNoteToMail="sendNoteToMail" :notes="pinnedNotes"/>
                 <!-- Regular list -->
-                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote" @duplicateNote="addNote" :notes="notesToDisplay"/>
+                <note-list @removeNote="removeNote" @updateNote="updateNote" @pinNote="pinNote" @duplicateNote="addNote" @sendNoteToMail="sendNoteToMail" :notes="notesToDisplay"/>
             </section>
         </section>
        
@@ -122,6 +122,11 @@ export default {
             }
 
             this.addNote(newNote)
+        },
+
+        sendNoteToMail(note) {
+            this.$router.push('/mail/mails')
+            setTimeout(() => eventBus.emit('note-to-mail', note), 1000)
         },
 
         addNote(note) {
