@@ -5,7 +5,7 @@ export default {
     <section class="side-bar-keep">
 
         <div @click="activate" class="side-bar-items-keep">
-            <button @click="$emit('filter', null)" class="keep-bar-btn bold active"><i class="fa-solid fa-clipboard"></i> All Notes</button>
+            <button @click="$emit('filter', null)" class="keep-bar-btn bold "><i class="fa-solid fa-clipboard "></i> All Notes</button>
             <button @click="$emit('filter', 'note-text')" class="keep-bar-btn"><i class="fa-regular fa-comment"></i> Text</button>
             <button @click="$emit('filter', 'note-img')" class="keep-bar-btn"><i class="fa-solid fa-image"></i> Images</button>
             <button @click="$emit('filter', 'note-video')" class="keep-bar-btn"><i class="fab fa-youtube"></i> Video</button>
