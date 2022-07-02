@@ -1,4 +1,6 @@
 import { notesService } from "../keep-services/note.service.js"
+import { utilService } from "../../../services/util-service.js"
+
 
 export default {
     template: `
@@ -8,7 +10,7 @@ export default {
 
 
 <!-- Entered image url will be set in note.info.url directly -->
-    <input type="text" @click="isExpand = true" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
+    <input type="text" @click="expand" class="txt-input" v-model="note.info.url" placeholder="Enter image url..">
     <button v-if="isExpand" @click="onAddNote" class="add-note-btn"><i class="fa-solid fa-circle-check"></i> Add note</button>
     </div>
     `,
@@ -34,6 +36,9 @@ export default {
             if (this.note.info.url === '') return
             this.$emit('noteAdded', this.note)
 
+        },
+        expand(){
+            this.isExpand = utilService.expand(this.isExpand)
         },
     },
     computed: {

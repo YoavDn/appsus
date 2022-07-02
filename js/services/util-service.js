@@ -3,7 +3,8 @@ export const utilService = {
   saveToStorage,
   makeId,
   getLastWeeksDate,
-  printTodoToMail
+  printTodoToMail,
+  expand
 }
 
 
@@ -38,3 +39,8 @@ function printTodoToMail(todos) {
   return todosArr
 }
 
+function expand(object){
+
+  document.querySelector('.txt-container').classList.toggle('expand')
+  return object = !object
+}
