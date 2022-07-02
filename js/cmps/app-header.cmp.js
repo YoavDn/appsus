@@ -11,7 +11,7 @@ export default {
         </div>
             <nav class="main-nav">
                 <ul class="nav-list flex" >
-                    <router-link class="router-link" to="/mail">Mail</router-link>
+                    <router-link class="router-link" to="/mail/mails">Mail</router-link>
                     <router-link class="router-link" to="/keep">Keep</router-link>
                     <router-link class="router-link" to="/book">Books</router-link>
 
