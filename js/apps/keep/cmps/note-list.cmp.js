@@ -13,11 +13,13 @@ export default {
              @click="selectNote">
                 
                 <note-preview :note="note" />
+
+<!-- The buttons container that are shwon in the bottom of the note -->
                 <div class="edit-btns-container" >
                     
                     <button class="edit-btn" @click.stop :style="{color: note.style.color}">
                         <input :id="'note'+ note.id"  type="color" class="input-color" @input="changeBackgroundColor($event, note)">
-                        <label :for="'note'+ note.id" data-title="Change color"><i class="fas fa-palette"></i></label>
+                        <label :for="'note'+ note.id" data-title="Change Color"><i class="fas fa-palette pallete"></i></label>
                     </button>
 
                     <button class="edit-btn" @click.stop="removeNote(note)" data-title="Remove" :style="{color: note.style.color}">
@@ -31,17 +33,17 @@ export default {
                     
                     <button class="edit-btn" @click.stop :style="{color: note.style.color}">
                         <input :id="'fontcolor '+ note.id"  type="color" class="input-color" @input="changeFontColor($event, note)" :style="{color: note.style.color}">
-                        <label :for="'fontcolor '+ note.id" class="font-color-btn">A</label>
+                        <label :for="'fontcolor '+ note.id" class="font-color-btn" data-title="Font Color">A</label>
                     </button>
 
                     <button class="edit-btn" :class="{pinned: note.isPinned}" data-title="Pin" @click.stop="pin(note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-thumbtack"></i>
                     </button>
 
-                    <button v-if="!note.isPinned" class="edit-btn" data-title="Pin" @click.stop="$emit('duplicateNote', note)" :style="{color: note.style.color}">
+                    <button v-if="!note.isPinned" class="edit-btn" data-title="Duplicate Note" @click.stop="$emit('duplicateNote', note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-copy"></i>
                     </button>
-                    <button v-if="note.type === 'note-text' || note.type === 'note-todos'" class="edit-btn" data-title="Send to mail" @click.stop="$emit('sendNoteToMail', note)" :style="{color: note.style.color}">
+                    <button v-if="note.type === 'note-text' || note.type === 'note-todos'" class="edit-btn" data-title="Send To Mail" @click.stop="$emit('sendNoteToMail', note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-envelope"></i>
                     </button>
                 </div>
@@ -62,12 +64,14 @@ export default {
         }
     },
     methods: {
+
         changeBackgroundColor(ev, note) {
             const newColor = ev.target.value
             note.style.backgroundColor = newColor
 
             notesService.update(note)
         },
+
         changeFontColor(ev, note) {
             const newColor = ev.target.value
             note.style.color = newColor
@@ -76,17 +80,22 @@ export default {
         },
 
         removeNote(note) {
-            // notesService.remove(note.id)
             this.$emit('removeNote', note.id)
         },
+
         editNote(note) {
+// Set the note to editAble to set the note's div edit able
             note.isEditAble = !note.isEditAble
+
+// Pull the inserted text in the container and save it to the note object
             let title = document.querySelector(".note-title" + note.id).innerText
             let txt = document.querySelector(".note-txt" + note.id).innerText
             note.info.title = title
             note.info.txt = txt
             this.$emit('updateNote', note)
         },
+
+
         pin(note) {
             if (this.isNoteSelected) this.closeSelected()
             if (note.isPinned) {

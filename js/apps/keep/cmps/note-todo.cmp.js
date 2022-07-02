@@ -4,7 +4,8 @@ export default {
         <div class="txt-container">
             <input type="text" placeholder="Enter todo title first" class="title-input" v-model="note.info.title" >
 
-            <button @click.stop="onAddNote" class="add-note-btn">Add todo</button>
+            <button @click="onAddNote" class="add-note-btn"><i class="fa-solid fa-circle-check"></i> Add note</button>
+
         </div>
     `,
     data() {

@@ -16,7 +16,7 @@ export const notesService = {
     removeFromPinnedList
 }
 
-function query(){
+function query() {
     return storageService.query(NOTES_KEY)
 }
 function queryPins() {
@@ -24,49 +24,16 @@ function queryPins() {
 }
 
 function _createNotes() {
-    let notes 
-    query().then((res)=> {
+    let notes
+    query().then((res) => {
         notes = res
         if (!notes || !notes.length) {
-            let exampleNote1, exampleNote2
-            exampleNote1 = {
-                type: "note-text",
-                isPinned: false, 
-                info: {
-                    title: 'Hello World!',
-                    txt: 'Here is a paragraph'
-                },
-                isEditAble: false,
-                style: {
-                    backgroundColor: '#fff',
-                } 
-            }
-            
-            
-             exampleNote2 = {
-
-                type: "note-todos",
-                isPinned: false, 
-                info: {
-                    title: 'Hello Todo!',
-                    todos: [
-                        {txt:'Go to supermarket', isDone: false},
-                        {txt:'Go to the gym', isDone: false},
-                    ]
-                },
-                isEditAble: false,
-                style: {
-                    backgroundColor: '#fff',
-                } 
-            }
-            storageService.post(NOTES_KEY, exampleNote2 )
-                .then(() => {
-                 storageService.post(NOTES_KEY, exampleNote1 )
-
-                })
+            notes = fetch("js/demo-data/demo-notes.json")
+                .then(res => res.json())
+                .then(res => utilService.saveToStorage(NOTES_KEY, res))
         }
     })
-
+    return notes
 }
 
 function get(noteId) {
@@ -83,13 +50,13 @@ function update(note) {
 
 function removeFromRegularList(noteId) {
 
-        return storageService.remove(NOTES_KEY, noteId)
+    return storageService.remove(NOTES_KEY, noteId)
 
 }
 
 function removeFromPinnedList(noteId) {
 
-        return storageService.remove(PINNED_KEY, noteId)
+    return storageService.remove(PINNED_KEY, noteId)
 
 }
 
