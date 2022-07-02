@@ -1,7 +1,7 @@
 import { eventBus } from "../../../services/eventBus-service.js"
 
 export default {
-    props:['note'],
+    props: ['note'],
     template: `
         <div class="todo-conatiner flex" @click.stop>
             <input type="text" name="" id="todo-input" v-model="todoTxt">
@@ -21,18 +21,19 @@ export default {
             todoTxt: '',
         }
     },
-    create(){
-        
+    create() {
+
     },
     methods: {
-        addTodo(){
+        addTodo() {
             if (this.todoTxt === '') return
-            const newTodo = {txt: this.todoTxt, isDone: false}
+            const newTodo = { txt: this.todoTxt, isDone: false }
             this.note.info.todos.push(newTodo)
             this.todoTxt = ''
+            console.log(this.note.info)
             eventBus.emit('updateNote', this.note)
         },
-        endTodo(todo){
+        endTodo(todo) {
             (!todo.isDone) ? todo.isDone = true : todo.isDone = false
             eventBus.emit('updateNote', this.note)
             console.log('todo = ', todo)

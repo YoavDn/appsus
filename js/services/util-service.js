@@ -2,7 +2,8 @@ export const utilService = {
   loadFromStorage,
   saveToStorage,
   makeId,
-  getLastWeeksDate
+  getLastWeeksDate,
+  printTodoToMail
 }
 
 
@@ -28,3 +29,12 @@ function makeId(length = 8) {
 function getLastWeeksDate() {
   return Date.now() - (7 * 24 * 60 * 60 * 1000);
 }
+
+
+
+
+function printTodoToMail(todos) {
+  const todosArr = todos.map((todo, idx) => `● ${todo.txt}`).join(`\n`);
+  return todosArr
+}
+

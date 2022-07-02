@@ -41,7 +41,7 @@ export default {
                     <button v-if="!note.isPinned" class="edit-btn" data-title="Pin" @click.stop="$emit('duplicateNote', note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-copy"></i>
                     </button>
-                    <button v-if="note.type === 'note-text'" class="edit-btn" data-title="Send to mail" @click.stop="$emit('sendNoteToMail', note)" :style="{color: note.style.color}">
+                    <button v-if="note.type === 'note-text' || note.type === 'note-todos'" class="edit-btn" data-title="Send to mail" @click.stop="$emit('sendNoteToMail', note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-envelope"></i>
                     </button>
                 </div>

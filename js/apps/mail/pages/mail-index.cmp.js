@@ -5,6 +5,7 @@ import mailDetails from './mail-details.cmp.js'
 
 import { mailService } from '../services/mail.service.js'
 import { eventBus } from '../../../services/eventBus-service.js'
+import { utilService } from '../../../services/util-service.js'
 
 
 export default {
@@ -88,6 +89,11 @@ export default {
         },
         copyNoteToDraft(note) {
             this.newMail()
+            if (note.type === 'note-todos') {
+                this.noteDraft = note
+
+                this.noteDraft.info.txt = utilService.printTodoToMail(note.info.todos)
+            }
             this.noteDraft = note
         },
     },
