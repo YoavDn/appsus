@@ -63,7 +63,7 @@ export default {
 
     computed: {
         userAvatar() {
-            const defaultUserImg = '/assest/images/user.png'
+            const defaultUserImg = 'assest/images/user.png'
             return this.mail.avatar || defaultUserImg
         },
         stringDate() {

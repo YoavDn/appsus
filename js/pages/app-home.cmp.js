@@ -7,7 +7,7 @@ export default {
             <h3>Make your life easier</h3>
 
         </div>
-        <img src="/assest/images/circles.svg" alt="">
+        <img src="assest/images/circles.svg" alt="">
     </section>
     <section class="features-section">
         <h2 class="features-title">Features</h2>
