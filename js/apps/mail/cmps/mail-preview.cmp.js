@@ -6,21 +6,23 @@ export default {
     template: `
         <div class="item-header flex align-center">
             <div class="item-main-actions flex">
-            <input v-if="!mobile" type="checkbox" @click.stop="selectMail" data-title="Select">
-            <button v-if="!mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
-            <h2 v-if="mobile" :class="thinIfRead">{{stringDate}}</h2>
+                <input v-if="!mobile" type="checkbox" @click.stop="selectMail" data-title="Select">
+                <button v-if="!mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
+                  <h2 :class="thinIfRead">{{stringDate}}</h2>
+            </div>
+            <h2 :class="thinIfRead" class="maill-item-from">{{fromOrTo}}</h2>
         </div>
-        <h2 :class="thinIfRead" class="maill-item-from">{{fromOrTo}}</h2>
-        </div>
-
         <div class="item-content flex align-center"
          @mouseover="onHover"
          @mouseleave="onLeaveHover">
             <h2 :class="thinIfRead" class="item-subject">{{subjectText}}</h2>
             <div class="mobile-checkbox flex">
                 <h3 class="thin">{{bodyComma}}&nbsp;{{bodyText}}</h3>
-                <input v-if="mobile" class='mail-checkbox' type="checkbox" @click.stop="selectMail" data-title="Select">
-                <button class="star" v-if="mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
+                    <div v-if="mobile" class="flex-colum">
+                        <input class='mail-checkbox' type="checkbox" @click.stop="selectMail" data-title="Select">
+                        <button class="star"  :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
+                    </div>
+            </div>
             </div>
         </div>
         <div v-if="!isHovered" class="item-date"

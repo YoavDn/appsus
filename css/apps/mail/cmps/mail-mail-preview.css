@@ -61,25 +61,25 @@
     color: var(--main-txt-clr);
 }
 
-.mobile-checkbox {}
-
 .mobile-checkbox input {
     position: absolute;
-    right: 3rem;
+    right: 2rem;
 }
 
 .mobile-checkbox .star {
     position: absolute;
-    right: 5rem;
+    right: 4rem;
     border: none;
     background-color: transparent;
-    transform: translateY(-3px);
+    transform: translateY(-6px);
+    font-size: 1.6rem;
 }
 
 .mobile-checkbox .notStar {
     position: absolute;
-    right: 5rem;
-    transform: translateY(-3px);
+    right: 4rem;
+    transform: translateY(-6px);
+    font-size: 1.6rem;
     border: none;
     color: var(--main-txt-clr);
     background-color: transparent;

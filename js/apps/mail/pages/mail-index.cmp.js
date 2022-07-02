@@ -72,9 +72,10 @@ export default {
         },
 
         deleteSelected(selectedMails) {
-            selectedMails.forEach(mail => {
-                this.movedToTrash(mail)
-            })
+            selectedMails.forEach(mail => this.movedToTrash(mail))
+            //remove all checked inputs 
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+            checkboxes.forEach(checkbox => checkbox.checked = false)
         },
 
         markReadSelected(selectedMail) {
