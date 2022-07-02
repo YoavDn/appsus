@@ -1,0 +1,10 @@
+.keep-app-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.main-container {
+    flex-direction: column;
+    grid-column: 2;
+    padding-inline: 2rem;
+}
