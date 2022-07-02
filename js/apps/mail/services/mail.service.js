@@ -54,7 +54,6 @@ function updateMail(mail) {
 
 function filterByActiveList(actvieList, mails) {
     if (actvieList === 'inbox') return mails.filter(mail => !mail.sent && !mail.trash)
-
     return mails.filter(mail => mail[actvieList])
 }
 

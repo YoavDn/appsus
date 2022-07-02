@@ -3,11 +3,15 @@
     justify-content: center;
     gap: 1rem;
 }
+
 .add-book-container input {
+    font-size: 16px;
     border: none;
     border-bottom: 1px solid black;
 }
-.add-book-container button, .preview-details-btn {
+
+.add-book-container button,
+.preview-details-btn {
     background: none;
     border: none;
     text-decoration: underline;
@@ -38,14 +42,38 @@
 }
 
 .new-book-header {
-    margin-block: 2rem;
+    margin-block-start: 6rem;
+    margin-bottom: 3rem;
     text-align: center;
     font-size: 29px;
     letter-spacing: 2px;
 }
+
 .book-option h2 {
     font-size: 20px;
     font-family: inherit;
     flex-basis: 70%;
     letter-spacing: 1px;
+}
+
+
+.add-book-btn {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-block: 2rem;
+    text-decoration: none;
+    background-color: var(--mail-brand-bg);
+    width: 200px;
+    padding: 1rem 2rem;
+    font-weight: 300;
+    font-size: 2rem;
+    border-radius: .5em;
+    color: var(--main-brand-clr);
+    cursor: pointer;
+    transition: box-shadow .3s;
+}
+
+.add-book-btn:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

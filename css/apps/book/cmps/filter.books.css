@@ -1,0 +1,26 @@
+.filter-form {
+    font-size: 1.6rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-books {
+    width: 80%;
+    margin: auto;
+    margin-block: 30px;
+}
+
+.filter-books form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 750px) {
+    .filter-books form {
+        flex-direction: column;
+    }
+}

@@ -6,7 +6,7 @@ export default {
             
         <div  @click="goToHomePage" class="logo-box flex">
             <img src="assest/images/circles.svg" alt="">
-            <h2 class="logo">Appsus </h2>
+    <h2 class="logo">Appsus </h2>
 
         </div>
             <nav class="main-nav">

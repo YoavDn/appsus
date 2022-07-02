@@ -1,0 +1,53 @@
+.book {
+    border: solid 1.5px var(--bg-gray);
+    position: relative;
+    display: flex;
+    flex-basis: 200px;
+    flex-direction: column;
+    margin: 1rem;
+    margin-bottom: 40px;
+    align-items: center;
+    padding: 24px;
+    border-radius: 1rem;
+
+}
+
+
+.book:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+.title {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: rgb(47, 46, 46);
+}
+
+.book img {
+    width: 100%;
+}
+
+.preview-price {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: .4rem;
+}
+
+
+.preview-section h3 {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.preview-img {
+    height: 100px;
+}
+
+
+
+.book-option button {
+    height: 30px;
+}

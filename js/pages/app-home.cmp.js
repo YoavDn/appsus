@@ -9,7 +9,8 @@ export default {
         </div>
         <img src="assest/images/circles.svg" alt="">
     </section>
-    <section class="features-section">
+    <main class="feature-container">
+        <section class="features-section">
         <h2 class="features-title">Features</h2>
         <div class="features-cards flex space-between">
                 <div class="mail-feature feature-card shadow">
@@ -31,7 +32,11 @@ export default {
 
                 </div>
             </div>
-            <h2 class="footer">Created by Afik and Yoav</h2>
-    </section>
+        </section>
+        <h2 class="footer">Created by Afik and Yoav</h2>
+        </main>
+   
+     
+        <!-- <img class="gradient" src="assest/images/gradient.svg" alt=""> -->
     `,
 }

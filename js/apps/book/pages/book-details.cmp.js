@@ -55,7 +55,7 @@ export default {
         addReview(review) {
             console.log(review);
             bookService.addReview(this.book.id, review).then(book => {
-                eventBus.emit('show-msg', { txt: 'Saved/Update successfully', type: 'success' })
+                eventBus.emit('show-msg', 'Review added successfully')
                 return this.book = book
             })
 

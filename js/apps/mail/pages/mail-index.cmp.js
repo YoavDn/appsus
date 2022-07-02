@@ -76,9 +76,10 @@ export default {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]')
             checkboxes.forEach(checkbox => checkbox.checked = false)
         },
-        clearTrash(mails) {
-            console.log(mails);
-            this.mails = mails
+        clearTrash() {
+            mailService.clearTrash().then(newMails => {
+                this.mails = newMails
+            })
         }
     },
     computed: {},
