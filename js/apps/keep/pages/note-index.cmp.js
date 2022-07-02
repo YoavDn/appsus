@@ -7,7 +7,7 @@ import noteTodo from "../cmps/note-todo.cmp.js"
 import noteAudio from "../cmps/note-audio.cmp.js"
 import { storageService } from "../../../services/async-storage-service.js"
 import keepSideBar from "../cmps/keep-side-bar.cmp.js"
-import { eventBus } from "../../../services/eventBus-service.js"
+import { eventBus } from '../../../services/eventBus-service.js'
 
 export default {
     template: `
@@ -54,7 +54,7 @@ export default {
     },
     data() {
         return {
-
+            unsubscribe: null,
             noteType: 'type-text',
             notes: null,
             pinnedNotes: null,
@@ -64,6 +64,10 @@ export default {
     created() {
         this.updateNotes()
         eventBus.on('updateNote', this.updateNote)
+        this.unsubscribe = eventBus.on('saveMailToNote', this.saveMailToNote)
+    },
+    unmounted() {
+        this.unsubscribe()
     },
     methods: {
         updateNotes() {
@@ -100,6 +104,24 @@ export default {
                     }
                 })
 
+        },
+
+        saveMailToNote(mail) {
+            console.log(mail);
+            const newNote = {
+                type: "note-text",
+                isPinned: false,
+                info: {
+                    title: `${mail.subject} sent by ${mail.from}`,
+                    txt: mail.body,
+                },
+                style: {
+                    backgroundColor: '#fff',
+                    color: '#000',
+                },
+            }
+
+            this.addNote(newNote)
         },
 
         addNote(note) {
@@ -157,5 +179,6 @@ export default {
             return this.notes.filter((note) => note.type === this.filterBy)
         },
     },
+
 
 }

@@ -1,6 +1,6 @@
 import { eventBus } from "../../../services/eventBus-service.js";
 import { mailService } from "../services/mail.service.js";
-
+import { storageService } from "../../../services/async-storage-service.js";
 
 export default {
     template: `
@@ -10,6 +10,7 @@ export default {
             <div class="tool-nav">
                 <button @click="mailAction('trash')" data-title="Move to trash" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                 <button @click="mailAction('unread')" data-title="Mark as unread" class="delete-btn"><i class="fa-solid fa-envelope"></i></button>
+                <button @click="saveToNotes">Save as note</button>
             </div>
         </nav>
         <header class="details-header">
@@ -44,6 +45,9 @@ export default {
         const id = this.$route.params.mailId;
         mailService.getMailById(id).then(mail => this.mail = mail)
     },
+    beforeDestroy() {
+        eventBus.off('saveMailToNote', this.saveMailToNote)
+    },
 
     methods: {
         mailAction(type) {
@@ -58,6 +62,12 @@ export default {
                 mailService.moveToTrash(this.mail)
                 this.$router.push(`/mail/mails`)
             }
+        },
+        saveToNotes() {
+            this.$router.push('/keep')
+            setTimeout(() => {
+                eventBus.emit('saveMailToNote', this.mail)
+            }, 1000);
         }
     },
 

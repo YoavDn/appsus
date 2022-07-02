@@ -17,7 +17,7 @@ export default {
 
                 </ul>
             </nav>
-        </header>
+        </header> 
     </section>
     `,
     methods: {

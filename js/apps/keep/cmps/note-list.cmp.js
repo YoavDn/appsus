@@ -3,13 +3,14 @@ import { notesService } from "../keep-services/note.service.js"
 import { storageService } from "../../../services/async-storage-service.js"
 
 export default {
-    emits: ["removeNote","updateNote","pinNote","unPinNote", "duplicateNote"],
+    emits: ["removeNote", "updateNote", "pinNote", "unPinNote", "duplicateNote"],
     props: ["notes"],
     template: `
     <section class="notes-list">
         
         <ul>
-            <li v-for="(note,idx) in notes" :key="note.id" class="note-preview-container" :style="{backgroundColor: note.style.backgroundColor, color: note.style.color}" @click="selectNote">
+            <li v-for="(note,idx) in notes" :key="note.id" class="note-preview-container" :style="{backgroundColor: note.style.backgroundColor, color: note.style.color}"
+             @click="selectNote">
                 
                 <note-preview :note="note" />
                 <div class="edit-btns-container" >
@@ -37,6 +38,9 @@ export default {
                         <i class="fa-solid fa-thumbtack"></i>
                     </button>
 
+                    <button v-if="!note.isPinned" class="edit-btn" data-title="Pin" @click.stop="$emit('duplicateNote', note)" :style="{color: note.style.color}">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
                     <button v-if="!note.isPinned" class="edit-btn" data-title="Pin" @click.stop="$emit('duplicateNote', note)" :style="{color: note.style.color}">
                         <i class="fa-solid fa-copy"></i>
                     </button>
@@ -95,6 +99,7 @@ export default {
             this.$emit('unPinNote', note)
         },
         selectNote(e) {
+
             this.isNoteSelected = true
             this.noteContainer = e.target.closest('li')
             this.noteContainer.classList.add("focused")
