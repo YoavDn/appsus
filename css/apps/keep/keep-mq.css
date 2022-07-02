@@ -37,4 +37,8 @@
     .input-container {
         padding-inline: 3rem;
     }
+    
+    .add-note-btn {
+        font-size: 10px;
+    }
 }
