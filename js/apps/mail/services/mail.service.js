@@ -53,16 +53,9 @@ function updateMail(mail) {
 
 
 function filterByActiveList(actvieList, mails) {
-    if (actvieList === 'starred') {
-        return mails.filter(mail => mail.isStar)
-    } else if (actvieList === 'trash') {
-        return mails.filter(mail => mail.trash)
-    } else if (actvieList === 'sent') {
-        return mails.filter(mail => mail.sent)
-    } else if (actvieList === 'sent') {
-        return mails.filter(mail => mail.sent)
-    }
-    return mails.filter(mail => !mail.sent && !mail.trash)
+    if (actvieList === 'inbox') return mails.filter(mail => !mail.sent && !mail.trash)
+
+    return mails.filter(mail => mail[actvieList])
 }
 
 

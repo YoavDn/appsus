@@ -9,7 +9,7 @@ export default {
         <button class="compose-btn shadow" @click="toNewMail"> <span>&plus;</span> Compose</button>
         <div @click="activate" class="side-bar-items">
             <button :class="activeStyle"  @click="toList('inbox')" class="side-bar-btn bold"><span><i class="fa-solid fa-inbox"></i></span>Inbox <span>{{ureadCount}}</span></button>
-            <button @click="toList('starred')" class="side-bar-btn"><span>&bigstar;</span>Starred</button>
+            <button @click="toList('isStar')" class="side-bar-btn"><span>&bigstar;</span>Starred</button>
             <button @click="toList('sent')" class="side-bar-btn"><span><i class="fa-solid fa-paper-plane"></i></span>Sent</button>
             <button class="side-bar-btn"><span><i class="fa-solid fa-file"></i></span>Drafts</button>
             <button @click="toList('trash')" class="side-bar-btn"><span><i class="fa-solid fa-trash"></i></span>Trash</button>
