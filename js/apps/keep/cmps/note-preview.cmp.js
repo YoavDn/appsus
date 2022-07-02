@@ -23,6 +23,7 @@ export default {
                 <audio class="audio-player" ref="audio" controls>
                     <source :src=note.info.src type="audio/webm"/>
                 </audio>
+
                 <!-- <audio :id="playerUniqId" :src="audioSource"></audio> -->
         </div>
 
@@ -41,7 +42,9 @@ export default {
         }
     },
     methods: {
-
+        playSound(sound){
+            console.log('sound = ', sound)
+        }
 
     },
     computed: {

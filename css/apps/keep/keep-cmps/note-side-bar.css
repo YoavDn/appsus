@@ -29,7 +29,7 @@
     color: var(--main-txt-clr);
 }
 
-.side-bar-items {
+.side-bar-items-keep {
     display: flex;
     flex-direction: column;
     align-items: center;
