@@ -34,6 +34,9 @@ export default {
     methods: {
         onAddNote(ev) {
             this.$emit('noteAdded', this.note)
+            setTimeout(() => {
+                this.note.info.title = ''
+            }, 300);
         },
 
     },

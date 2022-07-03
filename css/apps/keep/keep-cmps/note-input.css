@@ -18,6 +18,8 @@
     flex-direction: column;
     width: 40%;
     padding: 1rem;
+    height: auto;
+    overflow: hidden;
 }
 
 .note-type-btn {
@@ -28,6 +30,8 @@
    
 }
 
+
+
 .input-container {
     max-width: 40rem;
     margin: auto;
@@ -36,7 +40,13 @@
     align-items: center;
     /* padding: 0.8rem; */
     border-radius: 3rem;
+    /* overflow: hidden; */
     justify-content: space-evenly;
+
+}
+
+.expand {
+    max-height: 14.1875rem
 }
 
 .text_area {
@@ -109,3 +119,5 @@
 	border: 0;
 	outline: none;
 }
+
+/* 14.1875rem */

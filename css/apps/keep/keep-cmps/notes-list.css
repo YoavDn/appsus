@@ -10,10 +10,14 @@
     padding: 1em;
     align-items: flex-start;
     grid-auto-flow: dense;    
+    /* animation: fadeIn 1s; */
+
+
 }
 
-
-
+.notes-list li {
+    animation: fadeIn 1.5s;
+}
 .pinned-header {
     align-self: flex-start;
     padding-left: 2rem;
@@ -27,7 +31,7 @@
     top: 50%;
     transform: translate(50%, -50%);
     min-width: 35rem;
-    animation: fadeIn 0.5s;
+    animation: fadeIn 1s !important;
     
 }
 

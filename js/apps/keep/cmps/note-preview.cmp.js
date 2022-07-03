@@ -10,7 +10,7 @@ export default {
             <p :class="'note-txt' + note.id">{{note.info.txt}}</p>
         </div>
         <div v-if="note.type === 'note-img'" class="type-text" :contentEditable="note.isEditAble">
-            <img :src=note.info.url alt="">
+            <img :src=note.info.url :alt=note.info.url>
             <h3 :class="'note-title' + note.id">{{note.info.title}}</h3>
         </div>
 
