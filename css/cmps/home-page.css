@@ -25,7 +25,7 @@
 
 .feature-container {
     position: relative;
-    background-image: url('/assest/images/gradient.svg');
+    background-image: url('./assest/images/gradient.svg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: contain;
