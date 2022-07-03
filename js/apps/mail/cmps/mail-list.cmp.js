@@ -12,16 +12,16 @@ export default {
             <mail-filter :mails="mails" />
             <button v-if="activeList === 'trash'" class="shadow clear-trash-btn" @click="clearTrash"><span><i class="fa-solid fa-trash"></i></span>Clear Trash  </button>
             <nav v-if="isSelect" class="selected-actions">
-                 <button @click="deleteSelected" data-title="Move to trash"><i class="fa-solid fa-trash"></i></button>
-                 <button  @click="markSelected" data-title="Mark as read"><i class="fa-solid fa-envelope-open"></i></button>
+                <button @click="deleteSelected" data-title="Move to trash"><i class="fa-solid fa-trash"></i></button>
+                <button  @click="markSelected" data-title="Mark as read"><i class="fa-solid fa-envelope-open"></i></button>
             </nav>
             <div v-if="mailToShow.length > 0" v-for="mail in mailToShow" class="mail-item flex align-center"
-            :class="{read: mail.isRead}" 
-            @click="toMailDetails(mail)">
+             :class="{read: mail.isRead}" 
+             @click="toMailDetails(mail)">
             <mail-preview :mail="mail" 
-            @movedToTrash="movedToTrash" 
-            @markAsRead="markRead(mail)"
-            @selectedMail="selected(mail)"/>
+             @movedToTrash="movedToTrash" 
+             @markAsRead="markRead(mail)"
+             @selectedMail="selected(mail)"/>
             </div>
              <div v-else class="no-result-msg">
                 <h2>No Mails in {{activeList}}.</h2>  

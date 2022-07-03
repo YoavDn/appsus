@@ -8,7 +8,7 @@ export default {
             <div class="item-main-actions flex">
                 <input v-if="!mobile" type="checkbox" @click.stop="selectMail" data-title="Select">
                 <button v-if="!mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
-                  <h2 v-if="mobile" :class="thinIfRead">{{stringDate}}</h2>
+                <h2 v-if="mobile" :class="thinIfRead">{{stringDate}}</h2>
             </div>
             <h2 :class="thinIfRead" class="maill-item-from">{{fromOrTo}}</h2>
         </div>
@@ -18,10 +18,10 @@ export default {
             <h2 :class="thinIfRead" class="item-subject">{{subjectText}}</h2>
             <div class="mobile-checkbox flex">
                 <h3 class="thin">{{bodyComma}}&nbsp;{{bodyText}}</h3>
-                    <div v-if="mobile" class="flex-colum">
-                        <input class='mail-checkbox' type="checkbox" @click.stop="selectMail" data-title="Select">
-                        <button class="star"  :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
-                    </div>
+                <div v-if="mobile" class="flex-colum">
+                    <input class='mail-checkbox' type="checkbox" @click.stop="selectMail" data-title="Select">
+                    <button class="star"  :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
+                </div>
             </div>
             </div>
         </div>
