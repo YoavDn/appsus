@@ -8,7 +8,7 @@ export default {
             <div class="item-main-actions flex">
                 <input v-if="!mobile" type="checkbox" @click.stop="selectMail" data-title="Select">
                 <button v-if="!mobile" :class="starStyle" v-html=star @click.stop="toggleStar" data-title="Starred"></button>
-                  <h2 :class="thinIfRead">{{stringDate}}</h2>
+                  <h2 v-if="mobile" :class="thinIfRead">{{stringDate}}</h2>
             </div>
             <h2 :class="thinIfRead" class="maill-item-from">{{fromOrTo}}</h2>
         </div>
